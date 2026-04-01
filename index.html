@@ -13,34 +13,41 @@
 <body>
 
     <nav>
-        <div class="container-nav">
-            <div class="logo">Kamil Kasiński</div>
-            <ul>
-                <li><a href="index.html#about">O mnie</a></li>
-                <li><a href="index.html#projects">Portfolio</a></li>
-                <li><a href="certyfikaty.html" class="active">Certyfikaty</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
-            </ul>
+    <div class="container-nav">
+        <div class="logo">Kamil Kasiński</div>
+        
+        <ul>
+            <li><a href="index.html#about" data-pl="O mnie" data-en="About me">O mnie</a></li>
+            <li><a href="index.html#projects" data-pl="Portfolio" data-en="Portfolio">Portfolio</a></li>
+            <li><a href="certyfikaty.html" data-pl="Certyfikaty" data-en="Certificates">Certyfikaty</a></li>
+            <li><a href="index.html#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="lang-switch">
+                <button onclick="setLanguage('pl')">PL</button>
+                <button onclick="setLanguage('en')">EN</button>
+            </div>
             
-<div class="nav-socials">
-    <a href="#" aria-label="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-    </a>
-    <a href="#" aria-label="GitHub">
-        <i class="fa-brands fa-github"></i>
-    </a>
-</div>
+            <div class="nav-socials">
+                <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 <header id="about">
     <div class="container hero-content"> 
         <div class="hero-text">
-            <h1>Analityk Danych & BI</h1>
-            <p>Junior Data Analyst z zacięciem do wizualizacji. Moje ulubione narzędzia? SQL do wyciągania konkretów i Power BI do nadawania im kształtu. Aktualnie łączę studia podyplomowe z budowaniem autorskich projektów, ucząc się, jak przekuwać surowe dane w wartościowe informacje.</p>
+            <h1 data-pl="Analityk Danych & BI" data-en="Data & BI Analyst">Analityk Danych & BI</h1>
+            <p data-pl="Aspirujący Analityk Danych z doświadczeniem w sprzedaży i zarządzaniu w sektorze MŚP. Fascynują mnie procesy ETL, wizualizacja danych oraz wpływ AI na biznes. Dążę do dostarczania realnej wartości poprzez precyzyjną analizę danych." 
+   data-en="Aspiring Data Analyst with experience in sales and team management. Focused on ETL, data visualization, and the impact of AI on the business world. My goal is to deliver real value through data-driven insights.">
+   Aspirujący Analityk Danych z doświadczeniem w sprzedaży i zarządzaniu w sektorze MŚP. Fascynują mnie procesy ETL, wizualizacja danych oraz wpływ AI na biznes. Dążę do dostarczania realnej wartości poprzez precyzyjną analizę danych.
+</p>
             
-            <div class="tech-stack-hero">
-                <p>Technologie:</p>
+           <div class="tech-stack-hero">
+    <p data-pl="Technologie:" data-en="Technologies:">Technologie:</p>
                 <ul class="tags-inline">
                     <li><i class="fa-solid fa-database"></i> SQL</li>
                     <li><i class="fa-solid fa-file-excel"></i> Excel</li>
@@ -60,61 +67,199 @@
     <main class="container">
         
         <section id="projects">
-            <h2>Zobacz moje projekty:</h2>
-            <p>Kliknij w projekt, aby zobaczyć interaktywny raport lub kod na GitHub.</p>
+    <h2 data-pl="Zobacz moje projekty:" data-en="Check my projects:">Zobacz moje projekty:</h2>
+    <p data-pl="Kliknij w projekt, aby zobaczyć interaktywny raport lub kod na GitHub." 
+       data-en="Click on a project to see the interactive report or GitHub code.">
+       Kliknij w projekt, aby zobaczyć interaktywny raport lub kod na GitHub.
+    </p>
             
- <div class="projects-grid">
-                        
-            <article class="project-item">
-            <h3>Projekt</h3>
-            <p>Krótki opis projektu</p>
-            <ul class="tags">
-                <li>Excel</li>
-                <li>BigQuery SQL</li>
-                <li>Tableau</li>
-            </ul>
-
-            <div class="project-buttons">
-                <a href="#" class="btn btn-report">Raport</a>
-                <a href="#" class="btn btn-github">GitHub</a>
-            </div>
-        </article>
-        <article class="project-item">
-            <h3>Projekt</h3>
-            <p>Krótki opis projektu</p>
-            <ul class="tags">
-                <li>PostgrSQL</li>
-                <li>PowerBi</li>
-            </ul>
-
-            <div class="project-buttons">
-                <a href="#" class="btn btn-report">Raport</a>
-                <a href="#" class="btn btn-github">GitHub</a>
-            </div>
-        </article>
-        <article class="project-item">
-            <h3>Projekt</h3>
-            <p>Krótki opis projektu</p>
-            <ul class="tags">
-                <li>SQL</li>
-                <li>Power Query</li>
-                <li>Power Bi</li>
-                <li>GitHub</li>
-            </ul>
-
-            <div class="project-buttons">
-                <a href="#" class="btn btn-report">Raport</a>
-                <a href="#" class="btn btn-github">GitHub</a>
-            </div>
-        </article>
+<div class="projects-grid">
+    
+<article class="project-item">
+    
+    <div class="project-image">
+        <img src="img/Cocktail Performance Dashboard – Sales & Profitability Analysis.png" alt="Dashboard Cocktail Bar Performance">
     </div>
+
+    <div class="project-content">
+        <h3 data-pl="Analiza Sprzedaży w Cocktail Barze" data-en="Cocktail Bar Sales Analysis">
+            Analiza Sprzedaży w Cocktail Barze
+        </h3>
+        
+        <p data-pl="Interaktywny dashboard w Tableau analizujący rentowność menu i wydajność produktów." 
+           data-en="Interactive Tableau dashboard analyzing menu profitability and product performance.">
+           Interaktywny dashboard w Tableau analizujący rentowność menu i wydajność produktów.
+        </p>
+
+        <ul class="tags">
+            <li>Tableau</li>
+            <li>Excel</li>
+            <li>SQL</li>
+        </ul>
+
+        <div class="project-buttons">
+            <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" 
+               target="_blank" 
+               class="btn btn-report" 
+               data-pl="Zobacz Dashboard" 
+               data-en="View Dashboard">
+               Zobacz Dashboard
+            </a>
+            <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" 
+               target="_blank" 
+               class="btn btn-github">
+               GitHub
+            </a>
+        </div>
+    </div>
+</article>
+<article class="project-item">
+    
+    <div class="project-image">
+        <img src="img/pngimg.com - under_construction_PNG51.png" alt="Dashboard Cocktail Bar Performance">
+    </div>
+
+    <div class="project-content">
+        <h3 data-pl="Analiza " data-en="Analysis">
+            Analiza Sprzedaży w Cocktail Barze
+        </h3>
+        
+        <p data-pl="W trakcie..." 
+           data-en="Soon...">
+           Interaktywny dashboard w Tableau analizujący rentowność menu i wydajność produktów.
+        </p>
+
+        <ul class="tags">
+
+        </ul>
+
+        <div class="project-buttons">
+            <a href="" 
+               target="_blank" 
+               class="btn btn-report" 
+               data-pl="Zobacz Dashboard" 
+               data-en="View Dashboard">
+               Zobacz Dashboard
+            </a>
+            <a href="" 
+               target="_blank" 
+               class="btn btn-github">
+               GitHub
+            </a>
+        </div>
+    </div>
+</article>
+<article class="project-item">
+    
+    <div class="project-image">
+        <img src="img/pngimg.com - under_construction_PNG51.png" alt="Dashboard Cocktail Bar Performance">
+    </div>
+
+    <div class="project-content">
+        <h3 data-pl="Analiza " data-en="Analysis">
+            Analiza Sprzedaży w Cocktail Barze
+        </h3>
+        
+        <p data-pl="W trakcie..." 
+           data-en="Soon...">
+           Interaktywny dashboard w Tableau analizujący rentowność menu i wydajność produktów.
+        </p>
+
+        <ul class="tags">
+
+        </ul>
+
+        <div class="project-buttons">
+            <a href="" 
+               target="_blank" 
+               class="btn btn-report" 
+               data-pl="Zobacz Dashboard" 
+               data-en="View Dashboard">
+               Zobacz Dashboard
+            </a>
+            <a href="" 
+               target="_blank" 
+               class="btn btn-github">
+               GitHub
+            </a>
+        </div>
+    </div>
+</article>
+</div>
         </section>
 
     </main>
 
-    <footer>
-        <p>&copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone.</p>
-    </footer>
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 data-pl="Kontakt" data-en="Contact">Kontakt</h2>
+        <p class="section-desc" data-pl="Jestem otwarty na nowe wyzwania i projekty. Skontaktuj się ze mną bezpośrednio!" 
+           data-en="I am open to new challenges and projects. Feel free to reach out to me directly!">
+            Jestem otwarty na nowe wyzwania i projekty. Skontaktuj się ze mną bezpośrednio!
+        </p>
 
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <h3 data-pl="Email" data-en="Email">Email</h3>
+                <p><a href="mailto:kamil.kasinski1993@gmail.com">kamil.kasinski1993@gmail.com</a></p>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <h3 data-pl="LinkedIn" data-en="LinkedIn">LinkedIn</h3>
+                <p><a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" data-pl="Zobacz profil" data-en="View profile">Zobacz profil</a></p>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3 data-pl="Lokalizacja" data-en="Location">Lokalizacja</h3>
+                <p data-pl="Warszawa / Zdalnie" data-en="Warsaw / Remote">Warszawa / Zdalnie</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p data-pl="&copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone." 
+       data-en="&copy; 2026 Kamil Kasiński. All rights reserved.">
+       &copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone.
+    </p>
+</footer>
+
+<script>
+    function setLanguage(lang) {
+    // 1. Znajdź wszystkie elementy z atrybutem data-pl / data-en
+    const elements = document.querySelectorAll('[data-pl]');
+    
+    elements.forEach(el => {
+        // 2. Podmień tekst na ten z odpowiedniego atrybutu
+        if (lang === 'en') {
+            el.textContent = el.getAttribute('data-en');
+        } else {
+            el.textContent = el.getAttribute('data-pl');
+        }
+    });
+
+    // 3. Zapamiętaj wybór w przeglądarce (Local Storage)
+    localStorage.setItem('preferredLanguage', lang);
+    
+    // 4. Opcjonalnie: dodaj klasę active do przycisków
+    updateActiveButton(lang);
+}
+
+function updateActiveButton(lang) {
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
+    });
+}
+
+// 5. Po załadowaniu strony sprawdź, czy język był już wybrany
+window.onload = () => {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'pl';
+    setLanguage(savedLang);
+};
+
+</script>
 </body>
 </html>

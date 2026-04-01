@@ -26,6 +26,44 @@ h1, h2, h3, .logo {
     letter-spacing: -0.5px; /* Lekkie zacieśnienie dla nowoczesnego wyglądu */
 }
 
+/* Nowy kontener na prawo od menu */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Odstęp między przyciskami języka a socialami */
+}
+
+.lang-switch {
+    display: flex;
+    gap: 5px;
+    background: #f1f5f9; /* Delikatne tło pod przyciskami (opcjonalnie) */
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.lang-switch button {
+    background: transparent;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+/* Aktywny język - teraz bardziej subtelny, pasujący do marki */
+.lang-switch button.active {
+    background: white;
+    color: #e78c0e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.lang-switch button:hover:not(.active) {
+    color: #e78c0e;
+}
+
 /* Subtelny tekst opisu w Hero */
 .hero-text p {
     font-weight: 300;    /* Lżejszy font dla opisu, by nagłówek bardziej "bił po oczach" */
@@ -283,47 +321,82 @@ header#about {
 
 /* 6. Sekcja Projekty (Kafelki) */
 #projects { 
-    padding: 6rem 0; /* Zwiększyłem z 3rem na 6rem, żeby oddzielić to od sekcji Hero */
+    padding: 6rem 0; 
     background-color: #ffffff; 
 }
 
-/* Margines pod nagłówkiem */
 #projects h2 { 
     font-size: 2.5rem; 
     margin-bottom: 15px; 
     color: #1e293b;
+    text-align: center; /* Wyśrodkowanie nagłówka wygląda tu lepiej */
 }
 
-/* Margines pod opisem "Kliknij w projekt..." */
-/* Jeśli nie masz klasy .container, użyj po prostu #projects p */
 #projects p {
-    margin-bottom: 3.5rem; /* Tutaj dodajemy upragnioną przestrzeń */
+    margin: 0 auto 3.5rem auto; 
     color: #64748b;
-    max-width: 700px; /* Opcjonalnie: tekst nie będzie się ciągnął przez cały ekran */
+    max-width: 700px; 
+    text-align: center; /* Wyśrodkowanie opisu */
 }
 
-/* Upewnij się, że siatka projektów nie ma ujemnych marginesów */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    margin-top: 0; 
 }
 
+/* GŁÓWNY KAFELEK */
 .project-item {
     background: #fff;
-    padding: 2.5rem;
-    border-radius: 16px; /* Spójne z nowym stylem przycisków */
+    padding: 0;
+    border-radius: 16px;
     border: 1px solid #e2e8f0;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Subtelniejsza animacja (ease-out) */
+    transition: all 0.3s ease-out; 
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .project-item:hover { 
-    transform: translateY(-10px); 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-    border-color: #e78c0e; /* Subtelny akcent przy najechaniu */
+    transform: translateY(-8px); /* Uniesienie całej karty */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.06); /* Subtelniejszy cień */
+    border-color: #e78c0e;
+}
+
+/* ZDJĘCIE W KAFELKU */
+.project-image {
+    width: 100%;
+    /* Usuwamy stałą wysokość height: 200px; */
+    height: auto; /* Pozwala kontenerowi rosnąć w dół */
+    
+    /* Dodajemy padding, żeby dashboard miał "odetchnąć" (Twój pomysł!) */
+    padding: 15px; 
+    background-color: #f8fafc; /* Jasne tło wokół dashboardu */
+    
+    border-bottom: 1px solid #e2e8f0; /* Subtelna linia oddzielająca foto od tekstu */
+}
+
+.project-image img {
+    width: 100%;
+    height: auto; /* Zachowuje proporcje dashboardu */
+    
+    /* ZMIANA Z cover NA contain */
+    object-fit: contain; 
+    
+    /* Opcjonalnie: zaokrąglamy rogi samego dashboardu, żeby pasował do tła */
+    border-radius: 8px; 
+    
+    /* Subtelny cień pod samym dashboardem, żeby "odkleił" się od tła */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03); 
+}
+
+/* KONTENER NA TREŚĆ (Padding wraca tutaj) */
+.project-content {
+    padding: 1.5rem 2rem 2rem 2rem; /* Przywracamy odstępy dla tekstu */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-item h3 { 
@@ -336,9 +409,10 @@ header#about {
     color: #475569;
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 0;
 }
 
-/* Tagi wewnątrz projektów */
+/* TAGI */
 .project-item .tags { 
     display: flex; 
     list-style: none; 
@@ -358,16 +432,15 @@ header#about {
     border: 1px solid #e2e8f0;
 }
 
-/* PRZYCISKI W KAFELKU - Naprawa zlewania się */
+/* PRZYCISKI */
 .project-buttons {
     display: flex;
-    flex-direction: column; /* Jeden pod drugim */
-    gap: 10px;              /* Odstęp między przyciskami */
-    margin-top: auto;       /* Pcha przyciski zawsze na dół kafelka */
-    padding-top: 20px;      /* Odstęp od tagów */
+    flex-direction: column; 
+    gap: 10px;              
+    margin-top: auto;       /* Pcha przyciski na sam dół */
+    padding-top: 10px;      
 }
 
-/* Stylizacja przycisków wewnątrz projektów */
 .project-item .btn {
     display: block;
     width: 100%;
@@ -378,29 +451,12 @@ header#about {
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-}
-
-/* Opcjonalnie: zmiana koloru drugiego przycisku, żeby nie były identyczne */
-.project-item .btn:last-child {
-    background-color: transparent;
-    color: #e78c0e;
     border: 2px solid #e78c0e;
-}
-
-.project-item .btn:last-child:hover {
-    background-color: rgba(231, 140, 14, 0.05);
 }
 
 .btn-report {
     background-color: #e78c0e;
     color: white;
-    border: 2px solid #e78c0e;
-}
-
-.btn-github {
-    background-color: transparent;
-    color: #e78c0e;
-    border: 2px solid #e78c0e;
 }
 
 .btn-report:hover {
@@ -409,16 +465,22 @@ header#about {
     transform: translateY(-2px);
 }
 
+.btn-github {
+    background-color: transparent;
+    color: #e78c0e;
+}
+
 .btn-github:hover {
     background-color: rgba(231, 140, 14, 0.05);
     transform: translateY(-2px);
 }
-/* RWD dla siatki projektów */
+
+/* RWD */
 @media (max-width: 480px) {
     .projects-grid {
-        grid-template-columns: 1fr; /* Jeden projekt na całą szerokość na małych telefonach */
+        grid-template-columns: 1fr;
     }
-    .project-item {
+    .project-content {
         padding: 1.5rem;
     }
 }
@@ -549,4 +611,51 @@ header#about {
         flex: none;
         width: 100%;
     }
+}
+
+.contact-section {
+    padding: 80px 0;
+    background-color: #f8fafc; /* Delikatne tło, żeby odciąć sekcję od reszty */
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: #e78c0e; /* Twój pomarańczowy kolor */
+    margin-bottom: 15px;
+}
+
+.contact-item h3 {
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.contact-item a {
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: #e78c0e;
 }
