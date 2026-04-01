@@ -1,13 +1,19 @@
-/* 1. Podstawowe ustawienia & Typografia */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-/* Celujemy w sekcje, do których prowadzą linki z menu */
-section[id], header[id] {
-    scroll-margin-top: 200px; /* Ustaw tutaj wysokość swojego menu (np. 80px lub 100px) */
+/* ==========================================================================
+   1. Podstawowe ustawienia & Typografia
+   ========================================================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Zapobiega przykrywaniu nagłówków przez sticky nav */
+section[id], header[id] {
+    scroll-margin-top: 100px; 
 }
 
 body {
@@ -16,82 +22,27 @@ body {
     background-color: #ffffff;
     color: #333333;
     font-size: 16px;
-    font-weight: 400; /* Standardowa grubość tekstu */
 }
 
 h1, h2, h3, .logo {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;    /* Wyraźne, grube nagłówki */
-    color: #222;         /* Nieco ciemniejszy kolor dla kontrastu */
-    letter-spacing: -0.5px; /* Lekkie zacieśnienie dla nowoczesnego wyglądu */
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: -0.5px;
 }
 
-/* Nowy kontener na prawo od menu */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 25px; /* Odstęp między przyciskami języka a socialami */
-}
-
-.lang-switch {
-    display: flex;
-    gap: 5px;
-    background: #f1f5f9; /* Delikatne tło pod przyciskami (opcjonalnie) */
-    padding: 4px;
-    border-radius: 8px;
-}
-
-.lang-switch button {
-    background: transparent;
-    border: none;
-    padding: 5px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.75rem;
-    color: #64748b;
-    transition: all 0.2s ease;
-}
-
-/* Aktywny język - teraz bardziej subtelny, pasujący do marki */
-.lang-switch button.active {
-    background: white;
-    color: #e78c0e;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.lang-switch button:hover:not(.active) {
-    color: #e78c0e;
-}
-
-/* Subtelny tekst opisu w Hero */
-.hero-text p {
-    font-weight: 300;    /* Lżejszy font dla opisu, by nagłówek bardziej "bił po oczach" */
-    color: #555;
-}
-/* 2. Kontenery i Układ */
-
-#about {
-    width: 100%;
-    overflow: hidden;
+p {
+    color: #475569;
 }
 
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px; /* Bezpieczny odstęp od krawędzi na mobile */
-    box-sizing: border-box;
+    padding: 0 20px;
 }
 
-.hero-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    padding: 4rem 0; /* Odstęp góra/dół wewnątrz sekcji */
-}
-
-/* 3. Nawigacja */
+/* ==========================================================================
+   2. Nawigacja (Sticky Nav)
+   ========================================================================== */
 nav {
     background: #ffffff;
     padding: 1rem 0;
@@ -108,116 +59,108 @@ nav {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    flex-wrap: nowrap; /* To zablokuje przeskakiwanie ikon pod logo na desktopie */
 }
 
 nav .logo {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: #222;
     text-transform: uppercase;
     letter-spacing: 1px;
-    white-space: nowrap; /* Logo zawsze w jednej linii */
-    flex-shrink: 0;      /* Logo nie będzie się ściskać */
+    white-space: nowrap;
 }
 
 nav ul { 
     display: flex; 
     list-style: none; 
     gap: 1.5rem; 
-    margin: 0 20px; /* Margines, żeby menu nie dotykało logo i ikon */
-    padding: 0;
-    flex-wrap: nowrap;
 }
 
 nav ul li a { 
     text-decoration: none; 
-    color: #555; 
+    color: #64748b; 
     font-weight: 500; 
     transition: 0.3s; 
-    white-space: nowrap; /* Napisy w menu nie będą się łamać */
 }
 
 nav ul li a:hover { color: #e78c0e; }
 
+/* Prawy blok menu (Języki + Sociale) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 5px;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.lang-switch button {
+    background: transparent;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #64748b;
+    transition: 0.2s;
+}
+
+.lang-switch button.active {
+    background: white;
+    color: #e78c0e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 .nav-socials { 
     display: flex; 
     gap: 15px; 
-    flex-shrink: 0; /* Ikony nie będą się zmniejszać */
 }
 
 .nav-socials a {
-    font-size: 24px;
-    color: #333;
-    text-decoration: none;
+    font-size: 22px;
+    color: #1e293b;
     transition: 0.3s;
 }
 
 .nav-socials a:hover { color: #0077b5; }
 
-/* --- RESPONSYWNOŚĆ (Gdy zaczyna brakować miejsca) --- */
-@media (max-width: 1024px) {
-    .container-nav {
-        flex-direction: column; /* Wszystko w pionie na tabletach/telefonach */
-        gap: 1rem;
-        padding: 1rem 5%;
-    }
-    
-    nav ul {
-        margin: 10px 0;
-        gap: 1rem;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    nav ul {
-        flex-wrap: wrap; /* Na bardzo małych telefonach menu może się złamać */
-        justify-content: center;
-        gap: 0.8rem;
-    }
-    
-    nav .logo {
-        font-size: 1.2rem;
-    }
-}
-
-/* 4. Sekcja Hero / O mnie */
+/* ==========================================================================
+   3. Sekcja Hero (O mnie)
+   ========================================================================== */
 header#about {
-    padding: 2rem 0 4rem 0;
+    padding: 4rem 0;
     background-color: #ffffff;
-    width: 100%;
 }
 
 .hero-content {
     display: flex;
-    flex-direction: column-reverse; /* Na mobile: zdjęcie nad tekstem */
+    flex-direction: column-reverse;
     align-items: center;
     gap: 2.5rem;
 }
 
 .hero-text {
     text-align: center;
-    width: 100%;
 }
 
 .hero-text h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    color: #1e293b;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero-text p {
     font-weight: 300;
-    color: #555;
-    margin-bottom: 2rem;
-    line-height: 1.7;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
 }
 
-.hero-photo {
-    flex-shrink: 0; /* Zdjęcie nie może się zmniejszyć bardziej niż ustalono */
-}
-
+/* Zdjęcie profilowe */
 .photo-placeholder {
     width: 280px;
     aspect-ratio: 1 / 1;
@@ -233,59 +176,23 @@ header#about {
     object-fit: cover;
 }
 
-/* --- DESKTOP --- */
-@media (min-width: 992px) {
-    header#about {
-        padding: 8rem 0; /* Większy oddech bez przycisku */
-    }
-
-    .hero-content {
-        flex-direction: row; /* Tekst i zdjęcie obok siebie */
-        justify-content: space-between;
-        align-items: center; /* Idealne wyśrodkowanie w pionie */
-        gap: 4rem;
-    }
-
-    .hero-text {
-        text-align: left;
-        flex: 1;
-    }
-
-    .hero-text p {
-        margin-left: 0;
-        max-width: 600px;
-    }
-
-    .hero-photo {
-        flex: 0 0 auto; /* Sztywne trzymanie rozmiaru zdjęcia */
-    }
-
-    .photo-placeholder {
-        width: 400px;
-        height: 400px;
-    }
-}
-
-/* 5. Tagi (Tech Stack) */
-.tech-stack-hero {
-    margin-top: 2rem;
-}
+/* Tech Stack w Hero */
+.tech-stack-hero { margin-top: 2rem; }
 
 .tech-stack-hero p { 
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     margin-bottom: 15px; 
-    color: #64748b;
     text-transform: uppercase;
 }
 
 .tags-inline { 
     display: flex; 
     flex-wrap: wrap; 
+    justify-content: center;
     list-style: none; 
     gap: 10px; 
-    padding: 0;
 }
 
 .tags-inline li { 
@@ -293,51 +200,35 @@ header#about {
     align-items: center;
     gap: 8px;
     background: #f8fafc; 
-    color: #1e293b; 
     padding: 8px 16px; 
     border-radius: 10px; 
     font-size: 0.9rem; 
     font-weight: 600;
     border: 1px solid #e2e8f0;
     transition: 0.3s;
-    user-select: none;
 }
-
-.tags-inline li i.fa-database { color: #336791; } 
-.tags-inline li i.fa-file-excel { color: #1D6F42; } 
-.tags-inline li i.fa-bolt { color: #f2c811; } 
-.tags-inline li i.fa-chart-bar { color: #f2c811; } 
-.tags-inline li i.fa-circle-nodes { color: #e97627; } 
 
 .tags-inline li:hover {
     border-color: #e78c0e;
     transform: translateY(-3px);
 }
 
-@media (max-width: 991px) {
-    .tags-inline { justify-content: center; }
-    .tech-stack-hero p { text-align: center; }
-}
+/* Kolory ikon technologii */
+.fa-database { color: #336791; } 
+.fa-file-excel { color: #1D6F42; } 
+.fa-bolt, .fa-chart-bar { color: #f2c811; } 
+.fa-circle-nodes { color: #e97627; }
 
-/* 6. Sekcja Projekty (Kafelki) */
+/* ==========================================================================
+   4. Sekcja Projekty (Kafelki)
+   ========================================================================== */
 #projects { 
     padding: 6rem 0; 
-    background-color: #ffffff; 
+    background-color: #f8fafc; 
 }
 
-#projects h2 { 
-    font-size: 2.5rem; 
-    margin-bottom: 15px; 
-    color: #1e293b;
-    text-align: center; /* Wyśrodkowanie nagłówka wygląda tu lepiej */
-}
-
-#projects p {
-    margin: 0 auto 3.5rem auto; 
-    color: #64748b;
-    max-width: 700px; 
-    text-align: center; /* Wyśrodkowanie opisu */
-}
+#projects h2 { text-align: center; font-size: 2.2rem; margin-bottom: 10px; }
+#projects .section-intro { text-align: center; margin-bottom: 3rem; }
 
 .projects-grid {
     display: grid;
@@ -345,317 +236,129 @@ header#about {
     gap: 30px;
 }
 
-/* GŁÓWNY KAFELEK */
 .project-item {
     background: #fff;
-    padding: 0;
     border-radius: 16px;
     border: 1px solid #e2e8f0;
-    /* Subtelniejsza animacja (ease-out) */
-    transition: all 0.3s ease-out; 
+    transition: 0.3s ease-out; 
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
 .project-item:hover { 
-    transform: translateY(-8px); /* Uniesienie całej karty */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.06); /* Subtelniejszy cień */
+    transform: translateY(-8px);
     border-color: #e78c0e;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
 }
 
-/* ZDJĘCIE W KAFELKU */
 .project-image {
-    width: 100%;
-    /* Usuwamy stałą wysokość height: 200px; */
-    height: auto; /* Pozwala kontenerowi rosnąć w dół */
-    
-    /* Dodajemy padding, żeby dashboard miał "odetchnąć" (Twój pomysł!) */
     padding: 15px; 
-    background-color: #f8fafc; /* Jasne tło wokół dashboardu */
-    
-    border-bottom: 1px solid #e2e8f0; /* Subtelna linia oddzielająca foto od tekstu */
+    background-color: #f1f5f9; 
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .project-image img {
     width: 100%;
-    height: auto; /* Zachowuje proporcje dashboardu */
-    
-    /* ZMIANA Z cover NA contain */
-    object-fit: contain; 
-    
-    /* Opcjonalnie: zaokrąglamy rogi samego dashboardu, żeby pasował do tła */
-    border-radius: 8px; 
-    
-    /* Subtelny cień pod samym dashboardem, żeby "odkleił" się od tła */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03); 
+    border-radius: 8px;
+    object-fit: contain;
 }
 
-/* KONTENER NA TREŚĆ (Padding wraca tutaj) */
 .project-content {
-    padding: 1.5rem 2rem 2rem 2rem; /* Przywracamy odstępy dla tekstu */
+    padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.project-item h3 { 
-    font-size: 1.4rem;
-    margin-bottom: 12px; 
-    color: #1e293b;
-}
-
-.project-item p {
-    color: #475569;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-/* TAGI */
 .project-item .tags { 
     display: flex; 
-    list-style: none; 
     gap: 8px; 
-    margin: 20px 0; 
+    margin: 15px 0; 
     flex-wrap: wrap;
-    padding: 0;
+    list-style: none;
 }
 
 .project-item .tags li { 
     background: #f1f5f9; 
-    color: #475569; 
-    padding: 4px 12px; 
+    padding: 4px 10px; 
     border-radius: 6px; 
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    border: 1px solid #e2e8f0;
 }
 
-/* PRZYCISKI */
 .project-buttons {
+    margin-top: auto;
     display: flex;
-    flex-direction: column; 
-    gap: 10px;              
-    margin-top: auto;       /* Pcha przyciski na sam dół */
-    padding-top: 10px;      
+    flex-direction: column;
+    gap: 10px;
 }
 
-.project-item .btn {
+.btn {
     display: block;
-    width: 100%;
-    padding: 12px 0;
+    padding: 10px;
     text-align: center;
-    border-radius: 10px;
-    font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-    border: 2px solid #e78c0e;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-.btn-report {
-    background-color: #e78c0e;
-    color: white;
-}
+.btn-report { background: #e78c0e; color: #fff; }
+.btn-github { border: 2px solid #e78c0e; color: #e78c0e; }
 
-.btn-report:hover {
-    background-color: #fc9f1c;
-    border-color: #fc9f1c;
-    transform: translateY(-2px);
-}
+.btn:hover { transform: translateY(-2px); opacity: 0.9; }
 
-.btn-github {
-    background-color: transparent;
-    color: #e78c0e;
-}
-
-.btn-github:hover {
-    background-color: rgba(231, 140, 14, 0.05);
-    transform: translateY(-2px);
-}
-
-/* RWD */
-@media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    .project-content {
-        padding: 1.5rem;
-    }
-}
-
-/* Sekcja Certyfikatów */
-.certificates-section {
-    padding: 6rem 0;
-    background-color: #ffffff; /* Czysta biel */
-}
-
-.certificates-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #1e293b;
-}
-
-.section-desc {
-    margin-bottom: 3rem;
-    color: #64748b;
-}
+/* ==========================================================================
+   5. Sekcja Certyfikaty (Lista pozioma)
+   ========================================================================== */
+.certificates-section { padding: 6rem 0; }
 
 .certificates-list {
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Odstęp między kartami */
+    gap: 30px;
 }
 
-/* Karta Certyfikatu */
 .cert-card {
     display: flex;
     background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-radius: 16px;
     border: 1px solid #e2e8f0;
-    transition: transform 0.3s ease;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
-.cert-card:hover {
-    transform: translateY(-5px);
-    border-color: #e78c0e; /* Subtelny pomarańczowy akcent */
-    box-shadow: 0 10px 30px rgba(231, 140, 14, 0.1);
-}
-/* Obrazek po lewej */
+.cert-card:hover { border-color: #e78c0e; transform: translateX(5px); }
+
 .cert-image {
-    flex: 0 0 350px;
+    flex: 0 0 300px;
     padding: 20px;
-    background: #fafafa; /* Bardzo jasny, neutralny szary */
+    background: #f8fafc;
     display: flex;
     align-items: center;
 }
 
-.cert-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.cert-image img { width: 100%; border-radius: 4px; }
 
-/* Treść po prawej */
-.cert-content {
-    flex: 1;
-    padding: 30px;
-    position: relative;
-}
-
-.cert-content .btn-report {
-    display: inline-block;    /* Pozwala na nadanie wymiarów */
-    margin-top: 20px;         /* Odsuwa przycisk od opisu */
-    padding: 10px 25px;       /* Wielkość przycisku */
-    background-color: #e78c0e;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;       /* Zaokrąglone rogi */
-    font-weight: 600;
-    font-size: 0.9rem;
-    border: 2px solid #e78c0e;
-    transition: all 0.3s ease;
-    cursor: pointer;          /* Twoja ulubiona łapka :) */
-}
-
-/* Efekt najechania (Hoover) */
-.cert-content .btn-report:hover {
-    background-color: #fc9f1c;
-    border-color: #fc9f1c;
-    transform: translateY(-2px); /* Delikatne uniesienie */
-    box-shadow: 0 4px 12px rgba(231, 140, 14, 0.2);
-}
+.cert-content { padding: 30px; flex: 1; }
 
 .cert-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.cert-header h2 {
-    font-size: 1.25rem;
-    color: #1e293b;
-    margin: 0;
-    padding-right: 60px; /* Miejsce na logo w rogu */
-}
-
-.cert-vendor-logo {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
-
-.cert-meta {
-    font-size: 0.9rem;
-    color: #475569;
-    margin-bottom: 15px;
-}
-
-.cert-text {
-    color: #64748b;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* RWD - na telefonach zdjęcie nad tekstem */
-@media (max-width: 768px) {
-    .cert-card {
-        flex-direction: column;
-    }
-    .cert-image {
-        flex: none;
-        width: 100%;
-    }
-}
-
+/* ==========================================================================
+   6. Sekcja Kontakt
+   ========================================================================== */
 .contact-section {
     padding: 80px 0;
-    background-color: #f8fafc; /* Delikatne tło, żeby odciąć sekcję od reszty */
+    background-color: #f1f5f9;
     text-align: center;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.contact-item {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-}
-
-.contact-item:hover {
-    transform: translateY(-5px);
-}
-
-.contact-item i {
-    font-size: 2.5rem;
-    color: #e78c0e; /* Twój pomarańczowy kolor */
-    margin-bottom: 15px;
-}
-
-.contact-item h3 {
-    margin-bottom: 10px;
-    color: #1e293b;
-}
-
-.contact-item a {
-    color: #64748b;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.contact-item a:hover {
-    color: #e78c0e;
-}
