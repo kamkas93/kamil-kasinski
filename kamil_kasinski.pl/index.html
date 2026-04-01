@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamil Kasiński | Data & BI Analyst</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+    <div class="container-nav">
+        <div class="logo">Kamil Kasiński</div>
+        
+        <ul>
+            <li><a href="index.html#about" data-pl="O mnie" data-en="About me">O mnie</a></li>
+            <li><a href="index.html#projects" data-pl="Portfolio" data-en="Portfolio">Portfolio</a></li>
+            <li><a href="certyfikaty.html" data-pl="Certyfikaty" data-en="Certificates">Certyfikaty</a></li>
+            <li><a href="index.html#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="lang-switch">
+                <button onclick="setLanguage('pl')">PL</button>
+                <button onclick="setLanguage('en')">EN</button>
+            </div>
+            
+            <div class="nav-socials">
+                <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header id="about">
+    <div class="container hero-content"> 
+        <div class="hero-text">
+            <h1 data-pl="Analityk Danych & BI" data-en="Data & BI Analyst">Analityk Danych & BI</h1>
+            <p data-pl="Aspirujący Analityk Danych z doświadczeniem w sprzedaży i zarządzaniu w sektorze MŚP. Fascynują mnie procesy ETL, wizualizacja danych oraz wpływ AI na biznes. Dążę do dostarczania realnej wartości poprzez precyzyjną analizę danych." 
+   data-en="Aspiring Data Analyst with experience in sales and team management. Focused on ETL, data visualization, and the impact of AI on the business world. My goal is to deliver real value through data-driven insights.">
+   Aspirujący Analityk Danych z doświadczeniem w sprzedaży i zarządzaniu w sektorze MŚP. Fascynują mnie procesy ETL, wizualizacja danych oraz wpływ AI na biznes. Dążę do dostarczania realnej wartości poprzez precyzyjną analizę danych.
+</p>
+            
+           <div class="tech-stack-hero">
+    <p data-pl="Technologie:" data-en="Technologies:">Technologie:</p>
+                <ul class="tags-inline">
+                    <li><i class="fa-solid fa-database"></i> SQL</li>
+                    <li><i class="fa-solid fa-file-excel"></i> Excel</li>
+                    <li><i class="fa-solid fa-bolt"></i> Power Query</li>
+                    <li><i class="fa-solid fa-chart-bar"></i> Power BI</li>
+                    <li><i class="fa-solid fa-circle-nodes"></i> Tableau</li>
+                </ul>
+            </div>
+        </div> <div class="hero-photo">
+            <div class="photo-placeholder">
+                <img src="img/DSC00041.jpg" alt="Zdjęcie profilowe Kamila Kasińskiego">
+            </div>
+        </div>
+    </div>
+</header>
+
+    <main class="container">
+        
+        <section id="projects">
+    <h2 data-pl="Zobacz moje projekty:" data-en="Check my projects:">Zobacz moje projekty:</h2>
+    <p data-pl="Kliknij w projekt, aby zobaczyć interaktywny raport lub kod na GitHub." 
+       data-en="Click on a project to see the interactive report or GitHub code.">
+       Kliknij w projekt, aby zobaczyć interaktywny raport lub kod na GitHub.
+    </p>
+            
+    <div class="projects-grid">
+        <article class="project-item">
+            <div class="project-image">
+                <img src="img/Cocktail Performance Dashboard – Sales & Profitability Analysis.png" alt="Dashboard Cocktail Bar">
+            </div>
+            <div class="project-content">
+                <h3 data-pl="Analiza Sprzedaży w Cocktail Barze" data-en="Cocktail Bar Sales Analysis">Analiza Sprzedaży w Cocktail Barze</h3>
+                <p data-pl="Interaktywny dashboard w Tableau analizujący rentowność menu i wydajność produktów." 
+                   data-en="Interactive Tableau dashboard analyzing menu profitability and product performance.">
+                   Interaktywny dashboard w Tableau analizujący rentowność menu i wydajność produktów.
+                </p>
+                <ul class="tags">
+                    <li>Tableau</li>
+                    <li>Excel</li>
+                    <li>SQL</li>
+                </ul>
+                <div class="project-buttons">
+                    <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1" target="_blank" class="btn btn-report" data-pl="Zobacz Dashboard" data-en="View Dashboard">Zobacz Dashboard</a>
+                    <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" target="_blank" class="btn btn-github">GitHub</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-item">
+            <div class="project-image">
+                <img src="img/pngimg.com - under_construction_PNG51.png" alt="Under Construction">
+            </div>
+            <div class="project-content">
+                <h3 data-pl="Nowy Projekt" data-en="New Project">Analiza w przygotowaniu</h3>
+                <p data-pl="Wkrótce pojawi się tutaj nowa analiza danych." data-en="New data analysis coming soon.">W trakcie...</p>
+                <ul class="tags"><li>SQL</li><li>Python</li></ul>
+                <div class="project-buttons">
+                    <span class="btn btn-report disabled">Wkrótce</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+    </main>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 data-pl="Kontakt" data-en="Contact">Kontakt</h2>
+        <p class="section-desc" data-pl="Jestem otwarty na nowe wyzwania i projekty. Skontaktuj się ze mną bezpośrednio!" 
+           data-en="I am open to new challenges and projects. Feel free to reach out to me directly!">
+            Jestem otwarty na nowe wyzwania i projekty. Skontaktuj się ze mną bezpośrednio!
+        </p>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <h3 data-pl="Email" data-en="Email">Email</h3>
+                <p><a href="mailto:kamil.kasinski1993@gmail.com">kamil.kasinski1993@gmail.com</a></p>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <h3 data-pl="LinkedIn" data-en="LinkedIn">LinkedIn</h3>
+                <p><a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" data-pl="Zobacz profil" data-en="View profile">Zobacz profil</a></p>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3 data-pl="Lokalizacja" data-en="Location">Lokalizacja</h3>
+                <p data-pl="Warszawa / Zdalnie" data-en="Warsaw / Remote">Warszawa / Zdalnie</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p data-pl="&copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone." 
+       data-en="&copy; 2026 Kamil Kasiński. All rights reserved.">
+       &copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone.
+    </p>
+</footer>
+
+<script>
+function setLanguage(lang) {
+    const elements = document.querySelectorAll('[data-pl]');
+    
+    elements.forEach(el => {
+        // Używamy innerHTML zamiast textContent
+        if (lang === 'en') {
+            const textEn = el.getAttribute('data-en');
+            if(textEn) el.innerHTML = textEn;
+        } else {
+            const textPl = el.getAttribute('data-pl');
+            if(textPl) el.innerHTML = textPl;
+        }
+    });
+
+    localStorage.setItem('preferredLanguage', lang);
+    updateActiveButton(lang);
+}
+
+</script>
+</body>
+</html>

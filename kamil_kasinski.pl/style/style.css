@@ -1,0 +1,653 @@
+/* 1. Podstawowe ustawienia & Typografia */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Celujemy w sekcje, do których prowadzą linki z menu */
+section[id], header[id] {
+    scroll-margin-top: 200px; /* Ustaw tutaj wysokość swojego menu (np. 80px lub 100px) */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 400; /* Standardowa grubość tekstu */
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;    /* Wyraźne, grube nagłówki */
+    color: #222;         /* Nieco ciemniejszy kolor dla kontrastu */
+    letter-spacing: -0.5px; /* Lekkie zacieśnienie dla nowoczesnego wyglądu */
+}
+
+/* Nowy kontener na prawo od menu */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Odstęp między przyciskami języka a socialami */
+}
+
+.lang-switch {
+    display: flex;
+    gap: 5px;
+    background: #f1f5f9; /* Delikatne tło pod przyciskami (opcjonalnie) */
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.lang-switch button {
+    background: transparent;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+/* Aktywny język - teraz bardziej subtelny, pasujący do marki */
+.lang-switch button.active {
+    background: white;
+    color: #e78c0e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.lang-switch button:hover:not(.active) {
+    color: #e78c0e;
+}
+
+/* Subtelny tekst opisu w Hero */
+.hero-text p {
+    font-weight: 300;    /* Lżejszy font dla opisu, by nagłówek bardziej "bił po oczach" */
+    color: #555;
+}
+/* 2. Kontenery i Układ */
+
+#about {
+    width: 100%;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1100px; /* Nieco zwężamy, żeby karty nie były "jamnikami" */
+    margin: 0 auto;
+    padding: 0 20px;   /* Kluczowe: margines wewnętrzny dla mobile */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0; /* Odstęp góra/dół wewnątrz sekcji */
+}
+
+/* 3. Nawigacja */
+nav {
+    background: #ffffff;
+    padding: 1rem 0;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; /* Gwarancja pełnej szerokości */
+}
+
+.container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; /* To rozepcha logo do lewej, a resztę do prawej */
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap; /* Logo zawsze w jednej linii */
+    flex-shrink: 0;      /* Logo nie będzie się ściskać */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0 auto; /* Wyśrodkuje menu między logo a prawą stroną */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.3s;
+    white-space: nowrap; /* Zapobiega łamaniu tekstów w menu */
+}
+
+nav ul li a:hover { color: #e78c0e; }
+
+.nav-socials { 
+    display: flex; 
+    gap: 15px; 
+    flex-shrink: 0; /* Ikony nie będą się zmniejszać */
+}
+
+.nav-socials a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-socials a:hover { color: #0077b5; }
+
+/* --- RESPONSYWNOŚĆ NAVA (Wersja poprawiona pod GitHub) --- */
+
+/* 1. Najpierw upewnij się, że na desktopie (powyżej 992px) nic się nie zawija */
+@media (min-width: 993px) {
+    .container-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap; /* Absolutny zakaz zawijania do nowej linii */
+    }
+}
+
+/* 2. Gdy zaczyna brakować miejsca (Tablety i mniejsze laptopy) */
+@media (max-width: 992px) {
+    .container-nav {
+        flex-direction: column; /* Wszystko w pionie dopiero tutaj */
+        gap: 1rem;
+        padding: 1.5rem 20px;
+    }
+    
+    nav ul {
+        margin: 5px 0;
+        gap: 1.2rem;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .nav-right {
+        gap: 15px; /* Trochę ciaśniej między językiem a socialami */
+    }
+}
+
+/* 3. Małe telefony */
+@media (max-width: 480px) {
+    nav ul {
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    nav .logo {
+        font-size: 1.1rem; /* Trochę mniejsze logo na małych ekranach */
+    }
+
+    .lang-switch button {
+        padding: 4px 8px; /* Mniejsze przyciski języka */
+    }
+}
+
+/* 4. Sekcja Hero / O mnie */
+/* 4. Sekcja Hero / O mnie - FINALNA WERSJA */
+header#about {
+    padding: 3rem 0;
+    background-color: #ffffff;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column-reverse; /* Na mobile: zdjęcie nad tekstem */
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-text {
+    text-align: center;
+    width: 100%;
+}
+
+.hero-text h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+}
+
+.hero-text p {
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.hero-photo {
+    flex-shrink: 0;
+}
+
+.photo-placeholder {
+    width: 280px;
+    height: 280px; /* Sztywne wymiary zamiast aspect-ratio dla stabilności */
+    overflow: hidden; 
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- REGUŁY TYLKO DLA DESKTOPU (Ekran > 992px) --- */
+@media (min-width: 992px) {
+    header#about {
+        padding: 8rem 0;
+    }
+
+    .hero-content {
+        flex-direction: row; /* Tekst i zdjęcie wracają obok siebie */
+        justify-content: space-between;
+    }
+
+    .hero-text {
+        text-align: left;
+        flex: 1;
+    }
+
+    .photo-placeholder {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+/* 5. Tagi (Tech Stack) */
+.tech-stack-hero {
+    margin-top: 2rem;
+}
+
+.tech-stack-hero p { 
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px; 
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.tags-inline { 
+    display: flex; 
+    flex-wrap: wrap; 
+    list-style: none; 
+    gap: 10px; 
+    padding: 0;
+}
+
+.tags-inline li { 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc; 
+    color: #1e293b; 
+    padding: 8px 16px; 
+    border-radius: 10px; 
+    font-size: 0.9rem; 
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+    user-select: none;
+}
+
+/* Kolory ikon */
+.tags-inline li i.fa-database { color: #336791; } 
+.tags-inline li i.fa-file-excel { color: #1D6F42; } 
+.tags-inline li i.fa-bolt { color: #f2c811; } 
+.tags-inline li i.fa-chart-bar { color: #f2c811; } 
+.tags-inline li i.fa-circle-nodes { color: #e97627; } 
+
+.tags-inline li:hover {
+    border-color: #e78c0e;
+    transform: translateY(-3px);
+}
+
+/* Responsywność tagów - spójna z sekcją 4 */
+@media (max-width: 992px) {
+    .tags-inline { 
+        justify-content: center; 
+        margin-bottom: 20px; /* Oddech na dole w wersji mobilnej */
+    }
+    .tech-stack-hero p { 
+        text-align: center; 
+    }
+}
+
+/* 6. Sekcja Projekty (Wersja Stabilna) */
+#projects { 
+    padding: 6rem 0; 
+    background-color: #ffffff; /* Zmiana z f8fafc na biały, by zlało się z kartami */
+}
+
+#projects h2 { 
+    font-size: 2.5rem; 
+    margin-bottom: 15px; 
+    color: #1e293b;
+    text-align: center; 
+}
+
+#projects p {
+    margin: 0 auto 3.5rem auto; 
+    color: #64748b;
+    max-width: 700px; 
+    text-align: center; 
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-item {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease-out; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-item:hover { 
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: #e78c0e;
+}
+
+/* NAPRAWA WYŚWIETLANIA DASHBOARDÓW */
+.project-image {
+    width: 100%;
+    height: 320px; /* Zwiększamy z 250px na 320px, żeby obrazki były większe */
+    padding: 10px; /* Mniejszy margines wewnętrzny = większy dashboard */
+    background-color: #ffffff; /* Tło pod obrazkiem też białe */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.project-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    /* Usunąłem box-shadow spod obrazka, by wyglądało to czyściej na białym tle */
+}
+
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-item h3 { 
+    font-size: 1.3rem;
+    margin-bottom: 12px; 
+    color: #1e293b;
+}
+
+.project-item .tags { 
+    display: flex; 
+    list-style: none; 
+    gap: 8px; 
+    margin: 15px 0; 
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.project-item .tags li { 
+    background: #f1f5f9; 
+    color: #475569; 
+    padding: 4px 10px; 
+    border-radius: 6px; 
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* PRZYCISKI - Poprawiony układ */
+.project-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.project-item .btn {
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    border: 2px solid #e78c0e;
+}
+
+.btn-report { background: #e78c0e; color: white; }
+.btn-report:hover { background: #fc9f1c; border-color: #fc9f1c; }
+
+.btn-github { background: transparent; color: #e78c0e; }
+.btn-github:hover { background: rgba(231, 140, 14, 0.05); }
+
+/* RWD */
+@media (max-width: 480px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-buttons { flex-direction: column; } /* Na małym tel przyciski jeden pod drugim */
+}
+
+/* --- Sekcja Certyfikatów --- */
+.certificates-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.certificates-section h1 {
+    text-align: center;
+    font-size: 2.8rem; /* Nieco większy i wyraźniejszy */
+    font-weight: 800;
+    color: #1e293b;
+    margin-top: 40px;  /* Odstęp od nawigacji */
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.section-desc {
+    text-align: center;
+    max-width: 650px;  /* Zwężony opis lepiej wygląda w bloku */
+    margin: 0 auto 50px auto; /* 50px odstępu od pierwszej karty */
+    color: #64748b;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.certificates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.cert-card {
+    display: flex;
+    background: #f8fafc; /* Jeszcze delikatniejszy szary */
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Płynniejszy ruch */
+    min-height: 240px;
+    margin-bottom: 25px;
+}
+
+.cert-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Obrazek po lewej - Biały kontener */
+.cert-image {
+    flex: 0 0 280px; /* Nieco węższy kontener na certyfikat */
+    background: #fff; /* Białe tło pod samym obrazkiem certyfikatu */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #e5e7eb;
+}
+
+.cert-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Treść po prawej - Szary kontener */
+.cert-content {
+    flex: 1;
+    padding: 35px 45px; /* Więcej oddechu wewnątrz szarego pola */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.cert-header h2 {
+    font-size: 1.15rem; /* Mniejszy, bardziej profesjonalny font */
+    font-weight: 700;
+    color: #374151;
+    margin: 0;
+}
+
+/* Logo dostawcy w prawym górnym rogu na niebieskim/kolorowym tle (opcjonalnie) */
+
+.cert-vendor-logo {
+    width: 55px;         
+    height: 55px;       
+    background: #fff; 
+    padding: 3px;        
+    border-radius: 10px; 
+    object-fit: contain;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0;     
+}
+
+.cert-meta {
+    font-size: 0.85rem;
+    color: #4b5563;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.cert-text {
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Przycisk - dopasowany do stylu Olgi */
+.cert-content .btn-report {
+    align-self: flex-start; /* Przycisk nie rozciąga się */
+    margin-top: 15px;
+    padding: 8px 20px;
+    background-color: #e78c0e;
+    color: white;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .cert-card {
+        flex-direction: column;
+    }
+    .cert-image {
+        flex: none;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .cert-card:hover {
+        transform: translateY(-5px); /* Na mobile lepiej unosić do góry */
+    }
+}
+
+.contact-section {
+    padding: 80px 0;
+    background-color: white; /* Delikatne tło, żeby odciąć sekcję od reszty */
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    background: #fff7ed; /* Bardzo delikatny, ciepły pomarańczowy */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ffedd5; /* Subtelna ramka, by domknąć bryłę */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: #e78c0e; /* Twój pomarańczowy kolor */
+    margin-bottom: 15px;
+}
+
+.contact-item h3 {
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.contact-item a {
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: #e78c0e;
+}
