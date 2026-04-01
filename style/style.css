@@ -1,0 +1,552 @@
+/* 1. Podstawowe ustawienia & Typografia */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Celujemy w sekcje, do których prowadzą linki z menu */
+section[id], header[id] {
+    scroll-margin-top: 200px; /* Ustaw tutaj wysokość swojego menu (np. 80px lub 100px) */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 400; /* Standardowa grubość tekstu */
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;    /* Wyraźne, grube nagłówki */
+    color: #222;         /* Nieco ciemniejszy kolor dla kontrastu */
+    letter-spacing: -0.5px; /* Lekkie zacieśnienie dla nowoczesnego wyglądu */
+}
+
+/* Subtelny tekst opisu w Hero */
+.hero-text p {
+    font-weight: 300;    /* Lżejszy font dla opisu, by nagłówek bardziej "bił po oczach" */
+    color: #555;
+}
+/* 2. Kontenery i Układ */
+
+#about {
+    width: 100%;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px; /* Bezpieczny odstęp od krawędzi na mobile */
+    box-sizing: border-box;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0; /* Odstęp góra/dół wewnątrz sekcji */
+}
+
+/* 3. Nawigacja */
+nav {
+    background: #ffffff;
+    padding: 1rem 0;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: nowrap; /* To zablokuje przeskakiwanie ikon pod logo na desktopie */
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap; /* Logo zawsze w jednej linii */
+    flex-shrink: 0;      /* Logo nie będzie się ściskać */
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 1.5rem; 
+    margin: 0 20px; /* Margines, żeby menu nie dotykało logo i ikon */
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+nav ul li a { 
+    text-decoration: none; 
+    color: #555; 
+    font-weight: 500; 
+    transition: 0.3s; 
+    white-space: nowrap; /* Napisy w menu nie będą się łamać */
+}
+
+nav ul li a:hover { color: #e78c0e; }
+
+.nav-socials { 
+    display: flex; 
+    gap: 15px; 
+    flex-shrink: 0; /* Ikony nie będą się zmniejszać */
+}
+
+.nav-socials a {
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-socials a:hover { color: #0077b5; }
+
+/* --- RESPONSYWNOŚĆ (Gdy zaczyna brakować miejsca) --- */
+@media (max-width: 1024px) {
+    .container-nav {
+        flex-direction: column; /* Wszystko w pionie na tabletach/telefonach */
+        gap: 1rem;
+        padding: 1rem 5%;
+    }
+    
+    nav ul {
+        margin: 10px 0;
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-wrap: wrap; /* Na bardzo małych telefonach menu może się złamać */
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    nav .logo {
+        font-size: 1.2rem;
+    }
+}
+
+/* 4. Sekcja Hero / O mnie */
+header#about {
+    padding: 2rem 0 4rem 0;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column-reverse; /* Na mobile: zdjęcie nad tekstem */
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.hero-text {
+    text-align: center;
+    width: 100%;
+}
+
+.hero-text h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+}
+
+.hero-text p {
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.hero-photo {
+    flex-shrink: 0; /* Zdjęcie nie może się zmniejszyć bardziej niż ustalono */
+}
+
+.photo-placeholder {
+    width: 280px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden; 
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- DESKTOP --- */
+@media (min-width: 992px) {
+    header#about {
+        padding: 8rem 0; /* Większy oddech bez przycisku */
+    }
+
+    .hero-content {
+        flex-direction: row; /* Tekst i zdjęcie obok siebie */
+        justify-content: space-between;
+        align-items: center; /* Idealne wyśrodkowanie w pionie */
+        gap: 4rem;
+    }
+
+    .hero-text {
+        text-align: left;
+        flex: 1;
+    }
+
+    .hero-text p {
+        margin-left: 0;
+        max-width: 600px;
+    }
+
+    .hero-photo {
+        flex: 0 0 auto; /* Sztywne trzymanie rozmiaru zdjęcia */
+    }
+
+    .photo-placeholder {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+/* 5. Tagi (Tech Stack) */
+.tech-stack-hero {
+    margin-top: 2rem;
+}
+
+.tech-stack-hero p { 
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px; 
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.tags-inline { 
+    display: flex; 
+    flex-wrap: wrap; 
+    list-style: none; 
+    gap: 10px; 
+    padding: 0;
+}
+
+.tags-inline li { 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc; 
+    color: #1e293b; 
+    padding: 8px 16px; 
+    border-radius: 10px; 
+    font-size: 0.9rem; 
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.tags-inline li i.fa-database { color: #336791; } 
+.tags-inline li i.fa-file-excel { color: #1D6F42; } 
+.tags-inline li i.fa-bolt { color: #f2c811; } 
+.tags-inline li i.fa-chart-bar { color: #f2c811; } 
+.tags-inline li i.fa-circle-nodes { color: #e97627; } 
+
+.tags-inline li:hover {
+    border-color: #e78c0e;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 991px) {
+    .tags-inline { justify-content: center; }
+    .tech-stack-hero p { text-align: center; }
+}
+
+/* 6. Sekcja Projekty (Kafelki) */
+#projects { 
+    padding: 6rem 0; /* Zwiększyłem z 3rem na 6rem, żeby oddzielić to od sekcji Hero */
+    background-color: #ffffff; 
+}
+
+/* Margines pod nagłówkiem */
+#projects h2 { 
+    font-size: 2.5rem; 
+    margin-bottom: 15px; 
+    color: #1e293b;
+}
+
+/* Margines pod opisem "Kliknij w projekt..." */
+/* Jeśli nie masz klasy .container, użyj po prostu #projects p */
+#projects p {
+    margin-bottom: 3.5rem; /* Tutaj dodajemy upragnioną przestrzeń */
+    color: #64748b;
+    max-width: 700px; /* Opcjonalnie: tekst nie będzie się ciągnął przez cały ekran */
+}
+
+/* Upewnij się, że siatka projektów nie ma ujemnych marginesów */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 0; 
+}
+
+.project-item {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 16px; /* Spójne z nowym stylem przycisków */
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    border-color: #e78c0e; /* Subtelny akcent przy najechaniu */
+}
+
+.project-item h3 { 
+    font-size: 1.4rem;
+    margin-bottom: 12px; 
+    color: #1e293b;
+}
+
+.project-item p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Tagi wewnątrz projektów */
+.project-item .tags { 
+    display: flex; 
+    list-style: none; 
+    gap: 8px; 
+    margin: 20px 0; 
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.project-item .tags li { 
+    background: #f1f5f9; 
+    color: #475569; 
+    padding: 4px 12px; 
+    border-radius: 6px; 
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+}
+
+/* PRZYCISKI W KAFELKU - Naprawa zlewania się */
+.project-buttons {
+    display: flex;
+    flex-direction: column; /* Jeden pod drugim */
+    gap: 10px;              /* Odstęp między przyciskami */
+    margin-top: auto;       /* Pcha przyciski zawsze na dół kafelka */
+    padding-top: 20px;      /* Odstęp od tagów */
+}
+
+/* Stylizacja przycisków wewnątrz projektów */
+.project-item .btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* Opcjonalnie: zmiana koloru drugiego przycisku, żeby nie były identyczne */
+.project-item .btn:last-child {
+    background-color: transparent;
+    color: #e78c0e;
+    border: 2px solid #e78c0e;
+}
+
+.project-item .btn:last-child:hover {
+    background-color: rgba(231, 140, 14, 0.05);
+}
+
+.btn-report {
+    background-color: #e78c0e;
+    color: white;
+    border: 2px solid #e78c0e;
+}
+
+.btn-github {
+    background-color: transparent;
+    color: #e78c0e;
+    border: 2px solid #e78c0e;
+}
+
+.btn-report:hover {
+    background-color: #fc9f1c;
+    border-color: #fc9f1c;
+    transform: translateY(-2px);
+}
+
+.btn-github:hover {
+    background-color: rgba(231, 140, 14, 0.05);
+    transform: translateY(-2px);
+}
+/* RWD dla siatki projektów */
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Jeden projekt na całą szerokość na małych telefonach */
+    }
+    .project-item {
+        padding: 1.5rem;
+    }
+}
+
+/* Sekcja Certyfikatów */
+.certificates-section {
+    padding: 6rem 0;
+    background-color: #ffffff; /* Czysta biel */
+}
+
+.certificates-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.section-desc {
+    margin-bottom: 3rem;
+    color: #64748b;
+}
+
+.certificates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Odstęp między kartami */
+}
+
+/* Karta Certyfikatu */
+.cert-card {
+    display: flex;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: #e78c0e; /* Subtelny pomarańczowy akcent */
+    box-shadow: 0 10px 30px rgba(231, 140, 14, 0.1);
+}
+/* Obrazek po lewej */
+.cert-image {
+    flex: 0 0 350px;
+    padding: 20px;
+    background: #fafafa; /* Bardzo jasny, neutralny szary */
+    display: flex;
+    align-items: center;
+}
+
+.cert-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Treść po prawej */
+.cert-content {
+    flex: 1;
+    padding: 30px;
+    position: relative;
+}
+
+.cert-content .btn-report {
+    display: inline-block;    /* Pozwala na nadanie wymiarów */
+    margin-top: 20px;         /* Odsuwa przycisk od opisu */
+    padding: 10px 25px;       /* Wielkość przycisku */
+    background-color: #e78c0e;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;       /* Zaokrąglone rogi */
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid #e78c0e;
+    transition: all 0.3s ease;
+    cursor: pointer;          /* Twoja ulubiona łapka :) */
+}
+
+/* Efekt najechania (Hoover) */
+.cert-content .btn-report:hover {
+    background-color: #fc9f1c;
+    border-color: #fc9f1c;
+    transform: translateY(-2px); /* Delikatne uniesienie */
+    box-shadow: 0 4px 12px rgba(231, 140, 14, 0.2);
+}
+
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.cert-header h2 {
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin: 0;
+    padding-right: 60px; /* Miejsce na logo w rogu */
+}
+
+.cert-vendor-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.cert-meta {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 15px;
+}
+
+.cert-text {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* RWD - na telefonach zdjęcie nad tekstem */
+@media (max-width: 768px) {
+    .cert-card {
+        flex-direction: column;
+    }
+    .cert-image {
+        flex: none;
+        width: 100%;
+    }
+}
