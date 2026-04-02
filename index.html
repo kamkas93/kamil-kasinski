@@ -24,19 +24,22 @@
         </ul>
 
         <div class="nav-right">
-            <div class="lang-switch">
-                <button onclick="setLanguage('pl')">PL</button>
-                <button onclick="setLanguage('en')">EN</button>
-            </div>
-            
-            <div class="nav-socials">
-                <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
-            </div>
-        </div>
+    <div class="lang-switch">
+        <button id="lang-pl" onclick="setLanguage('pl')" class="active">
+            <span>🇵🇱</span> PL
+        </button>
+        <button id="lang-en" onclick="setLanguage('en')">
+            <span>🇬🇧</span> EN
+        </button>
+    </div>
+    
+    <div class="nav-socials">
+        <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </div>
+</div>
     </div>
 </nav>
-
 <header id="about">
     <div class="container hero-content"> 
         <div class="hero-text">
@@ -67,7 +70,6 @@
         </div>
     </div>
 </header>
-
     <main class="container">
         
         <section id="projects">
@@ -160,19 +162,31 @@ function setLanguage(lang) {
     const elements = document.querySelectorAll('[data-pl]');
     
     elements.forEach(el => {
-        // Używamy innerHTML zamiast textContent
-        if (lang === 'en') {
-            const textEn = el.getAttribute('data-en');
-            if(textEn) el.innerHTML = textEn;
-        } else {
-            const textPl = el.getAttribute('data-pl');
-            if(textPl) el.innerHTML = textPl;
+        const translation = el.getAttribute(`data-${lang}`);
+        if (translation) {
+            el.innerHTML = translation;
         }
     });
 
     localStorage.setItem('preferredLanguage', lang);
-    updateActiveButton(lang);
+    
+    // Logika przełączania wyglądu przycisków
+    const buttons = document.querySelectorAll('.lang-switch button');
+    buttons.forEach(btn => {
+        // Sprawdzamy czy funkcja onclick przycisku zawiera dany język
+        if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
 }
+
+// Wywołaj funkcję przy starcie strony, żeby wczytać zapisany język
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'pl';
+    setLanguage(savedLang);
+});
 
 </script>
 </body>

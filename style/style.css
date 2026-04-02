@@ -35,33 +35,48 @@ h1, h2, h3, .logo {
 
 .lang-switch {
     display: flex;
-    gap: 5px;
-    background: #f1f5f9; /* Delikatne tło pod przyciskami (opcjonalnie) */
+    gap: 4px;
+    /* Zmieniamy tło kontenera na lekko szare, żeby biały przycisk był widoczny */
+    background: #f7cb9d; 
     padding: 4px;
-    border-radius: 8px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
 }
-
 .lang-switch button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background: transparent;
     border: none;
-    padding: 5px 12px;
-    border-radius: 6px;
+    padding: 6px 14px;
+    border-radius: 9px;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 0.75rem;
-    color: #64748b;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #475569; /* Ciemniejszy szary dla nieaktywnego tekstu */
     transition: all 0.2s ease;
+    min-width: 85px;
 }
 
-/* Aktywny język - teraz bardziej subtelny, pasujący do marki */
+.lang-switch button span {
+    font-size: 1.1rem;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1)); /* Lekki cień pod flagą */
+}
+
+/* Stan aktywny - biały przycisk z wyraźniejszym tekstem */
 .lang-switch button.active {
-    background: white;
-    color: #e78c0e;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #ffffff !important; /* !important wymusi biały kolor */
+    color: #1e293b;
+    /* Mocniejszy cień, żeby przycisk "wystawał" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); 
+    transform: translateY(-1px);
 }
 
+/* Hover dla nieaktywnego przycisku */
 .lang-switch button:hover:not(.active) {
-    color: #e78c0e;
+    color: #1e293b;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Subtelny tekst opisu w Hero */
@@ -94,7 +109,7 @@ h1, h2, h3, .logo {
 
 /* 3. Nawigacja */
 nav {
-    background: #ffffff;
+    background: #fff7ed;
     padding: 1rem 0;
     box-shadow: 0 1px 10px rgba(0,0,0,0.05);
     position: sticky;
@@ -115,7 +130,7 @@ nav {
 nav .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #222;
+    color: #42403f;
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap; /* Logo zawsze w jednej linii */
@@ -137,7 +152,7 @@ nav ul li a {
     white-space: nowrap; /* Zapobiega łamaniu tekstów w menu */
 }
 
-nav ul li a:hover { color: #e78c0e; }
+nav ul li a:hover { color: #e97627; }
 
 .nav-socials { 
     display: flex; 
@@ -152,7 +167,7 @@ nav ul li a:hover { color: #e78c0e; }
     transition: 0.3s;
 }
 
-.nav-socials a:hover { color: #0077b5; }
+.nav-socials a:hover { color: #ffbf00; }
 
 /* --- RESPONSYWNOŚĆ NAVA (Wersja poprawiona pod GitHub) --- */
 
@@ -204,10 +219,10 @@ nav ul li a:hover { color: #e78c0e; }
     }
 }
 
+
 /* 4. Sekcja Hero / O mnie */
-/* 4. Sekcja Hero / O mnie - FINALNA WERSJA */
 header#about {
-    padding: 3rem 0;
+    padding: 1.5rem 0;
     background-color: #ffffff;
     width: 100%;
     overflow: hidden;
@@ -261,7 +276,7 @@ header#about {
 /* --- REGUŁY TYLKO DLA DESKTOPU (Ekran > 992px) --- */
 @media (min-width: 992px) {
     header#about {
-        padding: 8rem 0;
+        padding: 4rem 0;
     }
 
     .hero-content {
@@ -272,6 +287,10 @@ header#about {
     .hero-text {
         text-align: left;
         flex: 1;
+    }
+
+    .hero-text p {
+        margin-bottom: 1rem;
     }
 
     .photo-placeholder {
@@ -498,7 +517,7 @@ header#about {
 
 .cert-card {
     display: flex;
-    background: #f8fafc; /* Jeszcze delikatniejszy szary */
+    background: #fff7ed; /* Jeszcze delikatniejszy szary */
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid #e2e8f0;
@@ -650,4 +669,34 @@ header#about {
 
 .contact-item a:hover {
     color: #e78c0e;
+}
+
+/* --- Sekcja Stopki --- */
+footer {
+    padding: 3rem 0;
+    margin-top: 4rem; /* Odstęp od ostatniej sekcji projektów */
+    background-color: #fff7ed; /* Bardzo jasny szary, żeby odróżnić od białego tła */
+    border-top: 1px solid #e2e8f0; /* Subtelna linia oddzielająca */
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #64748b; /* Stonowany kolor tekstu */
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Opcjonalnie: efekt najechania na Twoje imię, jeśli zrobisz z niego link */
+footer p:hover {
+    color: #1e293b;
+    transition: color 0.3s ease;
+}
+
+/* RWD: Mniejszy odstęp na telefonach */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
 }
