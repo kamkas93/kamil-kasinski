@@ -158,27 +158,37 @@ SQL Query Language">Analiza danych w SQL</h2>
        &copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone.
     </p>
 </footer>
-
-    <script>
-        function setLanguage(lang) {
-            const elements = document.querySelectorAll('[data-pl]');
-            elements.forEach(el => {
-                el.textContent = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-pl');
-            });
-            localStorage.setItem('preferredLanguage', lang);
-            updateActiveButton(lang);
+<script>
+function setLanguage(lang) {
+    const elements = document.querySelectorAll('[data-pl]');
+    
+    elements.forEach(el => {
+        const translation = el.getAttribute(`data-${lang}`);
+        if (translation) {
+            el.innerHTML = translation;
         }
+    });
 
-        function updateActiveButton(lang) {
-            document.querySelectorAll('.lang-switch button').forEach(btn => {
-                btn.classList.toggle('active', btn.innerText.toLowerCase() === lang);
-            });
+    localStorage.setItem('preferredLanguage', lang);
+    
+    // Logika przełączania wyglądu przycisków
+    const buttons = document.querySelectorAll('.lang-switch button');
+    buttons.forEach(btn => {
+        // Sprawdzamy czy funkcja onclick przycisku zawiera dany język
+        if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
         }
+    });
+}
 
-        window.onload = () => {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'pl';
-            setLanguage(savedLang);
-        };
-    </script>
+// Wywołaj funkcję przy starcie strony, żeby wczytać zapisany język
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'pl';
+    setLanguage(savedLang);
+});
+
+</script>
 </body>
 </html>
