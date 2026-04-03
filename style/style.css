@@ -609,7 +609,6 @@ header#about {
     margin: 0;
 }
 
-/* Przycisk - dopasowany do stylu Olgi */
 .cert-content .btn-report {
     align-self: flex-start; /* Przycisk nie rozciąga się */
     margin-top: 15px;
