@@ -711,16 +711,16 @@ footer {
 
 footer p {
     font-size: 0.9rem;
-    color: #64748b; /* Stonowany kolor tekstu */
+    color: #1e293b; 
     font-weight: 300;
     letter-spacing: 0.5px;
 }
 
-/* Opcjonalnie: efekt najechania na Twoje imię, jeśli zrobisz z niego link */
+/* Opcjonalnie: efekt najechania na Twoje imię, jeśli zrobisz z niego link
 footer p:hover {
     color: #1e293b;
     transition: color 0.3s ease;
-}
+} */
 
 /* RWD: Mniejszy odstęp na telefonach */
 @media (max-width: 768px) {
