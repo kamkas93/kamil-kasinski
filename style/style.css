@@ -571,6 +571,7 @@ header#about {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 10px;
+    gap: 15px;
 }
 
 .cert-header h2 {
@@ -578,6 +579,7 @@ header#about {
     font-weight: 700;
     color: #374151;
     margin: 0;
+    flex: 1;
 }
 
 /* Logo dostawcy w prawym górnym rogu na niebieskim/kolorowym tle (opcjonalnie) */
@@ -633,6 +635,26 @@ header#about {
     }
     .cert-card:hover {
         transform: translateY(-5px); /* Na mobile lepiej unosić do góry */
+    }
+}
+
+@media (max-width: 480px) {
+    .cert-content {
+        padding: 20px; /* Zmniejszamy ogromny padding (35px 45px), który zjada miejsce na mobile */
+    }
+
+    .cert-header {
+        flex-direction: row; /* Zostawiamy w rzędzie, ale... */
+        align-items: center;
+    }
+
+    .cert-vendor-logo {
+        width: 45px; /* Nieco mniejsze logo na małych telefonach */
+        height: 45px;
+    }
+    
+    .cert-header h2 {
+        font-size: 1rem; /* Trochę mniejszy font, by zmieścić więcej w linii */
     }
 }
 
