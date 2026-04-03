@@ -112,10 +112,9 @@ nav {
     background: #fff7ed;
     padding: 1rem 0;
     box-shadow: 0 1px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
+    position: relative; /* Nie przykleja się */
     z-index: 1000;
-    width: 100%; /* Gwarancja pełnej szerokości */
+    width: 100%;
 }
 
 .container-nav {
@@ -173,6 +172,15 @@ nav ul li a:hover { color: #e97627; }
 
 /* 1. Najpierw upewnij się, że na desktopie (powyżej 992px) nic się nie zawija */
 @media (min-width: 993px) {
+    nav {
+        position: sticky; /* Przykleja się tylko na desktopie */
+        top: 0;
+        /* Opcjonalnie dodaj lekkie rozmycie, żeby wyglądało premium */
+        background: rgba(255, 247, 237, 0.95); 
+        backdrop-filter: blur(8px);
+    }
+
+
     .container-nav {
         display: flex;
         flex-direction: row;
@@ -222,7 +230,8 @@ nav ul li a:hover { color: #e97627; }
 
 /* 4. Sekcja Hero / O mnie */
 header#about {
-    padding: 1.5rem 0;
+    /* Dodajemy 1rem (ok. 16px) paddingu po bokach */
+    padding: 1.5rem 1rem; 
     background-color: #ffffff;
     width: 100%;
     overflow: hidden;
@@ -676,7 +685,6 @@ footer {
     padding: 3rem 0;
     margin-top: 4rem; /* Odstęp od ostatniej sekcji projektów */
     background-color: #fff7ed; /* Bardzo jasny szary, żeby odróżnić od białego tła */
-    border-top: 1px solid #e2e8f0; /* Subtelna linia oddzielająca */
     text-align: center;
 }
 
