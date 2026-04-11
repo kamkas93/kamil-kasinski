@@ -768,7 +768,33 @@ footer p:hover {
 }
 
 
+/* Poprawka dla urządzeń mobilnych */
+@media screen and (max-width: 768px) {
+    /* Przywrócenie czytelności tekstu we Wstępie i Scenariuszu */
+    .cert-card div, 
+    .cert-card p, 
+    .cert-text {
+        text-align: left !important; /* Koniec z dziwnymi przerwami między słowami */
+        font-size: 0.95rem !important; /* Nieco mniejsza, bardziej naturalna czcionka */
+        line-height: 1.6 !important;
+    }
 
+    /* Nagłówki sekcji nie mogą być zbyt wielkie */
+    .certificates-section h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .cert-header h2 {
+        font-size: 1.3rem !important;
+    }
+
+    /* Dopasowanie paddingów, aby tekst nie "dusił się" w kartach */
+    .cert-card {
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+    }
+}
 
 
 
