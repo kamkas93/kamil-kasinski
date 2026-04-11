@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamil Kasiński | Cocktail Bar Analysis</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="container-nav">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit; font-weight: 700;">
+            Kamil Kasiński
+        </a>
+        
+        <ul>
+            <li>
+                <a href="index.html#projects" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                    <i class="fa-solid fa-chevron-left" style="font-size: 0.8rem;"></i>
+                    <span data-pl="Powrót do projektów" data-en="Back to projects">Powrót do projektów</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="lang-switch">
+                <button onclick="setLanguage('pl')" class="active"><span>🇵🇱</span> PL</button>
+                <button onclick="setLanguage('en')"><span>🇬🇧</span> EN</button>
+            </div>
+            <div class="nav-socials">
+                <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="certificates-section">
+    <div class="container">
+        
+        <h1 data-pl="Analiza Sprzedaży i Rentowności Cocktail Baru" data-en="Cocktail Bar Sales & Profitability Analysis">
+            Analiza Sprzedaży i Rentowności Cocktail Baru
+        </h1>
+
+  <article class="cert-card" style="margin-bottom: 30px; padding: 40px;">
+    <div class="cert-content">
+        <div class="cert-header" style="margin-bottom: 25px;">
+            <h2 data-pl="Wstęp i kontekst projektu" data-en="Introduction & Project Context">Wstęp i kontekst projektu</h2>
+        </div>
+
+        <div style="font-size: 1.05rem; color: #4b5563; line-height: 1.8; text-align: justify;">
+            <p data-pl="Jako wieloletni manager operacyjny i barman, doskonale znam wyzwania związane z rentownością gastronomii. To case study pokazuje, jak przekształciłem praktyczną wiedzę o 'Menu Engineeringu' w zautomatyzowany proces analityczny, łącząc rozproszone dane o recepturach i kosztach w czytelny system wspierający decyzje biznesowe." 
+               data-en="As a long-term operations manager and bartender, I deeply understand the profitability challenges in hospitality. This case study demonstrates how I transformed practical 'Menu Engineering' knowledge into an automated analytical process, merging scattered recipe and cost data into a clear system supporting business decisions.">
+            </p>
+
+            <p style="margin-top: 20px;"
+               data-pl="Prowadzenie baru w tętniącej życiem hali gastronomicznej to walka z czasem. Mamy tysiące zamówień w systemie POS i setki faktur, ale rzadko kiedy czas pozwala na realne sprawdzenie, czy dany cocktail faktycznie na siebie zarabia. Intuicja bywa mylna, a bez twardych danych o Beverage Cost, układanie menu to loteria. Moim celem było wyciągnięcie tych informacji z cienia i pokazanie czarno na białym, co jest hitem, a co tylko zajmuje miejsce w karcie."
+               data-en="Running a bar in a busy food hall is a race against time. We have thousands of orders in the POS system and hundreds of invoices, but there's rarely time to check if a specific cocktail is actually profitable. Intuition can be misleading, and without solid Beverage Cost data, menu planning is a gamble. My goal was to pull this info out of the shadows and show exactly which drinks are hits and which are just taking up space.">
+            </p>
+
+            <p style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.95rem; color: #6b7280;"
+               data-pl="Projekt ten został zrealizowany jako 'Capstone Project' w ramach profesjonalnej certyfikacji Google Data Analytics. Potwierdza on kompetencje w przygotowaniu, przetwarzaniu i analizie danych przy użyciu SQL, Tableau oraz języka R, łącząc wiedzę teoretyczną z praktycznym rozwiązaniem problemu biznesowego."
+               data-en="This project was developed as a 'Capstone Project' for the Google Data Analytics Professional Certificate. It demonstrates proficiency in data preparation, processing, and analysis using SQL, Tableau, and R, bridging theoretical knowledge with a practical business solution.">
+            </p>
+        </div>
+    </div>
+</article>
+
+        <div class="certificates-list">
+<article class="cert-card" style="margin-bottom: 30px; padding: 40px;">
+    <div class="cert-content">
+        <div class="cert-header" style="margin-bottom: 25px;">
+            <h2 data-pl="Scenariusz Biznesowy" data-en="Business Scenario">Scenariusz Biznesowy</h2>
+        </div>
+        
+        <p class="cert-text" 
+           style="font-size: 1.05rem; line-height: 1.8; text-align: justify; color: #4b5563;"
+           data-pl="Głównym wyzwaniem było ujednolicenie danych z rozproszonych źródeł (sprzedaż POS vs. zakupy netto) w celu uzyskania precyzyjnego wskaźnika Beverage Cost. Projekt skupia się na automatyzacji wyliczeń marży oraz identyfikacji produktów wymagających renegocjacji cen zakupu lub zmiany receptury."
+           data-en="The main challenge was to unify data from scattered sources (POS sales vs. net purchases) to obtain a precise Beverage Cost metric. The project focuses on automating margin calculations and identifying products that require price renegotiation or recipe changes.">
+        </p>
+
+        <p style="margin-top: 20px; font-weight: 600; font-size: 0.95rem; color: #333;" 
+           data-pl="Technologie wykorzystane w projekcie:" 
+           data-en="Technologies used in the project:">
+           Technologie wykorzystane w projekcie:
+        </p>
+
+        <ul class="tags-inline" style="margin-top: 10px;">
+            <li><i class="fa-solid fa-database"></i> SQL (BigQuery)</li>
+            <li><i class="fa-solid fa-chart-bar"></i> Tableau</li>
+            <li><i class="fa-solid fa-file-excel"></i>Google Sheets</li>
+            <li><i class="fa-brands fa-github"></i> GitHub</li>
+        </ul>
+    </div>
+</article>
+
+            <!-- SEKCJA DETAILS -->
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+
+    <div class="contact-item" style="flex: 1; min-width: 320px; text-align: left; align-items: flex-start; padding: 25px; display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <i class="fa-solid fa-broom" style="font-size: 1.5rem; color: #e78c0e; margin-right: 15px;"></i>
+            <h3 style="margin: 0;" data-pl="Data & ETL Challenges" data-en="Data & ETL Challenges">Data & ETL Challenges</h3>
+        </div>
+        <ul style="font-size: 0.85rem; color: #4b5563; padding-left: 15px; line-height: 1.6; margin: 0;">
+            <li style="margin-bottom: 10px;">
+                <strong data-pl="Normalizacja jednostek:" data-en="Unit Normalization:">Normalizacja jednostek:</strong> 
+                <span data-pl="Konwersja zróżnicowanych opakowań (pęczki, butelki) na jednostki bazowe (g/ml)." 
+                      data-en="Converting diverse purchase units (bunches, bottles) into base units (g/ml)."></span>
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong data-pl="Walidacja i Tax Cleaning:" data-en="Validation & Tax Cleaning:">Walidacja i Tax Cleaning:</strong> 
+                <span data-pl="Normalizacja stawek VAT (0.23) i rozstrzyganie niespójności cenowych na fakturach." 
+                      data-en="Normalizing VAT rates (0.23) and resolving invoice price discrepancies."></span>
+            </li>
+            <li>
+                <strong data-pl="Deduplikacja logiczna:" data-en="Logical Deduplication:">Deduplikacja logiczna:</strong> 
+                <span data-pl="Implementacja kluczy złożonych (date+product+price) do eliminacji powtórzeń w sprzedaży." 
+                      data-en="Implementing composite keys (date+product+price) to eliminate sales duplicates."></span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="contact-item" style="flex: 1; min-width: 320px; text-align: left; align-items: flex-start; padding: 25px; display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+            <i class="fa-solid fa-layer-group" style="font-size: 1.5rem; color: #e78c0e; margin-right: 15px;"></i>
+            <h3 style="margin: 0;" data-pl="Architektura Projektu SQL" data-en="SQL Project Architecture">Architektura Projektu SQL</h3>
+        </div>
+        
+        <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600; margin-bottom: 10px;" 
+           data-pl="Struktura modułowa w BigQuery:" 
+           data-en="Modular structure in BigQuery:">
+           Struktura modułowa w BigQuery:
+        </p>
+
+        <ul style="font-size: 0.85rem; color: #4b5563; padding-left: 15px; line-height: 1.7; margin: 0;">
+            <li style="margin-bottom: 8px;">
+                <strong data-pl="01_unit_costs:" data-en="01_unit_costs:">01_unit_costs:</strong> 
+                <span data-pl="Agregacja i uśrednianie kosztów składników z warstwy zakupowej." 
+                      data-en="Averaging ingredient costs from the purchasing layer."></span>
+            </li>
+            <li style="margin-bottom: 8px;">
+                <strong data-pl="02_costing:" data-en="02_costing:">02_costing:</strong> 
+                <span data-pl="Mapowanie cen na receptury w celu wyliczenia Beverage Cost." 
+                      data-en="Mapping prices to recipes to calculate Beverage Cost."></span>
+            </li>
+            <li style="margin-bottom: 8px;">
+                <strong data-pl="03_profitability:" data-en="03_profitability:">03_profitability:</strong> 
+                <span data-pl="Kalkulacja marż poprzez złączenie kosztów z danymi POS." 
+                      data-en="Margin calculation by joining costs with POS data."></span>
+            </li>
+            <li>
+                <strong data-pl="04_performance:" data-en="04_performance:">04_performance:</strong> 
+                <span data-pl="Przygotowanie finalnych widoków biznesowych pod Tableau." 
+                      data-en="Preparing final business views for Tableau."></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div style="margin-top: 50px; margin-bottom: 15px;">
+    <h3 data-pl="Logika biznesowa w BigQuery SQL" 
+        data-en="Business Logic in BigQuery SQL" 
+        style="margin: 0 0 10px 0; color: #333; font-size: 1.25rem;">
+        Logika biznesowa w BigQuery SQL
+    </h3>
+    <p data-pl="Poniższa implementacja stanowi serce analityczne projektu – automatyzuje proces odliczania podatku VAT i łączy uśrednione ceny sprzedaży z kosztami receptur, obliczając finalną rentowność menu." 
+       data-en="The following implementation is the analytical core of the project – it automates the VAT exclusion process and links average selling prices with recipe costs to calculate final menu profitability." 
+       style="font-size: 0.9rem; color: #4b5563; line-height: 1.5; margin: 0;">
+    </p>
+</div>
+
+<div class="cert-card" style="margin-top: 20px; background: #1e2227; color: #abb2bf; padding: 25px; border-radius: 12px; border: 1px solid #32363e; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    <pre style="margin: 0; font-size: 0.85rem; overflow-x: auto; line-height: 1.6; font-family: 'Fira Code', 'Courier New', monospace; white-space: pre;">
+<span style="color: #c678dd;">WITH</span> <span style="color: #e06c75;">sales_per_cocktail</span> <span style="color: #c678dd;">AS</span> (
+  <span style="color: #c678dd;">SELECT</span>
+    product_name,
+    <span style="color: #61afef;">ROUND</span>(<span style="color: #61afef;">AVG</span>(product_price_gross / (<span style="color: #d19a66;">1</span> + tax_rate)), <span style="color: #d19a66;">2</span>) <span style="color: #c678dd;">AS</span> <span style="color: #d19a66;">selling_price_net</span>
+  <span style="color: #c678dd;">FROM</span> <span style="color: #98c379;">`clean.sales`</span>
+  <span style="color: #c678dd;">WHERE</span> product_price_gross <span style="color: #c678dd;">IS NOT NULL</span>
+  <span style="color: #c678dd;">GROUP BY</span> <span style="color: #d19a66;">1</span>
+)
+<span style="color: #c678dd;">SELECT</span>
+  b.cocktail_name,
+  s.selling_price_net,
+  b.beverage_cost <span style="color: #c678dd;">AS</span> <span style="color: #d19a66;">beverage_cost_net</span>,
+  <span style="color: #61afef;">ROUND</span>(s.selling_price_net - b.beverage_cost, <span style="color: #d19a66;">2</span>) <span style="color: #c678dd;">AS</span> <span style="color: #d19a66;">net_margin_pln</span>,
+  <span style="color: #61afef;">ROUND</span>(b.beverage_cost / s.selling_price_net, <span style="color: #d19a66;">3</span>) <span style="color: #c678dd;">AS</span> <span style="color: #d19a66;">beverage_cost_pct</span>,
+  <span style="color: #61afef;">ROUND</span>(<span style="color: #d19a66;">1</span> - (b.beverage_cost / s.selling_price_net), <span style="color: #d19a66;">3</span>) <span style="color: #c678dd;">AS</span> <span style="color: #d19a66;">net_margin_pct</span>
+<span style="color: #c678dd;">FROM</span> <span style="color: #98c379;">`clean.cocktail_beverage_costs`</span> b
+<span style="color: #c678dd;">LEFT JOIN</span> sales_per_cocktail s <span style="color: #c678dd;">ON</span> b.cocktail_name = s.product_name
+<span style="color: #c678dd;">ORDER BY</span> beverage_cost_pct <span style="color: #c678dd;">DESC</span></pre>
+</div>
+
+<p data-pl="&lt;strong&gt;Dlaczego to jest kluczowe?&lt;/strong&gt; Powyższe zapytanie stanowi pomost między surowymi danymi sprzedażowymi a dashboardem. Automatyzuje proces odliczania podatku VAT i łączy uśrednione ceny sprzedaży z kosztami receptur (Beverage Cost). Dzięki temu menedżer może w czasie rzeczywistym identyfikować koktajle o zbyt wysokim koszcie produkcji względem ceny sprzedaży."
+   data-en="&lt;strong&gt;Why is this key?&lt;/strong&gt; The query above serves as a bridge between raw sales data and the dashboard. It automates the VAT exclusion process and links average selling prices with recipe costs (Beverage Cost). This allows managers to identify cocktails with production costs that are too high relative to the selling price."
+   style="margin-top: 20px; font-size: 0.9rem; color: #4b5563; line-height: 1.6; font-style: italic; border-left: 3px solid #e78c0e; padding-left: 15px;">
+</p>
+
+<!-- sekcja DASHBOARD -->
+
+            <article class="cert-card" style="flex-direction: column; margin-top: 40px; padding: 20px;">
+                <h2 style="text-align: center; margin-bottom: 20px;" data-pl="Interaktywny Dashboard" data-en="Interactive Dashboard">Interaktywny Dashboard</h2>
+                <div class="project-image" style="height: auto; width: 100%; border-right: none;">
+                     <img src="img/Cocktail Performance Dashboard – Sales & Profitability Analysis.png" style="width: 100%; border-radius: 8px;">
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; margin-bottom: 45px; border-top: 1px solid #eee; padding-top: 35px;">
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+            <h4 style="margin: 0 0 10px 0; color: #e78c0e; font-size: 1.1rem;" data-pl="Menu Performance" data-en="Menu Performance">Menu Performance</h4>
+            <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.5;" data-pl="Macierz marża vs. wolumen (BCG)." data-en="Margin vs. Volume matrix (BCG)."></p>
+        </div>
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+            <h4 style="margin: 0 0 10px 0; color: #e78c0e; font-size: 1.1rem;" data-pl="Profitability Ranking" data-en="Profitability Ranking">Profitability Ranking</h4>
+            <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.5;" data-pl="Top najbardziej zyskownych koktajli." data-en="Ranking of top profitable cocktails."></p>
+        </div>
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+            <h4 style="margin: 0 0 10px 0; color: #e78c0e; font-size: 1.1rem;" data-pl="Gap Analysis" data-en="Gap Analysis">Gap Analysis</h4>
+            <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.5;" data-pl="Produkty z zerową sprzedażą w Q1." data-en="Zero-sales products in Q1."></p>
+        </div>
+    </div>
+
+   <div class="project-buttons" style="margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding-bottom: 20px;">
+    
+    <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1" 
+       target="_blank" 
+       class="btn btn-report" 
+       style="padding: 14px 35px; background-color: #e78c0e; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid #e78c0e; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
+       data-pl="Otwórz Dashboard" 
+       data-en="Open Dashboard">
+       Otwórz Dashboard
+    </a>
+
+    <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" 
+       target="_blank" 
+       class="btn btn-github" 
+       style="padding: 14px 35px; background-color: #ffffff; color: #1f2937; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid #1f2937; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;"
+       data-en="GitHub Repo">
+       <i class="fa-brands fa-github"></i> GitHub Repo
+    </a>
+
+</div>
+<style>
+    .btn-report:hover {
+        background-color: #d67d0a !important;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(231, 140, 14, 0.3);
+    }
+    .btn-github:hover {
+        background-color: #f3f4f6 !important;
+        border-color: #000 !important;
+        transform: translateY(-2px);
+    }
+</style>
+            </article>
+            
+<!-- WNIOSKI -->
+            <div class="contact-item" style="text-align: left; margin-top: 30px; background-color: #fff7ed;">
+                <h3 data-pl="Kluczowe Wnioski (Rekomendacje)" data-en="Key Insights (Recommendations)">Kluczowe Wnioski (Rekomendacje)</h3>
+                <ul style="margin-top: 15px; padding-left: 20px; color: #4b5563; font-size: 0.95rem;">
+                    <li data-pl="Skupienie się na optymalizacji zakupów dla produktów o wysokim wolumenie (największy wpływ na zysk)." data-en="Focus on procurement optimization for high-volume products (highest profit impact)."></li>
+                    <li data-pl="Rewizja receptur dla koktajli o niskiej marży, ale wysokiej sprzedaży." data-en="Recipe revision for low-margin, high-sales cocktails."></li>
+                    <li data-pl="Usunięcie z karty pozycji z zerową sprzedażą w Q1 2025 w celu uproszczenia operacji." data-en="Removal of zero-sales items in Q1 2025 to simplify operations."></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <p data-pl="&copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone." 
+       data-en="&copy; 2026 Kamil Kasiński. All rights reserved.">
+       &copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone.
+    </p>
+</footer>
+
+<script>
+function setLanguage(lang) {
+    const elements = document.querySelectorAll('[data-pl]');
+    
+    elements.forEach(el => {
+        const translation = el.getAttribute(`data-${lang}`);
+        if (translation) {
+            el.innerHTML = translation;
+        }
+    });
+
+    localStorage.setItem('preferredLanguage', lang);
+    
+    // Logika przełączania wyglądu przycisków
+    const buttons = document.querySelectorAll('.lang-switch button');
+    buttons.forEach(btn => {
+        // Sprawdzamy czy funkcja onclick przycisku zawiera dany język
+        if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+// Wywołaj funkcję przy starcie strony, żeby wczytać zapisany język
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'pl';
+    setLanguage(savedLang);
+});
+
+</script>
+</body>
+</html>

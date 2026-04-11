@@ -487,10 +487,47 @@ header#about {
 .btn-github { background: transparent; color: #e78c0e; }
 .btn-github:hover { background: rgba(231, 140, 14, 0.05); }
 
+.btn-details {
+    background: transparent;
+    color: #475569; /* Stonowany szary, żeby nie odciągać uwagi od głównych akcji */
+    border: 2px solid #e2e8f0 !important; /* Delikatna ramka */
+}
+
+.btn-details:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+    border-color: #cbd5e1 !important;
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+
+/* Dodatkowy efekt po najechaniu na kartę, żeby użytkownik wiedział, że jest klikalna */
+.project-item:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
 /* RWD */
 @media (max-width: 480px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-buttons { flex-direction: column; } /* Na małym tel przyciski jeden pod drugim */
+    .project-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .project-item .btn {
+        width: 100%; /* Przyciski zajmą pełną szerokość na telefonie */
+    }
 }
 
 /* --- Sekcja Certyfikatów --- */
@@ -729,3 +766,60 @@ footer p:hover {
         margin-top: 2rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
