@@ -11,31 +11,28 @@
 </head>
 <body>
 
-<nav>
+  <nav>
     <div class="container-nav">
-        <a href="index.html" class="logo" style="text-decoration: none; color: inherit; font-weight: 700;">
-            Kamil Kasiński
-        </a>
+        <div class="logo">Kamil Kasiński</div>
         
         <ul>
-            <li>
-                <a href="index.html#projects" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
-                    <i class="fa-solid fa-chevron-left" style="font-size: 0.8rem;"></i>
-                    <span data-pl="Powrót do projektów" data-en="Back to projects">Powrót do projektów</span>
-                </a>
-            </li>
+            <li><a href="index.html#about" data-pl="O mnie" data-en="About me">O mnie</a></li>
+            <li><a href="index.html#projects" data-pl="Portfolio" data-en="Portfolio">Portfolio</a></li>
+            <li><a href="certyfikaty.html" data-pl="Certyfikaty" data-en="Certificates">Certyfikaty</a></li>
+            <li><a href="index.html#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
         </ul>
 
         <div class="nav-right">
-            <div class="lang-switch">
-                <button onclick="setLanguage('pl')" class="active"><span>🇵🇱</span> PL</button>
-                <button onclick="setLanguage('en')"><span>🇬🇧</span> EN</button>
-            </div>
-            <div class="nav-socials">
-                <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
-            </div>
-        </div>
+<div class="lang-switch">
+    <button id="lang-pl" onclick="setLanguage('pl')" class="active">PL</button>
+    <button id="lang-en" onclick="setLanguage('en')">EN</button>
+</div>
+    
+    <div class="nav-socials">
+        <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </div>
+</div>
     </div>
 </nav>
 
