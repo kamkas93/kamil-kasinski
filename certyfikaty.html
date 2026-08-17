@@ -2,6 +2,13 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            var t = localStorage.getItem('preferredTheme');
+            if (!t) { t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+            if (t === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamil Kasiński | Certyfikaty</title>
     <meta name="description" content="Certyfikaty zawodowe Kamila Kasińskiego w zakresie analizy danych: Google Data Analytics, SQL, Power BI, Power Query.">
@@ -30,6 +37,9 @@
         </ul>
 
         <div class="nav-right">
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Przełącz jasny/ciemny motyw" aria-pressed="false">
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+</button>
 <div class="lang-switch">
     <button id="lang-pl" onclick="setLanguage('pl')" class="active">PL</button>
     <button id="lang-en" onclick="setLanguage('en')">EN</button>
@@ -257,5 +267,6 @@ SQL Query Language">Analiza danych w SQL</h2>
     </p>
 </footer>
 <script src="script/lang.js"></script>
+<script src="script/theme.js"></script>
 </body>
 </html>
