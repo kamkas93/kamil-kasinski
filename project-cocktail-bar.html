@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamil Kasiński | Cocktail Bar Analysis</title>
+    <meta name="description" content="Analiza sprzedaży i rentowności Cocktail Baru — dashboard Tableau, SQL (BigQuery), Menu Engineering.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kamil Kasiński | Cocktail Bar Analysis">
+    <meta property="og:description" content="Analiza sprzedaży i rentowności Cocktail Baru — dashboard Tableau, SQL (BigQuery), Menu Engineering.">
+    <meta property="og:url" content="https://kamkas93.github.io/kamil-kasinski/project-cocktail-bar.html">
+    <meta property="og:image" content="https://kamkas93.github.io/kamil-kasinski/img/cocktail-dashboard.png">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +35,8 @@
 </div>
     
     <div class="nav-socials">
-        <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/kamkas93/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
     </div>
 </div>
     </div>
@@ -204,7 +210,7 @@
             <article class="cert-card" style="flex-direction: column; margin-top: 40px; padding: 20px;">
                 <h2 style="text-align: center; margin-bottom: 20px;" data-pl="Interaktywny Dashboard" data-en="Interactive Dashboard">Interaktywny Dashboard</h2>
                 <div class="project-image" style="height: auto; width: 100%; border-right: none;">
-                     <img src="img/Cocktail Performance Dashboard – Sales & Profitability Analysis.png" style="width: 100%; border-radius: 8px;">
+                     <img src="img/cocktail-dashboard.png" alt="Dashboard Cocktail Bar" style="width: 100%; border-radius: 8px;">
                 </div>
 
                 <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; margin-bottom: 45px; border-top: 1px solid #eee; padding-top: 35px;">
@@ -225,7 +231,7 @@
    <div class="project-buttons" style="margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding-bottom: 20px;">
     
     <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="btn btn-report" 
        style="padding: 14px 35px; background-color: #e78c0e; color: white; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid #e78c0e; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
        data-pl="Otwórz Dashboard" 
@@ -234,7 +240,7 @@
     </a>
 
     <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="btn btn-github" 
        style="padding: 14px 35px; background-color: #ffffff; color: #1f2937; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid #1f2937; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;"
        data-en="GitHub Repo">
@@ -279,37 +285,6 @@
     </p>
 </footer>
 
-<script>
-function setLanguage(lang) {
-    const elements = document.querySelectorAll('[data-pl]');
-    
-    elements.forEach(el => {
-        const translation = el.getAttribute(`data-${lang}`);
-        if (translation) {
-            el.innerHTML = translation;
-        }
-    });
-
-    localStorage.setItem('preferredLanguage', lang);
-    
-    // Logika przełączania wyglądu przycisków
-    const buttons = document.querySelectorAll('.lang-switch button');
-    buttons.forEach(btn => {
-        // Sprawdzamy czy funkcja onclick przycisku zawiera dany język
-        if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-}
-
-// Wywołaj funkcję przy starcie strony, żeby wczytać zapisany język
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLanguage') || 'pl';
-    setLanguage(savedLang);
-});
-
-</script>
+<script src="script/lang.js"></script>
 </body>
 </html>
