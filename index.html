@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamil Kasiński | Data & BI Analyst</title>
+    <meta name="description" content="Portfolio Kamila Kasińskiego — Analityka Danych & BI. Projekty SQL, Power BI, Tableau oraz certyfikaty zawodowe.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kamil Kasiński | Data & BI Analyst">
+    <meta property="og:description" content="Portfolio Kamila Kasińskiego — Analityka Danych & BI. Projekty SQL, Power BI, Tableau oraz certyfikaty zawodowe.">
+    <meta property="og:url" content="https://kamkas93.github.io/kamil-kasinski/">
+    <meta property="og:image" content="https://kamkas93.github.io/kamil-kasinski/img/DSC00041.jpg">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +36,8 @@
 </div>
     
     <div class="nav-socials">
-        <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/kamkas93/" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/kamkas93/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
     </div>
 </div>
     </div>
@@ -78,7 +84,7 @@
     <div class="projects-grid">
 <article class="project-item" style="position: relative;"> 
     <div class="project-image">
-        <img src="img/Cocktail Performance Dashboard – Sales & Profitability Analysis.png" alt="Dashboard Cocktail Bar">
+        <img src="img/cocktail-dashboard.png" alt="Dashboard Cocktail Bar">
     </div>
     <div class="project-content">
         <h3 data-pl="Analiza Sprzedaży w Cocktail Barze" data-en="Cocktail Bar Sales Analysis">Analiza Sprzedaży w Cocktail Barze</h3>
@@ -94,8 +100,8 @@
         <div class="project-buttons">
             <a href="project-cocktail-bar.html" class="stretched-link"></a>
             
-            <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1" target="_blank" class="btn btn-report" style="position: relative; z-index: 2;" data-pl="Zobacz Dashboard" data-en="View Dashboard">Zobacz Dashboard</a>
-            <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" target="_blank" class="btn btn-github" style="position: relative; z-index: 2;">GitHub</a>
+            <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1" target="_blank" rel="noopener noreferrer" class="btn btn-report" style="position: relative; z-index: 2;" data-pl="Zobacz Dashboard" data-en="View Dashboard">Zobacz Dashboard</a>
+            <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" target="_blank" rel="noopener noreferrer" class="btn btn-github" style="position: relative; z-index: 2;">GitHub</a>
         </div>
     </div>
 </article>
@@ -118,8 +124,8 @@
         <div class="project-buttons">
             <a href="projekt-kds.html" class="stretched-link"></a>
             
-            <!-- <a href="#" target="_blank" class="btn btn-report" style="position: relative; z-index: 2;" data-pl="Zobacz Dashboard" data-en="View Dashboard">Zobacz Dashboard</a> -->
-            <a href="https://github.com/kamkas93/kds-customer-analysis-challengePL" target="_blank" class="btn btn-github" style="position: relative; z-index: 2;">GitHub</a>
+            <!-- <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-report" style="position: relative; z-index: 2;" data-pl="Zobacz Dashboard" data-en="View Dashboard">Zobacz Dashboard</a> -->
+            <a href="https://github.com/kamkas93/kds-customer-analysis-challengePL" target="_blank" rel="noopener noreferrer" class="btn btn-github" style="position: relative; z-index: 2;">GitHub</a>
         </div>
     </div>
 </article>
@@ -146,7 +152,7 @@
             <div class="contact-item">
                 <i class="fa-brands fa-linkedin"></i>
                 <h3 data-pl="LinkedIn" data-en="LinkedIn">LinkedIn</h3>
-                <p><a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" data-pl="Zobacz profil" data-en="View profile">Zobacz profil</a></p>
+                <p><a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" rel="noopener noreferrer" data-pl="Zobacz profil" data-en="View profile">Zobacz profil</a></p>
             </div>
 
             <div class="contact-item">
@@ -165,37 +171,6 @@
     </p>
 </footer>
 
-<script>
-function setLanguage(lang) {
-    const elements = document.querySelectorAll('[data-pl]');
-    
-    elements.forEach(el => {
-        const translation = el.getAttribute(`data-${lang}`);
-        if (translation) {
-            el.innerHTML = translation;
-        }
-    });
-
-    localStorage.setItem('preferredLanguage', lang);
-    
-    // Logika przełączania wyglądu przycisków
-    const buttons = document.querySelectorAll('.lang-switch button');
-    buttons.forEach(btn => {
-        // Sprawdzamy czy funkcja onclick przycisku zawiera dany język
-        if (btn.getAttribute('onclick').includes(`'${lang}'`)) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-}
-
-// Wywołaj funkcję przy starcie strony, żeby wczytać zapisany język
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLanguage') || 'pl';
-    setLanguage(savedLang);
-});
-
-</script>
+<script src="script/lang.js"></script>
 </body>
 </html>

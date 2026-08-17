@@ -86,11 +86,6 @@ h1, h2, h3, .logo {
 }
 /* 2. Kontenery i Układ */
 
-#about {
-    width: 100%;
-    overflow: hidden;
-}
-
 .container {
     max-width: 1100px; /* Nieco zwężamy, żeby karty nie były "jamnikami" */
     margin: 0 auto;
