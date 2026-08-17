@@ -2,6 +2,13 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            var t = localStorage.getItem('preferredTheme');
+            if (!t) { t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+            if (t === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamil Kasiński | Customer Retention Analysis</title>
     <meta name="description" content="Analiza retencji i cyklu życia klienta (KDS) — Power BI, SQL, segmentacja LTV i kohortowa.">
@@ -29,6 +36,9 @@
         </ul>
 
         <div class="nav-right">
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Przełącz jasny/ciemny motyw" aria-pressed="false">
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+</button>
 <div class="lang-switch">
     <button id="lang-pl" onclick="setLanguage('pl')" class="active">PL</button>
     <button id="lang-en" onclick="setLanguage('en')">EN</button>
@@ -53,7 +63,7 @@
          <img src="img/logoKDS.png" alt="KajoDataSpace Logo" style="height: 60px; width: auto; display: block;">
     </div>
 
-    <h1 style="margin: 0; font-size: 2.2rem; font-weight: 700; color: #111; text-align: left;" 
+    <h1 style="margin: 0; font-size: 2.2rem; font-weight: 700; color: var(--color-heading); text-align: left;" 
         data-pl="Analiza Retencji i Cyklu Życia Klienta (KDS)" 
         data-en="Customer Retention & Lifecycle Analysis (KDS)">
         Analiza Retencji i Cyklu Życia Klienta (KDS)
@@ -82,12 +92,12 @@
             </h2>
         </div>
 
-        <div style="font-size: 1.05rem; color: #4b5563; line-height: 1.8; text-align: justify;">
+        <div style="font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.8; text-align: justify;">
             <p data-pl="Czy agresywne promocje psują jakość bazy klientów? To jedno z kluczowych pytań, przed którymi staje każdy biznes subskrypcyjny. W tym projekcie zmierzyłem się z realnym wyzwaniem analitycznym: analizą historii transakcji KajoDataSpace (2023-2026), naznaczonej dynamicznymi zmianami cen i okresowymi akcjami promocyjnymi." 
                data-en="Do aggressive promotions degrade customer base quality? This is one of the key questions every subscription business faces. In this project, I tackled a real analytical challenge: analyzing KajoDataSpace transaction history (2023-2026), marked by dynamic price changes and periodic promotional campaigns.">
             </p>
 
-            <p style="margin-top: 20px; font-weight: 500; color: #1f2937;" 
+            <p style="margin-top: 20px; font-weight: 500; color: var(--color-heading);" 
                data-pl="Główny wniosek z analizy zaskakuje: klienci zaczynający od niskiego progu wejścia (Trial Starter) prezentują zaskakująco długi cykl życia. Projekt udowadnia, że promocje w KDS nie są tylko kosztem pozyskania, ale skutecznym lejkiem budującym lojalną społeczność, która z czasem konwertuje do segmentów o najwyższej wartości (Gold)."
                data-en="The main finding is surprising: customers starting with a low entry point (Trial Starter) present a surprisingly long lifecycle. The project proves that promotions at KDS are not just acquisition costs, but an effective funnel building a loyal community that eventually converts to high-value segments (Gold).">
             </p>
@@ -113,18 +123,18 @@
         </div>
         
         <p class="cert-text" 
-           style="font-size: 1.05rem; line-height: 1.8; text-align: justify; color: #4b5563;"
+           style="font-size: 1.05rem; line-height: 1.8; text-align: justify; color: var(--color-text-secondary);"
            data-pl="Projekt stanowi odpowiedź na realne wyzwanie biznesowe: jak polityka promocyjna wpływa na jakość pozyskiwanego klienta? Wykorzystując pełną historię transakcji KajoDataSpace (2023-2026), przeprowadziłem analizę cyklu życia użytkownika, aby sprawdzić, czy 'łowcy okazji' faktycznie odchodzą szybciej, czy stają się fundamentem stałych przychodów."
            data-en="The project is a response to a real business challenge: how does promotional policy affect the quality of acquired customers? Using the full KajoDataSpace transaction history (2023-2026), I conducted a customer lifecycle analysis to verify whether 'bargain hunters' actually churn faster or become the foundation of recurring revenue.">
         </p>
 
         <p class="cert-text" 
-           style="margin-top: 15px; font-size: 1.05rem; line-height: 1.8; text-align: justify; color: #4b5563;"
+           style="margin-top: 15px; font-size: 1.05rem; line-height: 1.8; text-align: justify; color: var(--color-text-secondary);"
            data-pl="Kluczowym elementem było stworzenie modelu segmentacji LTV, który automatycznie kategoryzuje klientów do Tierów wartościowych (Gold/Silver/Bronze) oraz zamraża ich segment wejścia (Entry Segment), co pozwoliło na rzetelne porównanie zachowań różnych kohort cenowych."
            data-en="The key element was creating an LTV segmentation model that automatically categorizes customers into value tiers (Gold/Silver/Bronze) and freezes their entry segment, allowing for a reliable comparison of behaviors across different price cohorts.">
         </p>
 
-        <p style="margin-top: 25px; font-weight: 600; font-size: 0.95rem; color: #333;" 
+        <p style="margin-top: 25px; font-weight: 600; font-size: 0.95rem; color: var(--color-text);" 
            data-pl="Stack technologiczny:" 
            data-en="Tech stack:">
            Stack technologiczny:
@@ -132,8 +142,8 @@
 
         <ul class="tags-inline" style="margin-top: 10px; display: flex; gap: 15px; list-style: none; padding: 0;">
             <li><i class="fa-solid fa-database" style="color: #316192;"></i> SQL (PostgreSQL)</li>
-            <li><i class="fa-solid fa-chart-line" style="color: #e78c0e;"></i> Power BI (DAX)</li>
-            <li><i class="fa-solid fa-code-branch" style="color: #1f2937;"></i> GitHub</li>
+            <li><i class="fa-solid fa-chart-line" style="color: var(--color-accent);"></i> Power BI (DAX)</li>
+            <li><i class="fa-solid fa-code-branch" style="color: var(--color-heading);"></i> GitHub</li>
         </ul>
     </div>
 </article>
@@ -143,10 +153,10 @@
  <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
     <div class="contact-item" style="flex: 1; min-width: 320px; text-align: left; align-items: flex-start; padding: 25px; display: flex; flex-direction: column;">
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <i class="fa-solid fa-filter" style="font-size: 1.5rem; color: #e78c0e; margin-right: 15px;"></i>
+            <i class="fa-solid fa-filter" style="font-size: 1.5rem; color: var(--color-accent); margin-right: 15px;"></i>
             <h3 style="margin: 0;" data-pl="Wyzwania ETL & Logiki" data-en="ETL & Logic Challenges">Wyzwania ETL & Logiki</h3>
         </div>
-<ul style="font-size: 0.85rem; color: #4b5563; padding-left: 15px; line-height: 1.6; margin: 0; list-style-type: disc;">
+<ul style="font-size: 0.85rem; color: var(--color-text-secondary); padding-left: 15px; line-height: 1.6; margin: 0; list-style-type: disc;">
     <li style="margin-bottom: 10px;">
         <strong data-pl="Segmentacja behawioralna:" data-en="Behavioral Segmentation:">Segmentacja behawioralna:</strong> 
         <span data-pl="Wykorzystanie logiki modulo i wzorców tekstowych do automatycznego odróżnienia płatności promocyjnych od standardowych subskrypcji." 
@@ -169,10 +179,10 @@
 
     <div class="contact-item" style="flex: 1; min-width: 320px; text-align: left; align-items: flex-start; padding: 25px; display: flex; flex-direction: column;">
         <div style="display: flex; align-items: center; margin-bottom: 15px;">
-            <i class="fa-solid fa-gears" style="font-size: 1.5rem; color: #e78c0e; margin-right: 15px;"></i>
+            <i class="fa-solid fa-gears" style="font-size: 1.5rem; color: var(--color-accent); margin-right: 15px;"></i>
             <h3 style="margin: 0;" data-pl="Architektura SQL" data-en="SQL Architecture">Architektura SQL</h3>
         </div>
-<ul style="font-size: 0.85rem; color: #4b5563; padding-left: 15px; line-height: 1.7; margin: 0; list-style-type: disc;">
+<ul style="font-size: 0.85rem; color: var(--color-text-secondary); padding-left: 15px; line-height: 1.7; margin: 0; list-style-type: disc;">
     <li style="margin-bottom: 8px;">
         <strong data-pl="CTE (Common Table Expressions):" data-en="CTE (Common Table Expressions):">CTE (Common Table Expressions):</strong> 
         <span data-pl="Zastosowanie modularnej struktury kodu do rankingu transakcji i obliczania sumarycznych wydatków (LTV) przed finalną segmentacją." 
@@ -197,12 +207,12 @@
 <div style="margin-top: 50px; margin-bottom: 15px;">
     <h3 data-pl="Fundament Analityczny – Pełny proces ETL w SQL" 
         data-en="Analytical Foundation – Full SQL ETL Process" 
-        style="margin: 0 0 10px 0; color: #333; font-size: 1.25rem;">
+        style="margin: 0 0 10px 0; color: var(--color-text); font-size: 1.25rem;">
         Fundament Analityczny – Pełny proces ETL w SQL
     </h3>
 <p data-pl="Poniższy skrypt PostgreSQL przetwarza wyczyszczone dane transakcyjne w docelową tabelę faktów. Kluczowe wyzwanie na tym etapie modelowania polegało na zachowaniu stabilności kohort przy użyciu FIRST_VALUE oraz stworzeniu logiki segmentacji, która kategoryzuje klientów na podstawie ich historycznych wzorców zakupowych." 
    data-en="The following PostgreSQL script processes cleaned transaction data into the final fact table. The key challenge at this modeling stage was to maintain cohort stability using FIRST_VALUE and to create segmentation logic that categorizes customers based on their historical purchase patterns." 
-   style="font-size: 0.9rem; color: #4b5563; line-height: 1.5; margin: 0;">
+   style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5; margin: 0;">
 </p>
  </div>
 
@@ -258,15 +268,15 @@
  </div>
 
  <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-    <div style="flex: 1; border-left: 3px solid #e78c0e; padding-left: 15px;">
-        <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.6;">
+    <div style="flex: 1; border-left: 3px solid var(--color-accent); padding-left: 15px;">
+        <p style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6;">
             <strong data-pl="Logika Segmentacji:" data-en="Segmentation Logic:">Logika Segmentacji:</strong><br>
             <span data-pl="Użycie operatora modulo (%) oraz LIKE '%.%' w CASE WHEN pozwala na precyzyjne odróżnienie 'Classic Monthly' od 'Trial Starter' (np. testowe płatności z groszami). To kluczowy etap czyszczenia danych już na poziomie ETL." 
                   data-en="Using the modulo operator (%) and LIKE '%.%' in CASE WHEN allows for precise differentiation between 'Classic Monthly' and 'Trial Starter' (e.g., test payments with decimals). This is a key data cleaning step at the ETL level."></span>
         </p>
     </div>
-    <div style="flex: 1; border-left: 3px solid #e78c0e; padding-left: 15px;">
-        <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.6;">
+    <div style="flex: 1; border-left: 3px solid var(--color-accent); padding-left: 15px;">
+        <p style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6;">
             <strong data-pl="Cohort Freezing (FIRST_VALUE):" data-en="Cohort Freezing (FIRST_VALUE):">Cohort Freezing (FIRST_VALUE):</strong><br>
             <span data-pl="Dzięki funkcji FIRST_VALUE, każdy klient zostaje 'zamrożony' w swoim pierwotnym segmencie wejścia. Pozwala to na rzetelną analizę macierzy retencji, niezależnie od tego, czy klient później zmienił plan na wyższy." 
                   data-en="Thanks to the FIRST_VALUE function, each customer is 'frozen' in their original entry segment. This allows for a reliable retention matrix analysis, regardless of whether the customer later upgraded their plan."></span>
@@ -283,22 +293,22 @@
          <img src="img/dashboard_KDS.png" style="width: 100%; border-radius: 8px;">
     </div>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; margin-bottom: 15px; border-top: 1px solid #eee; padding-top: 35px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; margin-bottom: 15px; border-top: 1px solid var(--color-border); padding-top: 35px;">
         <div style="flex: 1; min-width: 200px; text-align: center;">
-            <h4 style="margin: 0 0 10px 0; color: #e78c0e; font-size: 1.1rem;" data-pl="Retention Matrix" data-en="Retention Matrix">Retention Matrix</h4>
-            <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.5;" 
+            <h4 style="margin: 0 0 10px 0; color: var(--color-accent); font-size: 1.1rem;" data-pl="Retention Matrix" data-en="Retention Matrix">Retention Matrix</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5;" 
                data-pl="Zaawansowana macierz kohortowa oparta na DAX. Pozwala precyzyjnie zidentyfikować próg lojalności i monitorować stabilność bazy po 3. miesiącu." 
                data-en="Advanced DAX-based cohort matrix. Allows precise identification of the loyalty threshold and monitoring base stability after the 3rd month."></p>
         </div>
         <div style="flex: 1; min-width: 200px; text-align: center;">
-            <h4 style="margin: 0 0 10px 0; color: #e78c0e; font-size: 1.1rem;" data-pl="LTV Segmentation" data-en="LTV Segmentation">LTV Segmentation</h4>
-            <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.5;" 
+            <h4 style="margin: 0 0 10px 0; color: var(--color-accent); font-size: 1.1rem;" data-pl="LTV Segmentation" data-en="LTV Segmentation">LTV Segmentation</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5;" 
                data-pl="Dynamiczny podział na Tiery (Gold/Silver/Bronze). Analiza pokazuje, jak poszczególne segmenty wejścia konwertują na wysoką wartość życiową klienta." 
                data-en="Dynamic value tiering (Gold/Silver/Bronze). Analysis shows how different entry segments convert into high customer lifetime value."></p>
         </div>
         <div style="flex: 1; min-width: 200px; text-align: center;">
-            <h4 style="margin: 0 0 10px 0; color: #e78c0e; font-size: 1.1rem;" data-pl="Acquisition Analysis" data-en="Acquisition Analysis">Acquisition Analysis</h4>
-            <p style="font-size: 0.9rem; color: #4b5563; line-height: 1.5;" 
+            <h4 style="margin: 0 0 10px 0; color: var(--color-accent); font-size: 1.1rem;" data-pl="Acquisition Analysis" data-en="Acquisition Analysis">Acquisition Analysis</h4>
+            <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5;" 
                data-pl="Weryfikacja skuteczności promocji. Dashboard udowadnia, że klienci 'Trial Starter' budują fundament retencji, a nie tylko chwilowy wzrost sprzedaży." 
                data-en="Promotion effectiveness verification. The dashboard proves that 'Trial Starter' customers build the foundation of retention, not just a temporary sales spike."></p>
         </div>
@@ -308,7 +318,7 @@
         <a href="https://github.com/kamkas93/kds-customer-analysis-challengePL" 
             target="_blank" rel="noopener noreferrer" 
             class="btn btn-github" 
-            style="padding: 14px 35px; background-color: #ffffff; color: #1f2937; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid #1f2937; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            style="padding: 14px 35px; background-color: var(--color-bg-card); color: var(--color-heading); border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid var(--color-heading); display: flex; align-items: center; justify-content: center; gap: 10px;">
             <i class="fa-brands fa-github"></i> GitHub Repo
         </a>
     </div>
@@ -318,7 +328,7 @@
               
 <div class="contact-item" style="text-align: left; margin-top: 30px;">
     <h3 data-pl="Kluczowe Wnioski Biznesowe" data-en="Key Business Insights">Kluczowe Wnioski Biznesowe</h3>
-    <ul style="margin-top: 15px; padding-left: 20px; color: #4b5563; font-size: 0.95rem; line-height: 1.6;">
+    <ul style="margin-top: 15px; padding-left: 20px; color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
         <li style="margin-bottom: 12px;">
             <strong data-pl="Paradoks Triala:" data-en="Trial Paradox:">Paradoks Triala:</strong> 
             <span data-pl="Najniższe progi wejścia budują najwyższą lojalność długofalową. Klienci zaczynający od promocji wykazują stabilniejszy cykl życia (Retention M6+) niż użytkownicy segmentu Basic Access." 
@@ -341,27 +351,27 @@
 
 <div class="contact-item" style="text-align: left; margin-top: 30px;">
     <h3 data-pl="Podsumowanie i Czego się nauczyłem" data-en="Summary & Lessons Learned">Podsumowanie i Czego się nauczyłem</h3>
-    <ul style="margin-top: 15px; padding-left: 20px; color: #4b5563; font-size: 0.95rem; line-height: 1.6;">
+    <ul style="margin-top: 15px; padding-left: 20px; color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
         <li style="margin-bottom: 12px;">
-            <strong style="color: #333;" data-pl="Cohort Analysis:" data-en="Cohort Analysis:">Cohort Analysis:</strong> 
+            <strong style="color: var(--color-text);" data-pl="Cohort Analysis:" data-en="Cohort Analysis:">Cohort Analysis:</strong> 
             <span data-pl="Zrozumiałem, jak analizować zachowania grup użytkowników w czasie, zamiast patrzeć na zagregowaną średnią, która często maskuje kluczowe trendy biznesowe." 
                   data-en="I learned how to analyze user group behaviors over time instead of looking at aggregated averages, which often mask key business trends."></span>
         </li>
         <li style="margin-bottom: 12px;">
-            <strong style="color: #333;" data-pl="LTV & Churn Management:" data-en="LTV & Churn Management:">LTV & Churn Management:</strong> 
+            <strong style="color: var(--color-text);" data-pl="LTV & Churn Management:" data-en="LTV & Churn Management:">LTV & Churn Management:</strong> 
             <span data-pl="Nauczyłem się definiować progi lojalności oraz segmentować bazę pod kątem rentowności (Gold/Silver/Bronze) w oparciu o rzeczywisty przykład eCommerce." 
                   data-en="I learned how to define loyalty thresholds and segment the customer base by profitability (Gold/Silver/Bronze) based on a real-world eCommerce case."></span>
         </li>
         <li style="margin-bottom: 12px;">
-            <strong style="color: #333;" data-pl="Wnioski Biznesowe (Actionable Insights):" data-en="Actionable Insights:">Wnioski Biznesowe (Actionable Insights):</strong> 
+            <strong style="color: var(--color-text);" data-pl="Wnioski Biznesowe (Actionable Insights):" data-en="Actionable Insights:">Wnioski Biznesowe (Actionable Insights):</strong> 
             <span data-pl="Największą wartością projektu była konieczność przełożenia wyników z SQL i Power BI na konkretny język korzyści i rekomendacje dla biznesu." 
                   data-en="The greatest value of the project was the need to translate SQL and Power BI results into concrete business benefits and recommendations."></span>
         </li>
     </ul>
 </div>
 
-<div style="text-align: left; margin-top: 20px; padding: 15px 25px; border-top: 1px solid #eee;">
-    <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.6;">
+<div style="text-align: left; margin-top: 20px; padding: 15px 25px; border-top: 1px solid var(--color-border);">
+    <p style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6;">
         <strong data-pl="Podziękowania:" data-en="Acknowledgments:">Podziękowania:</strong><br>
         <span data-pl="Dziękuję Kajo Rudzińskiemu za udostępnienie danych i stworzenie wyzwania KDS, które pozwoliło mi przetestować umiejętności analityczne w warunkach 'bojowych'  :)" 
               data-en="Special thanks to Kajo for providing the data and creating the KDS challenge, which allowed me to test my analytical skills in 'battlefield' conditions :)"></span>
@@ -380,5 +390,6 @@
 </footer>
 
 <script src="script/lang.js"></script>
+<script src="script/theme.js"></script>
 </body>
 </html>

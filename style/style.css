@@ -1,6 +1,42 @@
 /* 1. Podstawowe ustawienia & Typografia */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Zmienne kolorów - jasny motyw (domyślny) */
+:root {
+    --color-bg: #ffffff;
+    --color-bg-alt: #fff7ed;
+    --color-bg-card: #ffffff;
+    --color-nav-sticky: rgba(255, 247, 237, 0.95);
+    --color-text: #333333;
+    --color-heading: #1e293b;
+    --color-text-secondary: #4b5563;
+    --color-text-muted: #64748b;
+    --color-border: #e2e8f0;
+    --color-accent: #e78c0e;
+    --color-accent-hover: #fc9f1c;
+    --color-tag-bg: #f1f5f9;
+    --color-switch-bg: #f7cb9d;
+    --color-switch-border: #cbd5e1;
+}
+
+/* Zmienne kolorów - ciemny motyw */
+[data-theme="dark"] {
+    --color-bg: #14161a;
+    --color-bg-alt: #1b1e24;
+    --color-bg-card: #1e2127;
+    --color-nav-sticky: rgba(20, 22, 26, 0.9);
+    --color-text: #d7dae0;
+    --color-heading: #f1f5f9;
+    --color-text-secondary: #b6bcc6;
+    --color-text-muted: #9099a6;
+    --color-border: #33383f;
+    --color-accent: #e78c0e;
+    --color-accent-hover: #fc9f1c;
+    --color-tag-bg: #24272e;
+    --color-switch-bg: #2a2e36;
+    --color-switch-border: #3a3f47;
+}
+
 /* Celujemy w sekcje, do których prowadzą linki z menu */
 section[id], header[id] {
     scroll-margin-top: 200px; /* Ustaw tutaj wysokość swojego menu (np. 80px lub 100px) */
@@ -13,16 +49,17 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    background-color: #ffffff;
-    color: #333333;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     font-size: 16px;
     font-weight: 400; /* Standardowa grubość tekstu */
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1, h2, h3, .logo {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;    /* Wyraźne, grube nagłówki */
-    color: #222;         /* Nieco ciemniejszy kolor dla kontrastu */
+    color: var(--color-heading); /* Nieco ciemniejszy kolor dla kontrastu */
     letter-spacing: -0.5px; /* Lekkie zacieśnienie dla nowoczesnego wyglądu */
 }
 
@@ -37,10 +74,10 @@ h1, h2, h3, .logo {
     display: flex;
     gap: 4px;
     /* Zmieniamy tło kontenera na lekko szare, żeby biały przycisk był widoczny */
-    background: #f7cb9d; 
+    background: var(--color-switch-bg);
     padding: 4px;
     border-radius: 12px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--color-switch-border);
 }
 .lang-switch button {
     display: flex;
@@ -54,7 +91,7 @@ h1, h2, h3, .logo {
     cursor: pointer;
     font-weight: 700;
     font-size: 0.8rem;
-    color: #475569; /* Ciemniejszy szary dla nieaktywnego tekstu */
+    color: var(--color-text-secondary); /* Ciemniejszy szary dla nieaktywnego tekstu */
     transition: all 0.2s ease;
     min-width: 85px;
 }
@@ -66,23 +103,46 @@ h1, h2, h3, .logo {
 
 /* Stan aktywny - biały przycisk z wyraźniejszym tekstem */
 .lang-switch button.active {
-    background-color: #ffffff !important; /* !important wymusi biały kolor */
-    color: #1e293b;
+    background-color: var(--color-bg-card) !important; /* wymusza tło karty */
+    color: var(--color-heading);
     /* Mocniejszy cień, żeby przycisk "wystawał" */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
     transform: translateY(-1px);
 }
 
 /* Hover dla nieaktywnego przycisku */
 .lang-switch button:hover:not(.active) {
-    color: #1e293b;
-    background: rgba(255, 255, 255, 0.3);
+    color: var(--color-heading);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Przycisk przełącznika motywu (jasny/ciemny) */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-card);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
 }
 
 /* Subtelny tekst opisu w Hero */
 .hero-text p {
     font-weight: 300;    /* Lżejszy font dla opisu, by nagłówek bardziej "bił po oczach" */
-    color: #555;
+    color: var(--color-text-secondary);
 }
 /* 2. Kontenery i Układ */
 
@@ -104,12 +164,13 @@ h1, h2, h3, .logo {
 
 /* 3. Nawigacja */
 nav {
-    background: #fff7ed;
+    background: var(--color-bg-alt);
     padding: 1rem 0;
     box-shadow: 0 1px 10px rgba(0,0,0,0.05);
     position: relative; /* Nie przykleja się */
     z-index: 1000;
     width: 100%;
+    transition: background-color 0.25s ease;
 }
 
 .container-nav {
@@ -124,7 +185,7 @@ nav {
 nav .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #42403f;
+    color: var(--color-heading);
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap; /* Logo zawsze w jednej linii */
@@ -140,23 +201,23 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #555;
+    color: var(--color-text-secondary);
     font-weight: 500;
     transition: 0.3s;
     white-space: nowrap; /* Zapobiega łamaniu tekstów w menu */
 }
 
-nav ul li a:hover { color: #e97627; }
+nav ul li a:hover { color: var(--color-accent); }
 
-.nav-socials { 
-    display: flex; 
-    gap: 15px; 
+.nav-socials {
+    display: flex;
+    gap: 15px;
     flex-shrink: 0; /* Ikony nie będą się zmniejszać */
 }
 
 .nav-socials a {
     font-size: 24px;
-    color: #333;
+    color: var(--color-text);
     text-decoration: none;
     transition: 0.3s;
 }
@@ -171,7 +232,7 @@ nav ul li a:hover { color: #e97627; }
         position: sticky; /* Przykleja się tylko na desktopie */
         top: 0;
         /* Opcjonalnie dodaj lekkie rozmycie, żeby wyglądało premium */
-        background: rgba(255, 247, 237, 0.95); 
+        background: var(--color-nav-sticky);
         backdrop-filter: blur(8px);
     }
 
@@ -192,7 +253,7 @@ nav ul li a:hover { color: #e97627; }
         gap: 1rem;
         padding: 1.5rem 20px;
     }
-    
+
     nav ul {
         margin: 5px 0;
         gap: 1.2rem;
@@ -208,11 +269,11 @@ nav ul li a:hover { color: #e97627; }
 /* 3. Małe telefony */
 @media (max-width: 480px) {
     nav ul {
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
         justify-content: center;
         gap: 0.8rem;
     }
-    
+
     nav .logo {
         font-size: 1.1rem; /* Trochę mniejsze logo na małych ekranach */
     }
@@ -226,10 +287,11 @@ nav ul li a:hover { color: #e97627; }
 /* 4. Sekcja Hero / O mnie */
 header#about {
     /* Dodajemy 1rem (ok. 16px) paddingu po bokach */
-    padding: 1.5rem 1rem; 
-    background-color: #ffffff;
+    padding: 1.5rem 1rem;
+    background-color: var(--color-bg);
     width: 100%;
     overflow: hidden;
+    transition: background-color 0.25s ease;
 }
 
 .hero-content {
@@ -247,12 +309,12 @@ header#about {
 .hero-text h1 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
-    color: #1e293b;
+    color: var(--color-heading);
 }
 
 .hero-text p {
     font-weight: 300;
-    color: #555;
+    color: var(--color-text-secondary);
     margin-bottom: 2rem;
     line-height: 1.7;
 }
@@ -264,9 +326,9 @@ header#about {
 .photo-placeholder {
     width: 280px;
     height: 280px; /* Sztywne wymiary zamiast aspect-ratio dla stabilności */
-    overflow: hidden; 
+    overflow: hidden;
     border-radius: 50%;
-    border: 6px solid #fff;
+    border: 6px solid var(--color-bg-card);
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
@@ -308,79 +370,79 @@ header#about {
     margin-top: 2rem;
 }
 
-.tech-stack-hero p { 
+.tech-stack-hero p {
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    margin-bottom: 15px; 
-    color: #64748b;
+    margin-bottom: 15px;
+    color: var(--color-text-muted);
     text-transform: uppercase;
 }
 
-.tags-inline { 
-    display: flex; 
-    flex-wrap: wrap; 
-    list-style: none; 
-    gap: 10px; 
+.tags-inline {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 10px;
     padding: 0;
 }
 
-.tags-inline li { 
+.tags-inline li {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #f8fafc; 
-    color: #1e293b; 
-    padding: 8px 16px; 
-    border-radius: 10px; 
-    font-size: 0.9rem; 
+    background: var(--color-tag-bg);
+    color: var(--color-heading);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-border);
     transition: 0.3s;
     user-select: none;
 }
 
 /* Kolory ikon */
-.tags-inline li i.fa-database { color: #336791; } 
-.tags-inline li i.fa-file-excel { color: #1D6F42; } 
-.tags-inline li i.fa-bolt { color: #f2c811; } 
-.tags-inline li i.fa-chart-bar { color: #f2c811; } 
-.tags-inline li i.fa-circle-nodes { color: #e97627; } 
+.tags-inline li i.fa-database { color: #336791; }
+.tags-inline li i.fa-file-excel { color: #1D6F42; }
+.tags-inline li i.fa-bolt { color: #f2c811; }
+.tags-inline li i.fa-chart-bar { color: #f2c811; }
+.tags-inline li i.fa-circle-nodes { color: #e97627; }
 
 .tags-inline li:hover {
-    border-color: #e78c0e;
+    border-color: var(--color-accent);
     transform: translateY(-3px);
 }
 
 /* Responsywność tagów - spójna z sekcją 4 */
 @media (max-width: 992px) {
-    .tags-inline { 
-        justify-content: center; 
+    .tags-inline {
+        justify-content: center;
         margin-bottom: 20px; /* Oddech na dole w wersji mobilnej */
     }
-    .tech-stack-hero p { 
-        text-align: center; 
+    .tech-stack-hero p {
+        text-align: center;
     }
 }
 
 /* 6. Sekcja Projekty (Wersja Stabilna) */
-#projects { 
-    padding: 6rem 0; 
-    background-color: #ffffff; /* Zmiana z f8fafc na biały, by zlało się z kartami */
+#projects {
+    padding: 6rem 0;
+    background-color: var(--color-bg); /* Zmiana z f8fafc na biały, by zlało się z kartami */
 }
 
-#projects h2 { 
-    font-size: 2.5rem; 
-    margin-bottom: 15px; 
-    color: #1e293b;
-    text-align: center; 
+#projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--color-heading);
+    text-align: center;
 }
 
 #projects p {
-    margin: 0 auto 3.5rem auto; 
-    color: #64748b;
-    max-width: 700px; 
-    text-align: center; 
+    margin: 0 auto 3.5rem auto;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    text-align: center;
 }
 
 .projects-grid {
@@ -390,19 +452,19 @@ header#about {
 }
 
 .project-item {
-    background: #fff;
+    background: var(--color-bg-card);
     border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    transition: all 0.3s ease-out; 
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease-out;
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
-.project-item:hover { 
+.project-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-    border-color: #e78c0e;
+    border-color: var(--color-accent);
 }
 
 /* NAPRAWA WYŚWIETLANIA DASHBOARDÓW */
@@ -410,7 +472,7 @@ header#about {
     width: 100%;
     height: 320px; /* Zwiększamy z 250px na 320px, żeby obrazki były większe */
     padding: 10px; /* Mniejszy margines wewnętrzny = większy dashboard */
-    background-color: #ffffff; /* Tło pod obrazkiem też białe */
+    background-color: #ffffff; /* Zrzuty dashboardów mają białe tło - zostaje białe w obu motywach */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -422,7 +484,7 @@ header#about {
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain; 
+    object-fit: contain;
     /* Usunąłem box-shadow spod obrazka, by wyglądało to czyściej na białym tle */
 }
 
@@ -433,26 +495,26 @@ header#about {
     flex-grow: 1;
 }
 
-.project-item h3 { 
+.project-item h3 {
     font-size: 1.3rem;
-    margin-bottom: 12px; 
-    color: #1e293b;
+    margin-bottom: 12px;
+    color: var(--color-heading);
 }
 
-.project-item .tags { 
-    display: flex; 
-    list-style: none; 
-    gap: 8px; 
-    margin: 15px 0; 
+.project-item .tags {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    margin: 15px 0;
     flex-wrap: wrap;
     padding: 0;
 }
 
-.project-item .tags li { 
-    background: #f1f5f9; 
-    color: #475569; 
-    padding: 4px 10px; 
-    border-radius: 6px; 
+.project-item .tags li {
+    background: var(--color-tag-bg);
+    color: var(--color-text-secondary);
+    padding: 4px 10px;
+    border-radius: 6px;
     font-size: 0.75rem;
     font-weight: 600;
 }
@@ -473,25 +535,25 @@ header#about {
     text-decoration: none;
     transition: 0.3s;
     font-size: 0.9rem;
-    border: 2px solid #e78c0e;
+    border: 2px solid var(--color-accent);
 }
 
-.btn-report { background: #e78c0e; color: white; }
-.btn-report:hover { background: #fc9f1c; border-color: #fc9f1c; }
+.btn-report { background: var(--color-accent); color: white; }
+.btn-report:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
 
-.btn-github { background: transparent; color: #e78c0e; }
-.btn-github:hover { background: rgba(231, 140, 14, 0.05); }
+.btn-github { background: transparent; color: var(--color-accent); }
+.btn-github:hover { background: rgba(231, 140, 14, 0.08); }
 
 .btn-details {
     background: transparent;
-    color: #475569; /* Stonowany szary, żeby nie odciągać uwagi od głównych akcji */
-    border: 2px solid #e2e8f0 !important; /* Delikatna ramka */
+    color: var(--color-text-secondary); /* Stonowany szary, żeby nie odciągać uwagi od głównych akcji */
+    border: 2px solid var(--color-border) !important; /* Delikatna ramka */
 }
 
 .btn-details:hover {
-    background: #f1f5f9;
-    color: #1e293b;
-    border-color: #cbd5e1 !important;
+    background: var(--color-tag-bg);
+    color: var(--color-heading);
+    border-color: var(--color-text-muted) !important;
 }
 
 .stretched-link::after {
@@ -519,7 +581,7 @@ header#about {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .project-item .btn {
         width: 100%; /* Przyciski zajmą pełną szerokość na telefonie */
     }
@@ -528,14 +590,14 @@ header#about {
 /* --- Sekcja Certyfikatów --- */
 .certificates-section {
     padding: 60px 0;
-    background-color: #fff;
+    background-color: var(--color-bg);
 }
 
 .certificates-section h1 {
     text-align: center;
     font-size: 2.8rem; /* Nieco większy i wyraźniejszy */
     font-weight: 800;
-    color: #1e293b;
+    color: var(--color-heading);
     margin-top: 40px;  /* Odstęp od nawigacji */
     margin-bottom: 15px;
     letter-spacing: -1px;
@@ -545,7 +607,7 @@ header#about {
     text-align: center;
     max-width: 650px;  /* Zwężony opis lepiej wygląda w bloku */
     margin: 0 auto 50px auto; /* 50px odstępu od pierwszej karty */
-    color: #64748b;
+    color: var(--color-text-muted);
     font-size: 1.1rem;
     line-height: 1.6;
 }
@@ -558,10 +620,10 @@ header#about {
 
 .cert-card {
     display: flex;
-    background: #fff7ed; /* Jeszcze delikatniejszy szary */
+    background: var(--color-bg-alt); /* Jeszcze delikatniejszy szary */
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-border);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Płynniejszy ruch */
     min-height: 240px;
     margin-bottom: 25px;
@@ -574,7 +636,7 @@ header#about {
 /* Obrazek po lewej - Biały kontener */
 .cert-image {
     flex: 0 0 280px; /* Nieco węższy kontener na certyfikat */
-    background: #fff; /* Białe tło pod samym obrazkiem certyfikatu */
+    background: #fff; /* Certyfikaty mają białe tło - zostaje białe w obu motywach */
     padding: 15px;
     display: flex;
     align-items: center;
@@ -609,7 +671,7 @@ header#about {
 .cert-header h2 {
     font-size: 1.15rem; /* Mniejszy, bardziej profesjonalny font */
     font-weight: 700;
-    color: #374151;
+    color: var(--color-heading);
     margin: 0;
     flex: 1;
 }
@@ -617,25 +679,25 @@ header#about {
 /* Logo dostawcy w prawym górnym rogu na niebieskim/kolorowym tle (opcjonalnie) */
 
 .cert-vendor-logo {
-    width: 55px;         
-    height: 55px;       
-    background: #fff; 
-    padding: 3px;        
-    border-radius: 10px; 
+    width: 55px;
+    height: 55px;
+    background: #fff; /* Logo dostawców ma przezroczyste/białe tło - zostaje białe w obu motywach */
+    padding: 3px;
+    border-radius: 10px;
     object-fit: contain;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    flex-shrink: 0;     
+    flex-shrink: 0;
 }
 
 .cert-meta {
     font-size: 0.85rem;
-    color: #4b5563;
+    color: var(--color-text-secondary);
     margin-bottom: 15px;
     font-weight: 500;
 }
 
 .cert-text {
-    color: #4b5563;
+    color: var(--color-text-secondary);
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
@@ -645,7 +707,7 @@ header#about {
     align-self: flex-start; /* Przycisk nie rozciąga się */
     margin-top: 15px;
     padding: 8px 20px;
-    background-color: #e78c0e;
+    background-color: var(--color-accent);
     color: white;
     font-size: 0.85rem;
     border-radius: 6px;
@@ -683,7 +745,7 @@ header#about {
         width: 45px; /* Nieco mniejsze logo na małych telefonach */
         height: 45px;
     }
-    
+
     .cert-header h2 {
         font-size: 1rem; /* Trochę mniejszy font, by zmieścić więcej w linii */
     }
@@ -691,7 +753,7 @@ header#about {
 
 .contact-section {
     padding: 80px 0;
-    background-color: white; /* Delikatne tło, żeby odciąć sekcję od reszty */
+    background-color: var(--color-bg); /* Delikatne tło, żeby odciąć sekcję od reszty */
     text-align: center;
 }
 
@@ -703,54 +765,54 @@ header#about {
 }
 
 .contact-item {
-    background: #fff7ed; /* Bardzo delikatny, ciepły pomarańczowy */
+    background: var(--color-bg-alt); /* Bardzo delikatny, ciepły pomarańczowy */
     padding: 30px;
     border-radius: 12px;
-    border: 1px solid #ffedd5; /* Subtelna ramka, by domknąć bryłę */
+    border: 1px solid var(--color-border); /* Subtelna ramka, by domknąć bryłę */
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     transition: all 0.3s ease;
 }
 
 .contact-item i {
     font-size: 2.5rem;
-    color: #e78c0e; /* Twój pomarańczowy kolor */
+    color: var(--color-accent); /* Twój pomarańczowy kolor */
     margin-bottom: 15px;
 }
 
 .contact-item h3 {
     margin-bottom: 10px;
-    color: #1e293b;
+    color: var(--color-heading);
 }
 
 .contact-item a {
-    color: #64748b;
+    color: var(--color-text-muted);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .contact-item a:hover {
-    color: #e78c0e;
+    color: var(--color-accent);
 }
 
 /* --- Sekcja Stopki --- */
 footer {
     padding: 3rem 0;
     margin-top: 4rem; /* Odstęp od ostatniej sekcji projektów */
-    background-color: #fff7ed; /* Bardzo jasny szary, żeby odróżnić od białego tła */
+    background-color: var(--color-bg-alt); /* Bardzo jasny szary, żeby odróżnić od białego tła */
     text-align: center;
 }
 
 footer p {
     font-size: 0.9rem;
-    color: #1e293b; 
+    color: var(--color-heading);
     font-weight: 300;
     letter-spacing: 0.5px;
 }
 
 /* Opcjonalnie: efekt najechania na Twoje imię, jeśli zrobisz z niego link
 footer p:hover {
-    color: #1e293b;
+    color: var(--color-heading);
     transition: color 0.3s ease;
 } */
 
@@ -766,8 +828,8 @@ footer p:hover {
 /* Poprawka dla urządzeń mobilnych */
 @media screen and (max-width: 768px) {
     /* Przywrócenie czytelności tekstu we Wstępie i Scenariuszu */
-    .cert-card div, 
-    .cert-card p, 
+    .cert-card div,
+    .cert-card p,
     .cert-text {
         text-align: left !important; /* Koniec z dziwnymi przerwami między słowami */
         font-size: 0.95rem !important; /* Nieco mniejsza, bardziej naturalna czcionka */
@@ -790,57 +852,3 @@ footer p:hover {
         margin-bottom: 20px !important;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
