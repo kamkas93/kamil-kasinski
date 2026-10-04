@@ -41,4 +41,4 @@ Push na `main` = zmiana widoczna na żywo po ~1–2 min.
 - Commity po angielsku, w trybie rozkazującym, np. `Add Power BI project page`.
 - Nie commitować plików, w których zmieniły się wyłącznie końcówki linii (CRLF/LF).
 - Nie dodawać danych osobowych poza tym, co już jest na stronie (LinkedIn, GitHub, kontakt).
-- Właściciel: Kamil — Data/BI Analyst (SQL, Power BI, Excel/Power Query), pracuje w LINK4.
+- Właściciel: Kamil — Data/BI Analyst (SQL, Power BI, Excel/Power Query)
