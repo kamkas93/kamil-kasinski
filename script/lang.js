@@ -8,6 +8,22 @@ function setLanguage(lang) {
         }
     });
 
+    // Dwujęzyczne obrazki (np. zrzuty certyfikatów)
+    document.querySelectorAll('[data-pl-src]').forEach(el => {
+        const src = el.getAttribute(`data-${lang}-src`);
+        if (src) {
+            el.src = src;
+        }
+    });
+
+    // Dwujęzyczne linki (np. linki weryfikacyjne certyfikatów)
+    document.querySelectorAll('[data-pl-href]').forEach(el => {
+        const href = el.getAttribute(`data-${lang}-href`);
+        if (href) {
+            el.href = href;
+        }
+    });
+
     localStorage.setItem('preferredLanguage', lang);
 
     // Logika przełączania wyglądu przycisków
