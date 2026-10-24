@@ -17,6 +17,7 @@
     --color-tag-bg: #f1f5f9;
     --color-switch-bg: #f7cb9d;
     --color-switch-border: #cbd5e1;
+    --color-img-shadow: rgba(0, 0, 0, 0.08);
 }
 
 /* Zmienne kolorów - ciemny motyw */
@@ -35,6 +36,7 @@
     --color-tag-bg: #24272e;
     --color-switch-bg: #2a2e36;
     --color-switch-border: #3a3f47;
+    --color-img-shadow: rgba(0, 0, 0, 0.45);
 }
 
 /* Celujemy w sekcje, do których prowadzą linki z menu */
@@ -505,7 +507,7 @@ header#about {
     display: flex;
     list-style: none;
     gap: 8px;
-    margin: 15px 0;
+    margin: auto 0 15px; /* auto u góry: tagi i przyciski na tym samym poziomie we wszystkich kartach */
     flex-wrap: wrap;
     padding: 0;
 }
@@ -526,9 +528,14 @@ header#about {
     margin-top: auto;
 }
 
+.project-item .project-buttons {
+    margin-top: 0;
+}
+
 .project-item .btn {
     flex: 1;
-    padding: 10px 0;
+    padding: 10px 8px;
+    white-space: nowrap;
     text-align: center;
     border-radius: 8px;
     font-weight: 600;
@@ -1121,23 +1128,6 @@ footer p:hover {
     color: var(--color-text-secondary);
 }
 
-/* Mini wykres na karcie projektu (index.html) */
-.project-image--chart {
-    background-color: var(--color-bg-alt);
-    border-bottom-color: var(--color-border);
-    flex-direction: column;
-    align-items: stretch;
-}
-
-.project-image--chart .lp-bars {
-    height: 240px;
-    padding: 0 20px;
-}
-
-.project-image--chart .lp-bar-labels {
-    padding: 0 20px;
-}
-
 /* Lista stron raportu */
 .lp-pages {
     display: grid;
@@ -1241,7 +1231,7 @@ footer p:hover {
 /* Galeria zrzutów (odkryć, gdy są obrazki) */
 .lp-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     gap: 20px;
     margin-top: 25px;
 }
@@ -1253,10 +1243,22 @@ footer p:hover {
     overflow: hidden;
 }
 
+.lp-gallery figure {
+    padding: 10px 10px 0;
+}
+
 .lp-gallery img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 8px;
+}
+
+/* Zrzuty mają jasne tło: w trybie ciemnym ramka, cień i lekkie przyciemnienie */
+[data-theme="dark"] .lp-gallery img {
+    border: 1px solid var(--color-border);
+    box-shadow: 0 6px 18px var(--color-img-shadow);
+    filter: brightness(0.92);
 }
 
 .lp-gallery figcaption {
