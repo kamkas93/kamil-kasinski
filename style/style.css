@@ -545,6 +545,18 @@ header#about {
     border: 2px solid var(--color-accent);
 }
 
+/* Karta z trzema przyciskami (np. projekt + dashboard + GitHub); na telefonie przyciski i tak idą w kolumnę */
+@media (min-width: 481px) {
+    .project-item .project-buttons--3 {
+        gap: 6px;
+    }
+
+    .project-item .project-buttons--3 .btn {
+        padding: 11.5px 4px;
+        font-size: 0.8rem;
+    }
+}
+
 .btn-report { background: var(--color-accent); color: white; }
 .btn-report:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
 
