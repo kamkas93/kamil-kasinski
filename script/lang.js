@@ -8,20 +8,15 @@ function setLanguage(lang) {
         }
     });
 
-    // Dwujęzyczne obrazki (np. zrzuty certyfikatów)
-    document.querySelectorAll('[data-pl-src]').forEach(el => {
-        const src = el.getAttribute(`data-${lang}-src`);
-        if (src) {
-            el.src = src;
-        }
-    });
-
-    // Dwujęzyczne linki (np. linki weryfikacyjne certyfikatów)
-    document.querySelectorAll('[data-pl-href]').forEach(el => {
-        const href = el.getAttribute(`data-${lang}-href`);
-        if (href) {
-            el.href = href;
-        }
+    // Dwujęzyczne atrybuty: data-pl-src / data-en-src, data-pl-href / data-en-href,
+    // data-pl-alt / data-en-alt, data-pl-aria-label / data-en-aria-label. W HTML zostaje wersja PL (działa bez JS).
+    ['src', 'href', 'alt', 'aria-label'].forEach(attr => {
+        document.querySelectorAll(`[data-pl-${attr}]`).forEach(el => {
+            const value = el.getAttribute(`data-${lang}-${attr}`);
+            if (value) {
+                el.setAttribute(attr, value);
+            }
+        });
     });
 
     localStorage.setItem('preferredLanguage', lang);

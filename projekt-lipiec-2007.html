@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        (function () {
+            var t = localStorage.getItem('preferredTheme');
+            if (!t) { t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+            if (t === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamil Kasiński | Power BI: Lipiec 2007</title>
+    <meta name="description" content="Raport Power BI: jak nowa oferta odwróciła spadek sprzedaży. Storytelling, model danych, DAX, IBCS, analiza koszyka bez numeru zamówienia.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kamil Kasiński | Power BI: Lipiec 2007">
+    <meta property="og:description" content="Raport Power BI: jak nowa oferta odwróciła spadek sprzedaży. Storytelling, model danych, DAX, IBCS, analiza koszyka bez numeru zamówienia.">
+    <meta property="og:url" content="https://kamkas93.github.io/kamil-kasinski/projekt-lipiec-2007.html">
+    <!-- Odkomentuj, gdy pojawi się zrzut: -->
+    <!-- <meta property="og:image" content="https://kamkas93.github.io/kamil-kasinski/img/lipiec-2007/01_start.png"> -->
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav>
+    <div class="container-nav">
+        <div class="logo">Kamil Kasiński</div>
+
+        <ul>
+            <li><a href="index.html#about" data-pl="O mnie" data-en="About me">O mnie</a></li>
+            <li><a href="index.html#projects" data-pl="Portfolio" data-en="Portfolio">Portfolio</a></li>
+            <li><a href="certyfikaty.html" data-pl="Certyfikaty" data-en="Certificates">Certyfikaty</a></li>
+            <li><a href="index.html#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+
+        <div class="nav-right">
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Przełącz jasny/ciemny motyw" aria-pressed="false">
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+</button>
+<div class="lang-switch">
+    <button id="lang-pl" onclick="setLanguage('pl')" class="active">PL</button>
+    <button id="lang-en" onclick="setLanguage('en')">EN</button>
+</div>
+
+    <div class="nav-socials">
+        <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="https://github.com/kamkas93/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+    </div>
+</div>
+    </div>
+</nav>
+
+<main class="lp-page">
+    <div class="container">
+
+        <!-- HERO -->
+        <header class="lp-hero">
+            <p class="lp-eyebrow" data-pl="Projekt Power BI · studia podyplomowe 2026" data-en="Power BI project · postgraduate studies 2026">Projekt Power BI · studia podyplomowe 2026</p>
+            <h1 data-pl="Lipiec 2007: jak nowa oferta odwróciła spadek sprzedaży" data-en="July 2007: how a new product range reversed a sales decline">Lipiec 2007: jak nowa oferta odwróciła spadek sprzedaży</h1>
+            <p class="lp-subtitle" data-pl="Analiza sprzedaży internetowej VII 2005 – VI 2008 · kwoty netto w €" data-en="Online sales analysis, July 2005 – June 2008 · net amounts in €">Analiza sprzedaży internetowej VII 2005 – VI 2008 · kwoty netto w €</p>
+            <ul class="tags-inline">
+                <li><i class="fa-solid fa-chart-bar" aria-hidden="true"></i> Power BI</li>
+                <li><i class="fa-solid fa-code" aria-hidden="true"></i> DAX</li>
+                <li><i class="fa-solid fa-bolt" aria-hidden="true"></i> Power Query</li>
+                <li><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i> IBCS</li>
+            </ul>
+            <div class="lp-buttons">
+                <a href="https://github.com/kamkas93/powerbi-lipiec-2007" target="_blank" rel="noopener noreferrer" class="lp-btn">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    <span data-pl="Repozytorium projektu" data-en="Project repository">Repozytorium projektu</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- KLUCZOWE LICZBY -->
+        <div class="lp-stats">
+            <div class="lp-stat">
+                <span class="lp-stat-value">−19%</span>
+                <span class="lp-stat-label" data-pl="przychód r/r w roku obrotowym 2006/2007" data-en="revenue change year over year in fiscal year 2006/2007">przychód r/r w roku obrotowym 2006/2007</span>
+            </div>
+            <div class="lp-stat">
+                <span class="lp-stat-value lp-stat-value--accent">+186%</span>
+                <span class="lp-stat-label" data-pl="przychód r/r w 2007/2008, po wejściu nowej oferty" data-en="revenue growth year over year in 2007/2008, after the new range">przychód r/r w 2007/2008, po wejściu nowej oferty</span>
+            </div>
+            <div class="lp-stat">
+                <span class="lp-stat-value">91%</span>
+                <span class="lp-stat-label" data-pl="przyrostu przychodu dały rowery (ok. 9,7 z 10,7 mln €)" data-en="of the revenue growth came from bikes (about €9.7M of €10.7M)">przyrostu przychodu dały rowery (ok. 9,7 z 10,7 mln €)</span>
+            </div>
+            <div class="lp-stat">
+                <span class="lp-stat-value lp-stat-value--accent">8&nbsp;786</span>
+                <span class="lp-stat-label" data-pl="klientów (50%) kupiło w 2007/2008 tylko dodatki" data-en="customers (50%) bought only accessories in 2007/2008">klientów (50%) kupiło w 2007/2008 tylko dodatki</span>
+            </div>
+            <div class="lp-stat">
+                <span class="lp-stat-value">89%</span>
+                <span class="lp-stat-label" data-pl="rowerzystów dokupuje dodatki (2007/2008)" data-en="of bike buyers also buy accessories (2007/2008)">rowerzystów dokupuje dodatki (2007/2008)</span>
+            </div>
+        </div>
+
+        <!-- HISTORIA -->
+        <section class="lp-section" aria-labelledby="lp-story-title">
+            <h2 id="lp-story-title" data-pl="Historia w pięciu krokach" data-en="The story in five steps">Historia w pięciu krokach</h2>
+            <p class="lp-lead" data-pl="Raport prowadzi odbiorcę od problemu do decyzji. Tytuł każdej strony to wniosek z liczbą, więc samo czytanie tytułów daje całą historię." data-en="The report leads the reader from the problem to a decision. Each page title is a conclusion with a number, so reading only the titles tells the whole story.">Raport prowadzi odbiorcę od problemu do decyzji. Tytuł każdej strony to wniosek z liczbą, więc samo czytanie tytułów daje całą historię.</p>
+
+            <div class="lp-story">
+
+                <article class="lp-step">
+                    <div class="lp-step-num" aria-hidden="true">1</div>
+                    <div>
+                        <h3 data-pl="Problem" data-en="Problem">Problem</h3>
+                        <p data-pl="W roku obrotowym 2006/2007 przychód spadł o ok. 19% r/r: z 7,1 do 5,8 mln €. Firma sprzedawała wtedy wyłącznie rowery." data-en="In fiscal year 2006/2007 revenue fell by about 19% year over year, from €7.1M to €5.8M. At that time the company sold only bikes.">W roku obrotowym 2006/2007 przychód spadł o ok. 19% r/r: z 7,1 do 5,8 mln €. Firma sprzedawała wtedy wyłącznie rowery.</p>
+                    </div>
+                </article>
+
+                <article class="lp-step">
+                    <div class="lp-step-num" aria-hidden="true">2</div>
+                    <div>
+                        <h3 data-pl="Zwrot" data-en="Turning point">Zwrot</h3>
+                        <p data-pl="Od lipca 2007 firma wprowadziła nową ofertę: nową linię rowerów turystycznych oraz akcesoria i odzież. W roku 2007/2008 przychód wzrósł do 16,5 mln € (+186% r/r)." data-en="From July 2007 the company launched a new range: a new line of touring bikes, plus accessories and clothing. In 2007/2008 revenue grew to €16.5M (+186% year over year).">Od lipca 2007 firma wprowadziła nową ofertę: nową linię rowerów turystycznych oraz akcesoria i odzież. W roku 2007/2008 przychód wzrósł do 16,5 mln € (+186% r/r).</p>
+                        <ul>
+                            <li data-pl="Wzrost był we wszystkich krajach. USA (+282%) wyprzedziło Australię (+109%), która rok wcześniej była największym rynkiem." data-en="Sales grew in every country. The USA (+282%) overtook Australia (+109%), which had been the biggest market a year earlier.">Wzrost był we wszystkich krajach. USA (+282%) wyprzedziło Australię (+109%), która rok wcześniej była największym rynkiem.</li>
+                            <li data-pl="Rowery dały ok. 91% przyrostu (ok. 9,7 z 10,7 mln €): górskie +4,2 mln €, nowa linia turystyczna +3,8 mln € (wcześniej nie istniała), szosowe +1,7 mln €." data-en="Bikes gave about 91% of the growth (about €9.7M of €10.7M): mountain bikes +€4.2M, the new touring line +€3.8M (it did not exist before), road bikes +€1.7M.">Rowery dały ok. 91% przyrostu (ok. 9,7 z 10,7 mln €): górskie +4,2 mln €, nowa linia turystyczna +3,8 mln € (wcześniej nie istniała), szosowe +1,7 mln €.</li>
+                        </ul>
+                        <div class="lp-charts">
+                            <figure class="lp-chart">
+                                <figcaption>
+                                    <span class="lp-chart-title" data-pl="Przychód netto wg roku obrotowego" data-en="Net revenue by fiscal year">Przychód netto wg roku obrotowego</span>
+                                    <span class="lp-chart-sub" data-pl="mln €, lata VII–VI" data-en="€M, years July–June">mln €, lata VII–VI</span>
+                                </figcaption>
+                                <div role="img"
+                                     aria-label="Przychód netto: 2005/2006 – 7,1 mln €, 2006/2007 – 5,8 mln €, 2007/2008 – 16,5 mln €"
+                                     data-pl-aria-label="Przychód netto: 2005/2006 – 7,1 mln €, 2006/2007 – 5,8 mln €, 2007/2008 – 16,5 mln €"
+                                     data-en-aria-label="Net revenue: 2005/2006 – €7.1M, 2006/2007 – €5.8M, 2007/2008 – €16.5M">
+                                    <div class="lp-bars">
+                                        <div class="lp-bar"><span class="lp-bar-value" data-pl="7,1" data-en="7.1">7,1</span><div class="lp-bar-fill" style="height: 43%;"></div></div>
+                                        <div class="lp-bar"><span class="lp-bar-value" data-pl="5,8" data-en="5.8">5,8</span><div class="lp-bar-fill" style="height: 35.2%;"></div></div>
+                                        <div class="lp-bar lp-bar--accent"><span class="lp-bar-value" data-pl="16,5" data-en="16.5">16,5</span><div class="lp-bar-fill" style="height: 100%;"></div></div>
+                                    </div>
+                                    <div class="lp-bar-labels"><span>2005/2006</span><span>2006/2007</span><span>2007/2008</span></div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="lp-step">
+                    <div class="lp-step-num" aria-hidden="true">3</div>
+                    <div>
+                        <h3 data-pl="Mechanizm" data-en="Mechanism">Mechanizm</h3>
+                        <p data-pl="Wzrost dała liczba klientów, a nie większe zakupy. Nowi klienci przyszli po tańsze dodatki." data-en="The growth came from the number of customers, not from bigger purchases. New customers came for cheaper accessories.">Wzrost dała liczba klientów, a nie większe zakupy. Nowi klienci przyszli po tańsze dodatki.</p>
+                        <ul>
+                            <li data-pl="r/r: klientów przybyło ok. 5,4× (3&nbsp;222 → 17&nbsp;412), a przychód na klienta spadł ok. 1,9× (1&nbsp;788 € → 946 €)." data-en="Year over year: about 5.4× more customers (3,222 → 17,412), while revenue per customer fell about 1.9× (€1,788 → €946).">r/r: klientów przybyło ok. 5,4× (3&nbsp;222 → 17&nbsp;412), a przychód na klienta spadł ok. 1,9× (1&nbsp;788 € → 946 €).</li>
+                            <li data-pl="Względem 2005/2006: klientów prawie 8× więcej (2&nbsp;206 → 17&nbsp;412), przychód na klienta ok. 3× mniejszy (3&nbsp;206 € → 946 €)." data-en="Compared with 2005/2006: almost 8× more customers (2,206 → 17,412), and revenue per customer about 3× lower (€3,206 → €946).">Względem 2005/2006: klientów prawie 8× więcej (2&nbsp;206 → 17&nbsp;412), przychód na klienta ok. 3× mniejszy (3&nbsp;206 € → 946 €).</li>
+                        </ul>
+                        <div class="lp-charts">
+                            <figure class="lp-chart">
+                                <figcaption>
+                                    <span class="lp-chart-title" data-pl="Klienci" data-en="Customers">Klienci</span>
+                                    <span class="lp-chart-sub" data-pl="liczba unikalnych klientów wg roku obrotowego" data-en="unique customers by fiscal year">liczba unikalnych klientów wg roku obrotowego</span>
+                                </figcaption>
+                                <div role="img"
+                                     aria-label="Klienci: 2005/2006 – 2 206, 2006/2007 – 3 222, 2007/2008 – 17 412"
+                                     data-pl-aria-label="Klienci: 2005/2006 – 2 206, 2006/2007 – 3 222, 2007/2008 – 17 412"
+                                     data-en-aria-label="Customers: 2005/2006 – 2,206, 2006/2007 – 3,222, 2007/2008 – 17,412">
+                                    <div class="lp-bars">
+                                        <div class="lp-bar"><span class="lp-bar-value" data-pl="2&nbsp;206" data-en="2,206">2&nbsp;206</span><div class="lp-bar-fill" style="height: 12.7%;"></div></div>
+                                        <div class="lp-bar"><span class="lp-bar-value" data-pl="3&nbsp;222" data-en="3,222">3&nbsp;222</span><div class="lp-bar-fill" style="height: 18.5%;"></div></div>
+                                        <div class="lp-bar lp-bar--accent"><span class="lp-bar-value" data-pl="17&nbsp;412" data-en="17,412">17&nbsp;412</span><div class="lp-bar-fill" style="height: 100%;"></div></div>
+                                    </div>
+                                    <div class="lp-bar-labels"><span>2005/2006</span><span>2006/2007</span><span>2007/2008</span></div>
+                                </div>
+                            </figure>
+                            <figure class="lp-chart">
+                                <figcaption>
+                                    <span class="lp-chart-title" data-pl="Przychód na klienta" data-en="Revenue per customer">Przychód na klienta</span>
+                                    <span class="lp-chart-sub" data-pl="€ netto wg roku obrotowego" data-en="net € by fiscal year">€ netto wg roku obrotowego</span>
+                                </figcaption>
+                                <div role="img"
+                                     aria-label="Przychód na klienta: 2005/2006 – 3 206 €, 2006/2007 – 1 788 €, 2007/2008 – 946 €"
+                                     data-pl-aria-label="Przychód na klienta: 2005/2006 – 3 206 €, 2006/2007 – 1 788 €, 2007/2008 – 946 €"
+                                     data-en-aria-label="Revenue per customer: 2005/2006 – €3,206, 2006/2007 – €1,788, 2007/2008 – €946">
+                                    <div class="lp-bars">
+                                        <div class="lp-bar"><span class="lp-bar-value" data-pl="3&nbsp;206 €" data-en="€3,206">3&nbsp;206 €</span><div class="lp-bar-fill" style="height: 100%;"></div></div>
+                                        <div class="lp-bar"><span class="lp-bar-value" data-pl="1&nbsp;788 €" data-en="€1,788">1&nbsp;788 €</span><div class="lp-bar-fill" style="height: 55.8%;"></div></div>
+                                        <div class="lp-bar lp-bar--accent"><span class="lp-bar-value" data-pl="946 €" data-en="€946">946 €</span><div class="lp-bar-fill" style="height: 29.5%;"></div></div>
+                                    </div>
+                                    <div class="lp-bar-labels"><span>2005/2006</span><span>2006/2007</span><span>2007/2008</span></div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="lp-step">
+                    <div class="lp-step-num" aria-hidden="true">4</div>
+                    <div>
+                        <h3 data-pl="Koszyk" data-en="Basket">Koszyk</h3>
+                        <p data-pl="W danych nie ma numeru zamówienia, więc koszyk liczę na poziomie klientów (rok obrotowy 2007/2008)." data-en="The data has no order number, so I analyse the basket at customer level (fiscal year 2007/2008).">W danych nie ma numeru zamówienia, więc koszyk liczę na poziomie klientów (rok obrotowy 2007/2008).</p>
+                        <ul>
+                            <li data-pl="<strong>89%</strong> rowerzystów dokupuje dodatki." data-en="<strong>89%</strong> of bike buyers also buy accessories."><strong>89%</strong> rowerzystów dokupuje dodatki.</li>
+                            <li data-pl="Ale <strong>połowa klientów (8&nbsp;786 osób, 50%)</strong> kupuje wyłącznie dodatki i nie ma roweru." data-en="But <strong>half of all customers (8,786 people, 50%)</strong> buy only accessories and have no bike.">Ale <strong>połowa klientów (8&nbsp;786 osób, 50%)</strong> kupuje wyłącznie dodatki i nie ma roweru.</li>
+                            <li data-pl="Rowery kupują głównie 35–44-latkowie. Bez roweru zostają najmłodsi (28–34), najstarsi (55+) i duże rodziny (4–5 dzieci). Płeć nie różnicuje (49% kobiet vs 52% mężczyzn)." data-en="Bikes are bought mostly by people aged 35–44. The youngest (28–34), the oldest (55+) and large families (4–5 children) stay without a bike. Gender makes no real difference (49% of women vs 52% of men).">Rowery kupują głównie 35–44-latkowie. Bez roweru zostają najmłodsi (28–34), najstarsi (55+) i duże rodziny (4–5 dzieci). Płeć nie różnicuje (49% kobiet vs 52% mężczyzn).</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="lp-step">
+                    <div class="lp-step-num" aria-hidden="true">5</div>
+                    <div>
+                        <h3 data-pl="Rekomendacja" data-en="Recommendation">Rekomendacja</h3>
+                        <p data-pl="Kampania rowerowa skierowana do klientów, którzy kupują tylko dodatki, bo znają już sklep. W pierwszej kolejności w <strong>USA (prawie 4 tys. osób)</strong>, z akcentem na grupy 28–34, 55+ i duże rodziny." data-en="A bike campaign for customers who buy only accessories, because they already know the shop. Start in the <strong>USA (almost 4,000 people)</strong> and focus on the 28–34 and 55+ groups and large families.">Kampania rowerowa skierowana do klientów, którzy kupują tylko dodatki, bo znają już sklep. W pierwszej kolejności w <strong>USA (prawie 4 tys. osób)</strong>, z akcentem na grupy 28–34, 55+ i duże rodziny.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- STRONY RAPORTU -->
+        <section class="lp-section" aria-labelledby="lp-pages-title">
+            <h2 id="lp-pages-title" data-pl="Model i strony raportu" data-en="Model and report pages">Model i strony raportu</h2>
+            <p class="lp-lead" data-pl="Model: płatek śniegu, 7 tabel z bazy SQL Server (tryb Import) i własna tabela dat. 39 miar w tabeli _Miary, podzielonych na 7 folderów." data-en="Model: snowflake schema, 7 tables from a SQL Server database (Import mode) and my own date table. 39 measures in the _Miary table, split into 7 folders.">Model: płatek śniegu, 7 tabel z bazy SQL Server (tryb Import) i własna tabela dat. 39 miar w tabeli _Miary, podzielonych na 7 folderów.</p>
+            <ul class="lp-pages">
+                <li>
+                    <span class="lp-page-name">Start</span>
+                    <span class="lp-page-title" data-pl="Lipiec 2007: jak nowa oferta odwróciła spadek sprzedaży" data-en="July 2007: how a new range reversed the sales decline">Lipiec 2007: jak nowa oferta odwróciła spadek sprzedaży</span>
+                    <span class="lp-page-desc" data-pl="Panele „Jak czytać kolory” i „Co możesz zrobić”, duży rower SVG jako przycisk wejścia." data-en="Panels ‘How to read the colours’ and ‘What you can do’, a big SVG bike as the entry button.">Panele „Jak czytać kolory” i „Co możesz zrobić”, duży rower SVG jako przycisk wejścia.</span>
+                </li>
+                <li>
+                    <span class="lp-page-name" data-pl="1. Przełom" data-en="1. Breakthrough">1. Przełom</span>
+                    <span class="lp-page-title" data-pl="Lipiec 2007: nowa oferta odwróciła spadek sprzedaży" data-en="July 2007: the new range reversed the sales decline">Lipiec 2007: nowa oferta odwróciła spadek sprzedaży</span>
+                    <span class="lp-page-desc" data-pl="4 karty KPI z r/r w kolorach, slicer roku obrotowego, trend z wyróżnionym VII 2007, AC vs PY (IBCS), klienci vs przychód na klienta." data-en="4 KPI cards with coloured year-over-year change, a fiscal year slicer, a trend with July 2007 highlighted, AC vs PY (IBCS), customers vs revenue per customer.">4 karty KPI z r/r w kolorach, slicer roku obrotowego, trend z wyróżnionym VII 2007, AC vs PY (IBCS), klienci vs przychód na klienta.</span>
+                </li>
+                <li>
+                    <span class="lp-page-name" data-pl="2. Źródła wzrostu" data-en="2. Growth drivers">2. Źródła wzrostu</span>
+                    <span class="lp-page-title" data-pl="Wzrost napędziły rowery i rynek USA" data-en="Bikes and the US market drove the growth">Wzrost napędziły rowery i rynek USA</span>
+                    <span class="lp-page-desc" data-pl="Kraje AC vs PY, ranking TOP N podkategorii (3/5/8/10) z dynamicznym tytułem, drill-down Kategoria → Podkategoria → Produkt." data-en="Countries AC vs PY, a Top N subcategory ranking (3/5/8/10) with a dynamic title, drill-down Category → Subcategory → Product.">Kraje AC vs PY, ranking TOP N podkategorii (3/5/8/10) z dynamicznym tytułem, drill-down Kategoria → Podkategoria → Produkt.</span>
+                </li>
+                <li>
+                    <span class="lp-page-name" data-pl="3. Koszyk" data-en="3. Basket">3. Koszyk</span>
+                    <span class="lp-page-title" data-pl="Połowa klientów kupuje tylko dodatki" data-en="Half of the customers buy only accessories">Połowa klientów kupuje tylko dodatki</span>
+                    <span class="lp-page-desc" data-pl="Karty 89% / 50% / 949 / 8&nbsp;786, segmenty klientów z przełącznikiem Liczby / Procenty (bookmarki), rekomendacja i rower SVG." data-en="Cards 89% / 50% / 949 / 8,786, customer segments with a Numbers / Percent switch (bookmarks), the recommendation and an SVG bike.">Karty 89% / 50% / 949 / 8&nbsp;786, segmenty klientów z przełącznikiem Liczby / Procenty (bookmarki), rekomendacja i rower SVG.</span>
+                </li>
+                <li>
+                    <span class="lp-page-name" data-pl="4. Klienci" data-en="4. Customers">4. Klienci</span>
+                    <span class="lp-page-title" data-pl="Bez roweru zostają najmłodsi, najstarsi i duże rodziny" data-en="The youngest, the oldest and large families stay without a bike">Bez roweru zostają najmłodsi, najstarsi i duże rodziny</span>
+                    <span class="lp-page-desc" data-pl="Segmenty wg wieku, liczby dzieci i stanu cywilnego, piktogram płci, persona „Do kogo kierować kampanię rowerową”." data-en="Segments by age, number of children and marital status, a gender pictogram, and a persona: ‘Who should the bike campaign target’.">Segmenty wg wieku, liczby dzieci i stanu cywilnego, piktogram płci, persona „Do kogo kierować kampanię rowerową”.</span>
+                </li>
+                <li>
+                    <span class="lp-page-name" data-pl="Szczegóły kraju (drill-through)" data-en="Country details (drill-through)">Szczegóły kraju (drill-through)</span>
+                    <span class="lp-page-title" data-pl="Szczegóły: [kraj]" data-en="Details: [country]">Szczegóły: [kraj]</span>
+                    <span class="lp-page-desc" data-pl="KPI kraju, pozycja wśród 6 rynków, udział w przychodzie, segmenty, trend, ranking i rekomendacja. Wszystkie tytuły są dynamiczne." data-en="Country KPIs, rank among 6 markets, share of revenue, segments, trend, ranking and recommendation. All titles are dynamic.">KPI kraju, pozycja wśród 6 rynków, udział w przychodzie, segmenty, trend, ranking i rekomendacja. Wszystkie tytuły są dynamiczne.</span>
+                </li>
+                <li>
+                    <span class="lp-page-name" data-pl="Nota metodologiczna" data-en="Methodology note">Nota metodologiczna</span>
+                    <span class="lp-page-title" data-pl="Założenia analizy" data-en="Analysis assumptions">Założenia analizy</span>
+                    <span class="lp-page-desc" data-pl="Kwoty netto (podatek 8% pominięty), € umowne, okno VII 2005 – VI 2008, rok obrotowy, segmenty w 2007/2008, wiek na 30.06.2008, brak numeru zamówienia, obszar sprzedaży." data-en="Net amounts (8% tax left out), nominal €, window July 2005 – June 2008, fiscal year, segments in 2007/2008, age on 30.06.2008, no order number, sales territory.">Kwoty netto (podatek 8% pominięty), € umowne, okno VII 2005 – VI 2008, rok obrotowy, segmenty w 2007/2008, wiek na 30.06.2008, brak numeru zamówienia, obszar sprzedaży.</span>
+                </li>
+            </ul>
+            <p class="lp-lead lp-features" data-pl="<strong>Funkcjonalności:</strong> CALCULATE, Time Intelligence (SAMEPERIODLASTYEAR), drill-down, drill-through, bookmarki, parametr TOP N, niestandardowe etykiety, dynamiczne tytuły i kolory, grafiki SVG z DAX, nawigacja i przyciski, IBCS, dopracowane tooltipy." data-en="<strong>Features:</strong> CALCULATE, Time Intelligence (SAMEPERIODLASTYEAR), drill-down, drill-through, bookmarks, a Top N parameter, custom labels, dynamic titles and colours, SVG graphics from DAX, navigation and buttons, IBCS, refined tooltips."><strong>Funkcjonalności:</strong> CALCULATE, Time Intelligence (SAMEPERIODLASTYEAR), drill-down, drill-through, bookmarki, parametr TOP N, niestandardowe etykiety, dynamiczne tytuły i kolory, grafiki SVG z DAX, nawigacja i przyciski, IBCS, dopracowane tooltipy.</p>
+        </section>
+
+        <!-- GALERIA ZRZUTÓW: odkomentuj, gdy obrazki będą w img/lipiec-2007/
+             (lista plików: docs/materialy-do-dostarczenia.md w repo projektu)
+        <section class="lp-section" aria-labelledby="lp-gallery-title">
+            <h2 id="lp-gallery-title" data-pl="Raport w obrazkach" data-en="The report in screenshots">Raport w obrazkach</h2>
+            <div class="lp-gallery">
+                <figure>
+                    <img src="img/lipiec-2007/01_start.png" alt="Strona startowa raportu Lipiec 2007" data-pl-alt="Strona startowa raportu Lipiec 2007" data-en-alt="Start page of the July 2007 report" loading="lazy">
+                    <figcaption data-pl="Start: panele kolorów i instrukcji, rower jako przycisk wejścia" data-en="Start: colour and help panels, a bike as the entry button">Start: panele kolorów i instrukcji, rower jako przycisk wejścia</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/lipiec-2007/02_przelom.png" alt="Strona 1. Przełom: karty KPI i trend miesięczny" data-pl-alt="Strona 1. Przełom: karty KPI i trend miesięczny" data-en-alt="Page 1. Breakthrough: KPI cards and monthly trend" loading="lazy">
+                    <figcaption data-pl="1. Przełom: KPI, trend z wyróżnionym VII 2007" data-en="1. Breakthrough: KPIs, trend with July 2007 highlighted">1. Przełom: KPI, trend z wyróżnionym VII 2007</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/lipiec-2007/03_zrodla_wzrostu.png" alt="Strona 2. Źródła wzrostu: kraje i ranking TOP N" data-pl-alt="Strona 2. Źródła wzrostu: kraje i ranking TOP N" data-en-alt="Page 2. Growth drivers: countries and Top N ranking" loading="lazy">
+                    <figcaption data-pl="2. Źródła wzrostu: kraje i ranking TOP N" data-en="2. Growth drivers: countries and Top N ranking">2. Źródła wzrostu: kraje i ranking TOP N</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/lipiec-2007/04_koszyk_liczby.png" alt="Strona 3. Koszyk: segmenty klientów" data-pl-alt="Strona 3. Koszyk: segmenty klientów" data-en-alt="Page 3. Basket: customer segments" loading="lazy">
+                    <figcaption data-pl="3. Koszyk: segmenty klientów i rekomendacja" data-en="3. Basket: customer segments and recommendation">3. Koszyk: segmenty klientów i rekomendacja</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/lipiec-2007/06_klienci.png" alt="Strona 4. Klienci: segmenty wg wieku i piktogram płci" data-pl-alt="Strona 4. Klienci: segmenty wg wieku i piktogram płci" data-en-alt="Page 4. Customers: segments by age and gender pictogram" loading="lazy">
+                    <figcaption data-pl="4. Klienci: kto zostaje bez roweru" data-en="4. Customers: who stays without a bike">4. Klienci: kto zostaje bez roweru</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/lipiec-2007/07_szczegoly_kraju.png" alt="Szczegóły kraju (drill-through)" data-pl-alt="Szczegóły kraju (drill-through)" data-en-alt="Country details (drill-through)" loading="lazy">
+                    <figcaption data-pl="Szczegóły kraju: dynamiczne tytuły i rower SVG" data-en="Country details: dynamic titles and an SVG bike">Szczegóły kraju: dynamiczne tytuły i rower SVG</figcaption>
+                </figure>
+            </div>
+        </section>
+        -->
+
+        <!-- WARSZTAT -->
+        <section class="lp-section" aria-labelledby="lp-dax-title">
+            <h2 id="lp-dax-title" data-pl="Warsztat: 3 miary DAX" data-en="Toolkit: 3 DAX measures">Warsztat: 3 miary DAX</h2>
+            <p class="lp-lead" data-pl="Nazwy według konwencji uczelni: $ waluta, # liczby, % procenty, zmienne VAR __Nazwa." data-en="Names follow the university convention: $ currency, # counts, % percentages, variables VAR __Name.">Nazwy według konwencji uczelni: $ waluta, # liczby, % procenty, zmienne VAR __Nazwa.</p>
+
+            <div class="lp-code-block">
+                <h3 data-pl="1. Rok obrotowy VII–VI w tabeli dat" data-en="1. Fiscal year (July–June) in the date table">1. Rok obrotowy VII–VI w tabeli dat</h3>
+                <p data-pl="W latach kalendarzowych rok 2008 miał tylko 6 miesięcy i wyglądał na plateau. Rok obrotowy pokazał prawdziwą historię." data-en="In calendar years, 2008 had only 6 months and looked flat. The fiscal year showed the real story.">W latach kalendarzowych rok 2008 miał tylko 6 miesięcy i wyglądał na plateau. Rok obrotowy pokazał prawdziwą historię.</p>
+<pre class="lp-code"><code>-- kolumna w DimData (ADDCOLUMNS)
+"RokObrotowy",
+    VAR __Rok = YEAR([Date])
+    VAR __RokStart = IF(MONTH([Date]) &gt;= 7, __Rok, __Rok - 1)
+    RETURN __RokStart &amp; "/" &amp; (__RokStart + 1)</code></pre>
+            </div>
+
+            <div class="lp-code-block">
+                <h3 data-pl="2. Koszyk bez numeru zamówienia: INTERSECT / EXCEPT" data-en="2. Basket without an order number: INTERSECT / EXCEPT">2. Koszyk bez numeru zamówienia: INTERSECT / EXCEPT</h3>
+                <p data-pl="Zamiast koszyków porównuję zbiory klientów. Ta sama para zmiennych z EXCEPT daje klientów, którzy kupili tylko dodatki." data-en="Instead of baskets, I compare sets of customers. The same two variables with EXCEPT give the customers who bought only accessories.">Zamiast koszyków porównuję zbiory klientów. Ta sama para zmiennych z EXCEPT daje klientów, którzy kupili tylko dodatki.</p>
+<pre class="lp-code"><code># KlienciRoweryIDodatki =
+    VAR __KlienciRowery = CALCULATETABLE(VALUES(FactInternetSales[Klucz klienta]), DimKategoria[Nazwa Kategorii] = "Rowery")
+    VAR __KlienciDodatki = CALCULATETABLE(VALUES(FactInternetSales[Klucz klienta]), DimKategoria[Nazwa Kategorii] &lt;&gt; "Rowery")
+    RETURN COUNTROWS(INTERSECT(__KlienciDodatki, __KlienciRowery))
+
+-- # KlienciDodatkiBezRoweru: RETURN COUNTROWS(EXCEPT(__KlienciDodatki, __KlienciRowery))</code></pre>
+            </div>
+
+            <div class="lp-code-block">
+                <h3 data-pl="3. Ranking TOP N z parametrem" data-en="3. Top N ranking with a parameter">3. Ranking TOP N z parametrem</h3>
+                <p data-pl="ALL liczy ranking względem wszystkich podkategorii, a filtry roku i kraju z innych tabel zostają." data-en="ALL ranks against all subcategories, while the year and country filters from other tables stay.">ALL liczy ranking względem wszystkich podkategorii, a filtry roku i kraju z innych tabel zostają.</p>
+<pre class="lp-code"><code>$ PrzyrostTopNPodkategorie =
+    VAR __N = [ParametrTopN Value]
+    RETURN
+        CALCULATE(
+            [$ PrzyrostPrzychodu],
+            FILTER(
+                DimPodkategoria,
+                RANKX(ALL(DimPodkategoria), [$ PrzyrostPrzychodu]) &lt;= __N
+            )
+        )</code></pre>
+            </div>
+        </section>
+
+        <!-- DECYZJE I LEKCJE -->
+        <section class="lp-section" aria-labelledby="lp-lessons-title">
+            <h2 id="lp-lessons-title" data-pl="Decyzje i lekcje" data-en="Decisions and lessons">Decyzje i lekcje</h2>
+            <div class="lp-lessons">
+                <div class="lp-lesson">
+                    <h3 data-pl="Rok obrotowy zamiast kalendarzowego" data-en="Fiscal year instead of calendar year">Rok obrotowy zamiast kalendarzowego</h3>
+                    <p data-pl="Rok VII–VI pokazał spadek o 19%, a potem +186%. Sprawdziłem, że wniosek trzyma się też przy porównaniu tych samych miesięcy (I–VI) w latach kalendarzowych." data-en="The July–June year showed a 19% drop and then +186%. I checked that the conclusion also holds when comparing the same months (Jan–Jun) in calendar years.">Rok VII–VI pokazał spadek o 19%, a potem +186%. Sprawdziłem, że wniosek trzyma się też przy porównaniu tych samych miesięcy (I–VI) w latach kalendarzowych.</p>
+                </div>
+                <div class="lp-lesson">
+                    <h3 data-pl="Hipoteza sprawdzona na danych" data-en="A hypothesis tested on data">Hipoteza sprawdzona na danych</h3>
+                    <p data-pl="Pierwsza intuicja: „wzrost dały dodatki”. Ranking przyrostu pokazał, że 91% wzrostu dały rowery, a do oferty weszła też nowa linia rowerów turystycznych." data-en="My first idea was that accessories drove the growth. The growth ranking showed that bikes gave 91% of it, and that a new line of touring bikes was also added.">Pierwsza intuicja: „wzrost dały dodatki”. Ranking przyrostu pokazał, że 91% wzrostu dały rowery, a do oferty weszła też nowa linia rowerów turystycznych.</p>
+                </div>
+                <div class="lp-lesson">
+                    <h3 data-pl="Części muszą sumować się do całości" data-en="Parts must add up to the total">Części muszą sumować się do całości</h3>
+                    <p data-pl="Brak filtra roku na stronie zawyżał ranking: trzy podkategorie dawały więcej niż cały przyrost firmy. Błąd wyłapałem dzięki liczbom kontrolnym." data-en="A missing year filter on the page inflated the ranking: three subcategories added up to more than the whole company growth. I caught it by comparing with control numbers.">Brak filtra roku na stronie zawyżał ranking: trzy podkategorie dawały więcej niż cały przyrost firmy. Błąd wyłapałem dzięki liczbom kontrolnym.</p>
+                </div>
+                <div class="lp-lesson">
+                    <h3 data-pl="Cross-selling bez numeru zamówienia" data-en="Cross-selling without an order number">Cross-selling bez numeru zamówienia</h3>
+                    <p data-pl="Zbiory klientów (INTERSECT / EXCEPT) zamiast koszyków. Definicję i ograniczenie opisałem w nocie metodologicznej raportu." data-en="Sets of customers (INTERSECT / EXCEPT) instead of baskets. I described the definition and its limits in the report’s methodology note.">Zbiory klientów (INTERSECT / EXCEPT) zamiast koszyków. Definicję i ograniczenie opisałem w nocie metodologicznej raportu.</p>
+                </div>
+                <div class="lp-lesson">
+                    <h3 data-pl="Uczciwa wizualizacja" data-en="Honest visualisation">Uczciwa wizualizacja</h3>
+                    <p data-pl="Sylwetka wypełniona do połowy wysokości zakrywała ok. 75–80% powierzchni i przekłamywała proporcje. Zamieniłem ją na piktogram 10 sylwetek (1 = 10%)." data-en="A figure filled to half its height covered about 75–80% of its area, so it distorted the proportions. I replaced it with a pictogram of 10 figures (1 = 10%).">Sylwetka wypełniona do połowy wysokości zakrywała ok. 75–80% powierzchni i przekłamywała proporcje. Zamieniłem ją na piktogram 10 sylwetek (1 = 10%).</p>
+                </div>
+                <div class="lp-lesson">
+                    <h3 data-pl="Świadomie odrzucone" data-en="Rejected on purpose">Świadomie odrzucone</h3>
+                    <p data-pl="Wskaźnik lift (≈ 0,94, nie różnicuje grup), CROSSFILTER (zbędny, liczę w tabeli, do której dociera filtr), SUMX dla zysku (ilość zawsze = 1), panel filtrów jako bookmark (kłóciłby się z tytułami-wnioskami)." data-en="The lift metric (≈ 0.94, it does not separate the groups), CROSSFILTER (not needed, I count in the table the filter reaches), SUMX for profit (quantity is always 1), a filter panel as a bookmark (it would clash with the conclusion titles).">Wskaźnik lift (≈ 0,94, nie różnicuje grup), CROSSFILTER (zbędny, liczę w tabeli, do której dociera filtr), SUMX dla zysku (ilość zawsze = 1), panel filtrów jako bookmark (kłóciłby się z tytułami-wnioskami).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOTA I LINKI -->
+        <section class="lp-note" aria-label="Nota o danych i linki" data-pl-aria-label="Nota o danych i linki" data-en-aria-label="Data note and links">
+            <p data-pl="<strong>Dane:</strong> przykładowa baza Microsoft AdventureWorks (przetłumaczona wersja udostępniona w ramach kursu). Dane nie dotyczą prawdziwej firmy, kwoty są w umownej walucie €." data-en="<strong>Data:</strong> the Microsoft AdventureWorks sample database (a translated version provided during the course). The data is not about a real company; amounts are in a nominal €."><strong>Dane:</strong> przykładowa baza Microsoft AdventureWorks (przetłumaczona wersja udostępniona w ramach kursu). Dane nie dotyczą prawdziwej firmy, kwoty są w umownej walucie €.</p>
+            <p data-pl="<strong>Kontekst:</strong> projekt zaliczeniowy I semestru studiów podyplomowych z analizy danych (Power BI, 2026)." data-en="<strong>Context:</strong> a final project for the first semester of postgraduate studies in data analysis (Power BI, 2026)."><strong>Kontekst:</strong> projekt zaliczeniowy I semestru studiów podyplomowych z analizy danych (Power BI, 2026).</p>
+            <p data-pl="<strong>AI:</strong> projekt był konsultowany z asystentem AI, który zadawał pytania i robił code review. Model danych, miary i decyzje wykonałem sam. Gotowe propozycje AI dotyczyły m.in. motywu JSON, miar SVG i części tytułów dynamicznych." data-en="<strong>AI:</strong> I consulted an AI assistant, which asked questions and did code review. I built the data model, the measures and the decisions myself. Ready-made AI suggestions covered, among others, the JSON theme, the SVG measures and some dynamic titles."><strong>AI:</strong> projekt był konsultowany z asystentem AI, który zadawał pytania i robił code review. Model danych, miary i decyzje wykonałem sam. Gotowe propozycje AI dotyczyły m.in. motywu JSON, miar SVG i części tytułów dynamicznych.</p>
+            <div class="lp-links">
+                <a href="https://github.com/kamkas93/powerbi-lipiec-2007" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> <span data-pl="Repozytorium projektu" data-en="Project repository">Repozytorium projektu</span></a>
+                <a href="https://www.linkedin.com/in/kamil-kasinski-8a7204185" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+                <a href="https://github.com/kamkas93/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="mailto:kamil.kasinski1993@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> kamil.kasinski1993@gmail.com</a>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    <p data-pl="&copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone."
+       data-en="&copy; 2026 Kamil Kasiński. All rights reserved.">
+       &copy; 2026 Kamil Kasiński. Wszystkie prawa zastrzeżone.
+    </p>
+</footer>
+
+<script src="script/lang.js"></script>
+<script src="script/theme.js"></script>
+</body>
+</html>
