@@ -9,7 +9,7 @@ Push na `main` = zmiana widoczna na żywo po ~1–2 min.
 - `certyfikaty.html` — certyfikaty
 - `projekt-kds.html` — projekt Customer Retention Analysis (KDS)
 - `project-cocktail-bar.html` — projekt Cocktail Bar Analysis
-- `projekt-lipiec-2007.html` — projekt Power BI „Lipiec 2007” (style `.lp-*` w `style.css`)
+- `projekt-lipiec-2007.html` — projekt Power BI „Analiza Sprzedaży Internetowej” (Lipiec 2007; style `.lp-*` w `style.css`)
 - `style/style.css` — jeden wspólny arkusz dla wszystkich stron
 - `script/lang.js` — przełącznik PL/EN
 - `script/theme.js` — tryb jasny/ciemny

@@ -854,7 +854,7 @@ footer p:hover {
 }
 
 
-/* --- Projekt: Lipiec 2007 (Power BI) --- */
+/* --- Projekt: Analiza Sprzedaży Internetowej / Lipiec 2007 (Power BI) --- */
 /* Tylko zmienne kolorów z :root / [data-theme="dark"] */
 
 .lp-page {
@@ -902,6 +902,15 @@ footer p:hover {
     line-height: 1.25;
     max-width: 860px;
     margin: 0 auto 15px;
+}
+
+.lp-tagline {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    max-width: 760px;
+    margin: 0 auto 12px;
+    line-height: 1.4;
 }
 
 .lp-hero .lp-subtitle {
@@ -1118,11 +1127,15 @@ footer p:hover {
     border-bottom-color: var(--color-border);
     flex-direction: column;
     align-items: stretch;
-    padding: 25px 30px 15px;
 }
 
 .project-image--chart .lp-bars {
-    height: 210px;
+    height: 240px;
+    padding: 0 20px;
+}
+
+.project-image--chart .lp-bar-labels {
+    padding: 0 20px;
 }
 
 /* Lista stron raportu */
