@@ -1,7 +1,7 @@
 # Strona-wizytówka Kamila Kasińskiego (portfolio Data & BI)
 
 Statyczna strona HTML/CSS/JS bez frameworków i bez builda.
-Publikacja: GitHub Pages z gałęzi `main` → https://kamkas93.github.io/kamil-kasinski/
+Publikacja: GitHub Pages z gałęzi `main` → https://kamilkasinski.com/ (domena w `CNAME`, nie usuwać; stary adres kamkas93.github.io/kamil-kasinski przekierowuje)
 Push na `main` = zmiana widoczna na żywo po ~1–2 min.
 
 ## Struktura
