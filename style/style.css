@@ -3,20 +3,27 @@
 
 /* Zmienne kolorów - jasny motyw (domyślny) */
 :root {
-    --color-bg: #ffffff;
-    --color-bg-alt: #fff7ed;
+    --color-bg: #fdfcfe;
+    --color-bg-alt: #f6f1fa;
     --color-bg-card: #ffffff;
-    --color-nav-sticky: rgba(255, 247, 237, 0.95);
-    --color-text: #333333;
-    --color-heading: #1e293b;
-    --color-text-secondary: #4b5563;
-    --color-text-muted: #64748b;
-    --color-border: #e2e8f0;
-    --color-accent: #e78c0e;
-    --color-accent-hover: #fc9f1c;
-    --color-tag-bg: #f1f5f9;
-    --color-switch-bg: #f7cb9d;
-    --color-switch-border: #cbd5e1;
+    --color-nav-sticky: rgba(246, 241, 250, 0.95);
+    --color-text: #2a2433;
+    --color-heading: #1a1325;
+    --color-text-secondary: #4d4559;
+    --color-text-muted: #6a6176;
+    --color-border: #e4dbee;
+    --color-tag-bg: #efe8f6;
+    --color-switch-bg: #e7ddf3;
+    --color-switch-border: #d3c5e6;
+    /* Akcenty: fiolet i magenta */
+    --color-accent: #5b21b6;
+    --color-accent-hover: #4c1d95;
+    --color-accent-text: #5b21b6;
+    --color-accent-2: #a21caf;
+    --color-accent-soft: rgba(91, 33, 182, 0.08);
+    --color-on-accent: #ffffff;
+    --gradient-accent: linear-gradient(135deg, #5b21b6, #a21caf);
+    --gradient-accent-hover: linear-gradient(135deg, #4c1d95, #86198f);
     --color-img-shadow: rgba(0, 0, 0, 0.08);
     --color-lightbox-backdrop: rgba(15, 23, 42, 0.85);
 }
@@ -32,12 +39,19 @@
     --color-text-secondary: #b6bcc6;
     --color-text-muted: #9099a6;
     --color-border: #33383f;
-    --color-accent: #e78c0e;
-    --color-accent-hover: #fc9f1c;
     --color-tag-bg: #24272e;
     --color-switch-bg: #2a2e36;
     --color-switch-border: #3a3f47;
     --color-img-shadow: rgba(0, 0, 0, 0.45);
+    /* Akcenty: fiolet i magenta */
+    --color-accent: #7c3aed;
+    --color-accent-hover: #6d28d9;
+    --color-accent-text: #c4b5fd;
+    --color-accent-2: #e879f9;
+    --color-accent-soft: rgba(167, 139, 250, 0.14);
+    --color-on-accent: #ffffff;
+    --gradient-accent: linear-gradient(135deg, #7c3aed, #a21caf);
+    --gradient-accent-hover: linear-gradient(135deg, #6d28d9, #86198f);
     --color-lightbox-backdrop: rgba(0, 0, 0, 0.9);
 }
 
@@ -138,8 +152,8 @@ h1, h2, h3, .logo {
 }
 
 .theme-toggle:hover {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
+    color: var(--color-accent-text);
+    border-color: var(--color-accent-text);
     transform: translateY(-1px);
 }
 
@@ -211,7 +225,7 @@ nav ul li a {
     white-space: nowrap; /* Zapobiega łamaniu tekstów w menu */
 }
 
-nav ul li a:hover { color: var(--color-accent); }
+nav ul li a:hover { color: var(--color-accent-text); }
 
 .nav-socials {
     display: flex;
@@ -226,7 +240,7 @@ nav ul li a:hover { color: var(--color-accent); }
     transition: 0.3s;
 }
 
-.nav-socials a:hover { color: #ffbf00; }
+.nav-socials a:hover { color: var(--color-accent-text); }
 
 /* --- RESPONSYWNOŚĆ NAVA (Wersja poprawiona pod GitHub) --- */
 
@@ -544,7 +558,9 @@ header#about {
     text-decoration: none;
     transition: 0.3s;
     font-size: 0.9rem;
-    border: 2px solid var(--color-accent);
+    /* Kolor ramki ustawia wariant (.btn-report, .btn-github, .btn-dashboard) */
+    border-width: 2px;
+    border-style: solid;
 }
 
 /* Karta z trzema przyciskami (np. projekt + dashboard + GitHub); na telefonie przyciski i tak idą w kolumnę */
@@ -559,22 +575,29 @@ header#about {
     }
 }
 
-.btn-report { background: var(--color-accent); color: white; }
-.btn-report:hover { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+/* Przycisk główny: gradient fiolet → magenta; przezroczysta ramka + border-box, żeby gradient sięgał krawędzi */
+.btn-report {
+    background: var(--gradient-accent) border-box;
+    color: var(--color-on-accent);
+    border-color: transparent;
+}
+.btn-report:hover { background: var(--gradient-accent-hover) border-box; border-color: transparent; }
 
-.btn-github { background: transparent; color: var(--color-accent); }
-.btn-github:hover { background: rgba(231, 140, 14, 0.08); }
+/* Przyciski obrysowane: obrys i tekst w kolorze akcentu tekstowego (czytelny w obu motywach) */
+.btn-github { background: transparent; color: var(--color-accent-text); border-color: var(--color-accent-text); }
+.btn-github:hover { background: var(--color-accent-soft); }
+
+/* Przycisk Dashboard: obrys w drugim akcencie (magenta) */
+.btn-dashboard { color: var(--color-accent-2); border-color: var(--color-accent-2); }
 
 .btn-details {
     background: transparent;
-    color: var(--color-text-secondary); /* Stonowany szary, żeby nie odciągać uwagi od głównych akcji */
-    border: 2px solid var(--color-border) !important; /* Delikatna ramka */
+    color: var(--color-accent-text);
+    border: 2px solid var(--color-accent-text) !important;
 }
 
 .btn-details:hover {
-    background: var(--color-tag-bg);
-    color: var(--color-heading);
-    border-color: var(--color-text-muted) !important;
+    background: var(--color-accent-soft);
 }
 
 .stretched-link::after {
@@ -728,8 +751,8 @@ header#about {
     align-self: flex-start; /* Przycisk nie rozciąga się */
     margin-top: 15px;
     padding: 8px 20px;
-    background-color: var(--color-accent);
-    color: white;
+    background: var(--gradient-accent);
+    color: var(--color-on-accent);
     font-size: 0.85rem;
     border-radius: 6px;
     border: none;
@@ -742,7 +765,7 @@ header#about {
 }
 
 .cert-image img.zoomable:focus-visible {
-    outline: 3px solid var(--color-accent);
+    outline: 3px solid var(--color-accent-text);
     outline-offset: 3px;
 }
 
@@ -802,8 +825,8 @@ html.lightbox-open {
 
 .lightbox-close:hover,
 .lightbox-close:focus-visible {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    border-color: var(--color-accent-text);
+    color: var(--color-accent-text);
     outline: none;
 }
 
@@ -857,7 +880,7 @@ html.lightbox-open {
 }
 
 .contact-item {
-    background: var(--color-bg-alt); /* Bardzo delikatny, ciepły pomarańczowy */
+    background: var(--color-bg-alt); /* Delikatne tło sekcji */
     padding: 30px;
     border-radius: 12px;
     border: 1px solid var(--color-border); /* Subtelna ramka, by domknąć bryłę */
@@ -867,7 +890,7 @@ html.lightbox-open {
 
 .contact-item i {
     font-size: 2.5rem;
-    color: var(--color-accent); /* Twój pomarańczowy kolor */
+    color: var(--color-accent); /* Ikony dekoracyjne w kolorze akcentu */
     margin-bottom: 15px;
 }
 
@@ -884,7 +907,7 @@ html.lightbox-open {
 }
 
 .contact-item a:hover {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
 }
 
 /* --- Sekcja Stopki --- */
@@ -985,7 +1008,7 @@ footer p:hover {
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-accent-2);
     margin-bottom: 12px;
 }
 
@@ -1029,8 +1052,8 @@ footer p:hover {
     gap: 10px;
     padding: 12px 28px;
     border-radius: 8px;
-    border: 2px solid var(--color-accent);
-    color: var(--color-accent);
+    border: 2px solid var(--color-accent-text);
+    color: var(--color-accent-text);
     background: transparent;
     font-weight: 600;
     text-decoration: none;
@@ -1038,8 +1061,9 @@ footer p:hover {
 }
 
 .lp-btn:hover {
-    background: var(--color-accent);
-    color: var(--color-bg);
+    background: var(--gradient-accent) border-box;
+    border-color: transparent;
+    color: var(--color-on-accent);
 }
 
 /* Kafelki liczb */
@@ -1068,7 +1092,7 @@ footer p:hover {
 }
 
 .lp-stat-value--accent {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
 }
 
 .lp-stat-label {
@@ -1101,8 +1125,8 @@ footer p:hover {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    border: 2px solid var(--color-accent);
-    color: var(--color-accent);
+    border: 2px solid var(--color-accent-2);
+    color: var(--color-accent-2);
     font-weight: 700;
     font-size: 1.2rem;
     display: flex;
@@ -1235,7 +1259,7 @@ footer p:hover {
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-accent-2);
     margin-bottom: 4px;
 }
 
@@ -1298,7 +1322,7 @@ footer p:hover {
 }
 
 .lp-lesson {
-    border-left: 3px solid var(--color-accent);
+    border-left: 3px solid var(--color-accent-2);
     padding: 4px 0 4px 16px;
 }
 
@@ -1392,8 +1416,8 @@ footer p:hover {
 }
 
 .lp-links a:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    border-color: var(--color-accent-text);
+    color: var(--color-accent-text);
 }
 
 @media (max-width: 992px) {

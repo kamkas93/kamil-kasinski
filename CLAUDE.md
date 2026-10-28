@@ -24,6 +24,12 @@ Push na `main` = zmiana widoczna na żywo po ~1–2 min.
    Zmiana w menu, przełącznikach czy linkach social = zmiana we WSZYSTKICH plikach HTML (obecnie 5).
 3. **Tryb ciemny.** Kolory tylko przez zmienne CSS z `:root` / `[data-theme="dark"]` w `style.css`
    (np. `var(--color-accent)`). Nie wpisywać kolorów na sztywno. Nowy kolor = dodać zmienną w obu blokach.
+   Paleta: fiolet i magenta. Role akcentów:
+   - `--gradient-accent` / `--gradient-accent-hover` + `--color-on-accent`: jeden główny przycisk wypełniony w widoku (`.btn-report`, hover `.lp-btn`),
+   - `--color-accent-text`: teksty akcentowe, linki, hovery, obrysy przycisków (`.btn-github`, `.lp-btn`),
+   - `--color-accent-2`: przycisk Dashboard (`.btn-dashboard`), małe etykiety i numery (`.lp-eyebrow`, `.lp-page-name`, `.lp-step-num`),
+   - `--color-accent`: wypełnienia wykresów, ramki, ikony dekoracyjne; `--color-accent-soft`: tło hover przycisków obrysowanych.
+   Kontrast: tekst ≥ 4,5:1 (text, heading, accent-text ≥ 7:1), obrysy ≥ 3:1, sprawdzać w obu motywach.
    Każda strona ma w `<head>` inline'owy skrypt ustawiający motyw przed renderem — nie usuwać.
 4. **Responsywność.** Breakpointy w CSS: 992px, 768px, 480px. Każdą zmianę layoutu sprawdzić na telefonie.
 5. **Linki zewnętrzne** zawsze z `target="_blank" rel="noopener noreferrer"`.

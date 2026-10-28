@@ -225,15 +225,15 @@
 
                 <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; margin-bottom: 45px; border-top: 1px solid var(--color-border); padding-top: 35px;">
         <div style="flex: 1; min-width: 200px; text-align: center;">
-            <h4 style="margin: 0 0 10px 0; color: var(--color-accent); font-size: 1.1rem;" data-pl="Menu Performance" data-en="Menu Performance">Menu Performance</h4>
+            <h4 style="margin: 0 0 10px 0; color: var(--color-accent-text); font-size: 1.1rem;" data-pl="Menu Performance" data-en="Menu Performance">Menu Performance</h4>
             <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5;" data-pl="Macierz marża vs. wolumen (BCG)." data-en="Margin vs. Volume matrix (BCG)."></p>
         </div>
         <div style="flex: 1; min-width: 200px; text-align: center;">
-            <h4 style="margin: 0 0 10px 0; color: var(--color-accent); font-size: 1.1rem;" data-pl="Profitability Ranking" data-en="Profitability Ranking">Profitability Ranking</h4>
+            <h4 style="margin: 0 0 10px 0; color: var(--color-accent-text); font-size: 1.1rem;" data-pl="Profitability Ranking" data-en="Profitability Ranking">Profitability Ranking</h4>
             <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5;" data-pl="Top najbardziej zyskownych koktajli." data-en="Ranking of top profitable cocktails."></p>
         </div>
         <div style="flex: 1; min-width: 200px; text-align: center;">
-            <h4 style="margin: 0 0 10px 0; color: var(--color-accent); font-size: 1.1rem;" data-pl="Gap Analysis" data-en="Gap Analysis">Gap Analysis</h4>
+            <h4 style="margin: 0 0 10px 0; color: var(--color-accent-text); font-size: 1.1rem;" data-pl="Gap Analysis" data-en="Gap Analysis">Gap Analysis</h4>
             <p style="font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5;" data-pl="Produkty z zerową sprzedażą w Q1." data-en="Zero-sales products in Q1."></p>
         </div>
     </div>
@@ -243,7 +243,7 @@
     <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1" 
        target="_blank" rel="noopener noreferrer" 
        class="btn btn-report" 
-       style="padding: 14px 35px; background-color: var(--color-accent); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid var(--color-accent); transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
+       style="padding: 14px 35px; background: var(--gradient-accent) border-box; color: var(--color-on-accent); border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid transparent; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
        data-pl="Otwórz Dashboard" 
        data-en="Open Dashboard">
        Otwórz Dashboard
@@ -252,20 +252,19 @@
     <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" 
        target="_blank" rel="noopener noreferrer" 
        class="btn btn-github" 
-       style="padding: 14px 35px; background-color: var(--color-bg-card); color: var(--color-heading); border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid var(--color-heading); display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
+       style="padding: 14px 35px; background-color: transparent; color: var(--color-accent-text); border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid var(--color-accent-text); display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
        <i class="fa-brands fa-github"></i> GitHub Repo
     </a>
 
 </div>
 <style>
     .btn-report:hover {
-        background-color: #d67d0a !important;
+        background: var(--gradient-accent-hover) border-box !important;
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(231, 140, 14, 0.3);
+        box-shadow: 0 5px 15px var(--color-img-shadow);
     }
     .btn-github:hover {
-        background-color: #f3f4f6 !important;
-        border-color: #000 !important;
+        background-color: var(--color-accent-soft) !important;
         transform: translateY(-2px);
     }
 </style>
