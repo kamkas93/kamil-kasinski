@@ -573,6 +573,72 @@ header#about {
     /* Usunąłem box-shadow spod obrazka, by wyglądało to czyściej na białym tle */
 }
 
+/* Miniaturka projektu na stronie głównej: duża liczba + prosty wykres SVG w palecie strony */
+.project-image.thumb {
+    height: 250px;
+    padding: 22px;
+    background-color: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* #projects: nadpisuje ogólną regułę #projects p (margines 3.5rem, wyśrodkowanie) */
+#projects .thumb-kpi {
+    margin: 0;
+    max-width: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.thumb-value {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-heading);
+}
+
+.thumb-label {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.thumb-chart {
+    display: block;
+    width: 100%;
+    height: 110px;
+}
+
+/* Słupki: wyróżnione w akcencie, reszta neutralna; --mark = moment zmiany (np. VII 2007) */
+.thumb-bar { fill: var(--color-border); }
+.thumb-bar--accent { fill: var(--color-accent); }
+.thumb-bar--mark { fill: var(--color-accent-label); }
+
+.thumb-text {
+    fill: var(--color-text-secondary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+}
+
+.thumb-line {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 3;
+    stroke-linejoin: round;
+}
+
+.thumb-area { fill: var(--color-accent-soft); }
+
+.thumb-dot {
+    fill: var(--color-accent);
+    stroke: var(--color-bg-alt);
+    stroke-width: 3;
+}
+
 .project-content {
     padding: 1.5rem;
     display: flex;
