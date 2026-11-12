@@ -20,6 +20,7 @@
     --color-accent-hover: #4c1d95;
     --color-accent-text: #5b21b6;
     --color-accent-soft: rgba(91, 33, 182, 0.08);
+    --color-accent-label: #5b21b6; /* etykiety sekcji „01 / …” — 8,8:1 na tle */
     --color-on-accent: #ffffff;
     --color-img-shadow: rgba(0, 0, 0, 0.08);
     --color-lightbox-backdrop: rgba(15, 23, 42, 0.85);
@@ -45,6 +46,7 @@
     --color-accent-hover: #6d28d9;
     --color-accent-text: #c4b5fd;
     --color-accent-soft: rgba(167, 139, 250, 0.14);
+    --color-accent-label: #9a6af1; /* etykiety sekcji — fiolet jaśniejszy od --color-accent, 4,9:1 na tle */
     --color-on-accent: #ffffff;
     --color-lightbox-backdrop: rgba(0, 0, 0, 0.9);
 }
@@ -502,7 +504,7 @@ header#about {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-align: center;
-    color: var(--color-accent);
+    color: var(--color-accent-label);
 }
 
 /* Nagłówki sekcji strony głównej: jeden rozmiar dla wszystkich */

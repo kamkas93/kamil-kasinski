@@ -27,6 +27,7 @@ Push na `main` = zmiana widoczna na żywo po ~1–2 min.
    Paleta: tło + tekst + jeden płaski fiolet, bez gradientów i bez drugiego akcentu. Role:
    - `--color-accent` / `--color-accent-hover` + `--color-on-accent`: jeden główny przycisk wypełniony w widoku (`.btn-report`, hover `.lp-btn`); też wypełnienia wykresów, ramki, ikony dekoracyjne,
    - `--color-accent-text`: teksty akcentowe, linki, hovery, obrys `.lp-btn`, małe etykiety i numery (`.lp-eyebrow`, `.lp-page-name`, `.lp-step-num`),
+   - `--color-accent-label`: etykiety numerów sekcji (`.section-num`); w ciemnym motywie jaśniejszy fiolet, bo `--color-accent` ma tam za mały kontrast dla małego tekstu,
    - przyciski drugorzędne (`.btn-github`, także Dashboard): neutralne — tekst `--color-text-secondary`, obrys `--color-text-muted`; na hover `--color-accent-text` + tło `--color-accent-soft`.
    Kontrast: tekst ≥ 4,5:1 (text, heading, accent-text ≥ 7:1), obrysy ≥ 3:1, sprawdzać w obu motywach.
    Każda strona ma w `<head>` inline'owy skrypt ustawiający motyw przed renderem — nie usuwać.
