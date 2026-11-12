@@ -84,7 +84,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Tekst: spokojny, czytelny */
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -94,7 +94,7 @@ body {
 }
 
 h1, h2, h3, .logo {
-    font-family: 'Space Grotesk', sans-serif; /* Nagłówki: wyrazisty, techniczny krój */
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;    /* Wyraźne, grube nagłówki */
     color: var(--color-heading); /* Nieco ciemniejszy kolor dla kontrastu */
     letter-spacing: -0.5px; /* Lekkie zacieśnienie dla nowoczesnego wyglądu */
@@ -360,16 +360,12 @@ header#about {
     margin-bottom: 0.75rem;
 }
 
-/* Przycisk do projektów pod listą narzędzi */
-.hero-cta {
+/* Przycisk do projektów pod listą narzędzi: wygląd z .project-item .btn + .btn-report, tu tylko położenie i szerokość */
+.hero-text .btn.hero-cta {
     display: inline-block;
-    margin-top: 2rem;
-    padding: 12px 28px;
-    border: 2px solid;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
+    margin-top: 2rem; /* odstęp od chipów technologii */
+    padding-left: 28px;
+    padding-right: 28px;
 }
 
 .hero-text p {
@@ -506,7 +502,7 @@ header#about {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-align: center;
-    color: var(--color-accent-text);
+    color: var(--color-accent);
 }
 
 /* Nagłówki sekcji strony głównej: jeden rozmiar dla wszystkich */
@@ -575,55 +571,6 @@ header#about {
     /* Usunąłem box-shadow spod obrazka, by wyglądało to czyściej na białym tle */
 }
 
-/* Miniaturka projektu na stronie głównej: jeden szablon — duży KPI + wycinek jednego wykresu */
-.project-image.project-thumb {
-    height: 265px;
-    padding: 22px 22px 0;
-    background-color: var(--color-bg-alt);
-    border-bottom: 1px solid var(--color-border);
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 16px;
-    overflow: hidden;
-}
-
-/* #projects: nadpisuje ogólną regułę #projects p (margines 3.5rem, wyśrodkowanie) */
-#projects .thumb-kpi {
-    margin: 0;
-    max-width: none;
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 4px 10px;
-    text-align: left;
-}
-
-.thumb-kpi-value {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.6rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--color-accent-text);
-}
-
-.thumb-kpi-label {
-    font-size: 0.9rem;
-    line-height: 1.3;
-    color: var(--color-text-secondary);
-}
-
-/* Wycinek wykresu wypełnia resztę kafelka, przycięty od dołu (karta i tak go zamyka) */
-.project-thumb img {
-    flex: 1;
-    min-height: 0;
-    width: 100%;
-    max-height: none;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 10px 10px 0 0;
-}
-
 .project-content {
     padding: 1.5rem;
     display: flex;
@@ -666,7 +613,8 @@ header#about {
     margin-top: 0;
 }
 
-.project-item .btn {
+.project-item .btn,
+.btn.hero-cta {
     flex: 1;
     padding: 10px 8px;
     white-space: nowrap;

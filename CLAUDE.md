@@ -34,7 +34,7 @@ Push na `main` = zmiana widoczna na żywo po ~1–2 min.
 5. **Linki zewnętrzne** zawsze z `target="_blank" rel="noopener noreferrer"`.
 6. **Obrazki** zawsze z sensownym `alt`. Nowe pliki w `img/` nazywać bez spacji.
 7. **SEO.** Każda strona ma własny `<title>`, `meta description` i tagi `og:`. Przy nowej podstronie dodać je.
-8. Ikony: Font Awesome 6.5.1 (CDN). Fonty (Google Fonts): Space Grotesk do nagłówków (`h1–h3`, `.logo`), Inter do tekstu. Nagłówki sekcji strony głównej mają jeden wspólny rozmiar, bez dwukropków.
+8. Ikony: Font Awesome 6.5.1 (CDN). Font: Poppins (Google Fonts). Nagłówki sekcji strony głównej mają jeden wspólny rozmiar, bez dwukropków.
 
 ## Dwujęzyczne obrazki i linki
 - `<img>`: `data-pl-src` / `data-en-src` oraz (opcjonalnie) `data-pl-alt` / `data-en-alt`; w `src` i `alt` zostaje wersja PL (działa bez JS).
