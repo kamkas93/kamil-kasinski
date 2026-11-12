@@ -59,7 +59,7 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif; /* Tekst: spokojny, czytelny */
     line-height: 1.6;
     background-color: var(--color-bg);
     color: var(--color-text);
@@ -69,7 +69,7 @@ body {
 }
 
 h1, h2, h3, .logo {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif; /* Nagłówki: wyrazisty, techniczny krój */
     font-weight: 700;    /* Wyraźne, grube nagłówki */
     color: var(--color-heading); /* Nieco ciemniejszy kolor dla kontrastu */
     letter-spacing: -0.5px; /* Lekkie zacieśnienie dla nowoczesnego wyglądu */
@@ -449,11 +449,20 @@ header#about {
     background-color: var(--color-bg); /* Zmiana z f8fafc na biały, by zlało się z kartami */
 }
 
-#projects h2 {
-    font-size: 2.5rem;
+/* Nagłówki sekcji strony głównej: jeden rozmiar dla wszystkich */
+#projects h2,
+.contact-section h2 {
+    font-size: 2.25rem;
     margin-bottom: 15px;
     color: var(--color-heading);
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    #projects h2,
+    .contact-section h2 {
+        font-size: 1.8rem;
+    }
 }
 
 #projects p {
