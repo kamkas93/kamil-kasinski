@@ -20,9 +20,10 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<a href="#tresc" class="skip-link" data-pl="Przejdź do treści" data-en="Skip to content">Przejdź do treści</a>
 
   <nav>
     <div class="container-nav">
@@ -52,7 +53,7 @@
     </div>
 </nav>
 
-<section class="certificates-section">
+<section class="certificates-section" id="tresc" tabindex="-1">
     <div class="container">
         
         <h1 data-pl="Analiza Sprzedaży i Rentowności Cocktail Baru" data-en="Cocktail Bar Sales & Profitability Analysis">
@@ -243,7 +244,7 @@
     <a href="https://public.tableau.com/views/CocktailPerformaneDashboard/Dashboard1" 
        target="_blank" rel="noopener noreferrer" 
        class="btn btn-report" 
-       style="padding: 14px 35px; background: var(--gradient-accent) border-box; color: var(--color-on-accent); border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid transparent; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
+       style="padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; transition: all 0.3s ease;"
        data-pl="Otwórz Dashboard" 
        data-en="Open Dashboard">
        Otwórz Dashboard
@@ -252,19 +253,17 @@
     <a href="https://github.com/kamkas93/cocktail-bar-sales-performance-analysis" 
        target="_blank" rel="noopener noreferrer" 
        class="btn btn-github" 
-       style="padding: 14px 35px; background-color: transparent; color: var(--color-accent-text); border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; border: 2px solid var(--color-accent-text); display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
+       style="padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; min-width: 200px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
        <i class="fa-brands fa-github"></i> GitHub Repo
     </a>
 
 </div>
 <style>
     .btn-report:hover {
-        background: var(--gradient-accent-hover) border-box !important;
         transform: translateY(-2px);
         box-shadow: 0 5px 15px var(--color-img-shadow);
     }
     .btn-github:hover {
-        background-color: var(--color-accent-soft) !important;
         transform: translateY(-2px);
     }
 </style>
