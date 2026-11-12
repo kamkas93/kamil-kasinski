@@ -24,17 +24,18 @@ Push na `main` = zmiana widoczna na żywo po ~1–2 min.
    Zmiana w menu, przełącznikach czy linkach social = zmiana we WSZYSTKICH plikach HTML (obecnie 5).
 3. **Tryb ciemny.** Kolory tylko przez zmienne CSS z `:root` / `[data-theme="dark"]` w `style.css`
    (np. `var(--color-accent)`). Nie wpisywać kolorów na sztywno. Nowy kolor = dodać zmienną w obu blokach.
-   Paleta: tło + tekst + jeden płaski fiolet, bez gradientów i bez drugiego akcentu. Role:
-   - `--color-accent` / `--color-accent-hover` + `--color-on-accent`: jeden główny przycisk wypełniony w widoku (`.btn-report`, hover `.lp-btn`); też wypełnienia wykresów, ramki, ikony dekoracyjne,
-   - `--color-accent-text`: teksty akcentowe, linki, hovery, obrys `.lp-btn`, małe etykiety i numery (`.lp-eyebrow`, `.lp-page-name`, `.lp-step-num`),
-   - przyciski drugorzędne (`.btn-github`, także Dashboard): neutralne — tekst `--color-text-secondary`, obrys `--color-text-muted`; na hover `--color-accent-text` + tło `--color-accent-soft`.
+   Paleta: fiolet i magenta. Role akcentów:
+   - `--gradient-accent` / `--gradient-accent-hover` + `--color-on-accent`: jeden główny przycisk wypełniony w widoku (`.btn-report`, hover `.lp-btn`),
+   - `--color-accent-text`: teksty akcentowe, linki, hovery, obrysy przycisków (`.btn-github`, `.lp-btn`),
+   - `--color-accent-2`: przycisk Dashboard (`.btn-dashboard`), małe etykiety i numery (`.lp-eyebrow`, `.lp-page-name`, `.lp-step-num`),
+   - `--color-accent`: wypełnienia wykresów, ramki, ikony dekoracyjne; `--color-accent-soft`: tło hover przycisków obrysowanych.
    Kontrast: tekst ≥ 4,5:1 (text, heading, accent-text ≥ 7:1), obrysy ≥ 3:1, sprawdzać w obu motywach.
    Każda strona ma w `<head>` inline'owy skrypt ustawiający motyw przed renderem — nie usuwać.
 4. **Responsywność.** Breakpointy w CSS: 992px, 768px, 480px. Każdą zmianę layoutu sprawdzić na telefonie.
 5. **Linki zewnętrzne** zawsze z `target="_blank" rel="noopener noreferrer"`.
 6. **Obrazki** zawsze z sensownym `alt`. Nowe pliki w `img/` nazywać bez spacji.
 7. **SEO.** Każda strona ma własny `<title>`, `meta description` i tagi `og:`. Przy nowej podstronie dodać je.
-8. Ikony: Font Awesome 6.5.1 (CDN). Fonty (Google Fonts): Space Grotesk do nagłówków (`h1–h3`, `.logo`), Inter do tekstu. Nagłówki sekcji strony głównej mają jeden wspólny rozmiar, bez dwukropków.
+8. Ikony: Font Awesome 6.5.1 (CDN). Font: Poppins (Google Fonts).
 
 ## Dwujęzyczne obrazki i linki
 - `<img>`: `data-pl-src` / `data-en-src` oraz (opcjonalnie) `data-pl-alt` / `data-en-alt`; w `src` i `alt` zostaje wersja PL (działa bez JS).
